@@ -5,14 +5,5 @@ tools that I most commonly use.
 
 ## Index 
 
-* GROMACS setup and scripts
+* [GROMACS setup and scripts](Gromacs/installation.md)
 * VMD scripts
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        about.md
-	Gromacs/installation.md
-	VMD/installation.md
-
- 
