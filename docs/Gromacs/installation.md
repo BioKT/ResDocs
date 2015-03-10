@@ -1,6 +1,6 @@
-## Gromacs installation in Mac OS X
+# Gromacs installation in Mac OS X
 
-# Building Gromacs 4.* using MAKE
+## Building Gromacs 4.* using MAKE
 One of the prerequisites for the installation are the fftw libraries for
 doing Fourier transforms. Setting these up correctly seems to be limiting, 
 as in the `configure` step Gromacs struggled to find the Macports libraries.
@@ -25,7 +25,7 @@ make install
 
 I still need to work out how to make this run in parallel on a Mac.
 
-# Building Gromacs 5.* using CMAKE
+## Building Gromacs 5.* using CMAKE
 (These instructions were borrowed from 
 [Phillip W Fowler´s](http://philipwfowler.me/) blog).
 
