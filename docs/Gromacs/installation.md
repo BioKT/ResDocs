@@ -1,5 +1,31 @@
 ## Gromacs installation in Mac OS X
 
+# Building Gromacs 4.* using MAKE
+One of the prerequisites for the installation are the fftw libraries for
+doing Fourier transforms. Setting these up correctly seems to be limiting, 
+as in the `configure` step Gromacs struggled to find the Macports libraries.
+So first of all, download 
+[fftw-3.0.1.tar.gz](ftp://ftp.gromacs.org/pub/prerequisite_software/fftw-3.0.1.tar.gz) 
+on your computer. Then you can simply install as
+
+```
+./configure --enable-float --enable-threads
+make
+sudo make install
+```
+
+Then you can download the source code and proceed to install Gromacs in the usual 
+way
+
+```
+./configure --prefix=/usr/local/gromacs/4.0.5 --enable-threads --enable-float
+make
+make install
+```
+
+I still need to work out how to make this run in parallel on a Mac.
+
+# Building Gromacs 5.* using CMAKE
 (These instructions were borrowed from 
 [Phillip W Fowler´s](http://philipwfowler.me/) blog).
 
