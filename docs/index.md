@@ -1,4 +1,4 @@
-# David De Sancho TOOLBOX
+# David De Sancho´s Research Toolbox
 
 Here you will find documentation and setup scripts for the 
 tools that I most commonly use.
