@@ -4,24 +4,24 @@ particularly useful when one needs to load multiple molecules, or make multiple
 visualizations look the same (e.g. making multiple molecules look like NewCartoon
 but changing their colour).
 
-## Loading a molecule
+### Loading a molecule
 
 ```
 mol new file.pdb
 ```
 
-## Applying a visualization style
+### Applying a visualization style
 
 ```
 mol modstyle 0 0 NewCartoon
 ```
 
-## Changing colour
+### Changing colour
 
 ```
 mol modcolor 0 0 ColorID 2
 
-## Loops in VMD
+### Loops in VMD
 The example below is for changing the colour of five different molecules so that
 each has a different colour.
 
