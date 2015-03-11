@@ -123,6 +123,8 @@
         
             <li><a href="#changing-colour">Changing colour</a></li>
         
+            <li><a href="#loops-in-vmd">Loops in VMD</a></li>
+        
     
     </ul>
 </div></div>
@@ -143,17 +145,16 @@ but changing their colour).</p>
 
 <h3 id="changing-colour">Changing colour</h3>
 <pre><code>mol modcolor 0 0 ColorID 2
-
-### Loops in VMD
-The example below is for changing the colour of five different molecules so that
-each has a different colour.
-
 </code></pre>
 
-<p>for {set x 0} {$x &lt;= 5} {incr x} {
+<h3 id="loops-in-vmd">Loops in VMD</h3>
+<p>The example below is for changing the colour of five different molecules so that
+each has a different colour.</p>
+<pre><code>for {set x 0} {$x &lt;= 5} {incr x} {
 mol modcolor 0 $x ColorID $x 
 }
-```</p>
+</code></pre>
+
 </div>
             
         </div>
