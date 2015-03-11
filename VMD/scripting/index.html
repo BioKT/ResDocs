@@ -7,14 +7,14 @@
         
         
         
-        <link rel="shortcut icon" href="../img/favicon.ico">
+        <link rel="shortcut icon" href="../../img/favicon.ico">
 
-        <title>About - Research Toolbox</title>
+        <title>Scripting - Research Toolbox</title>
 
-        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
-        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
-        <link href="../css/base.css" rel="stylesheet">
-        <link rel="stylesheet" href="../css/highlight.css">
+        <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="../../css/highlight.css">
 
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!--[if lt IE 9]>
@@ -43,7 +43,7 @@
             
 
             <!-- Main title -->
-            <a class="navbar-brand" href="..">Research Toolbox</a>
+            <a class="navbar-brand" href="../..">Research Toolbox</a>
         </div>
 
         <!-- Expanded navigation -->
@@ -53,8 +53,8 @@
                 <ul class="nav navbar-nav">
                 
                 
-                    <li class="active">
-                        <a href=".">About</a>
+                    <li >
+                        <a href="../../about">About</a>
                     </li>
                 
                 
@@ -64,7 +64,7 @@
                         <ul class="dropdown-menu">
                         
                             <li >
-                                <a href="../Gromacs/installation">Installation</a>
+                                <a href="../../Gromacs/installation">Installation</a>
                             </li>
                         
                         </ul>
@@ -72,16 +72,16 @@
                 
                 
                 
-                    <li class="dropdown">
+                    <li class="dropdown active">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">VMD <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                         
-                            <li >
-                                <a href="../VMD/scripting">Scripting</a>
+                            <li class="active">
+                                <a href=".">Scripting</a>
                             </li>
                         
                             <li >
-                                <a href="../VMD/scripts">Scripts</a>
+                                <a href="../scripts">Scripts</a>
                             </li>
                         
                         </ul>
@@ -97,12 +97,12 @@
                 
                 
                 <li >
-                    <a rel="next" href="..">
+                    <a rel="next" href="../../Gromacs/installation">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </li>
                 <li >
-                    <a rel="prev" href="../Gromacs/installation">
+                    <a rel="prev" href="../scripts">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
                 </li>
@@ -119,18 +119,45 @@
                 <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="main active"><a href="#about">About</a></li>
+        <li class="main active"><a href="#vmd-scripting">VMD scripting</a></li>
+        
+            <li><a href="#loading-a-molecule">Loading a molecule</a></li>
+        
+            <li><a href="#applying-a-visualization-style">Applying a visualization style</a></li>
+        
+            <li><a href="#changing-colour">Changing colour</a></li>
         
     
     </ul>
 </div></div>
                 <div class="col-md-9" role="main">
 
-<h1 id="about">About</h1>
-<p>My name is <a href="https://sites.google.com/site/daviddesanchores/home">David De Sancho</a>
-and currently I am an Ikerbasque Research Fellow.
-That involves working in multiple projects, for which a common set of tools is
-usually employed. Here are some useful scripts for setting up and running software.</p>
+<h1 id="vmd-scripting">VMD scripting</h1>
+<p>It is relatively easy to use the command line instead of the GUI in VMD. This is
+particularly useful when one needs to load multiple molecules, or make multiple
+visualizations look the same (e.g. making multiple molecules look like NewCartoon
+but changing their colour).</p>
+<h2 id="loading-a-molecule">Loading a molecule</h2>
+<pre><code>mol new file.pdb
+</code></pre>
+
+<h2 id="applying-a-visualization-style">Applying a visualization style</h2>
+<pre><code>mol modstyle 0 0 NewCartoon
+</code></pre>
+
+<h2 id="changing-colour">Changing colour</h2>
+<pre><code>mol modcolor 0 0 ColorID 2
+
+## Loops in VMD
+The example below is for changing the colour of five different molecules so that
+each has a different colour.
+
+</code></pre>
+
+<p>for {set x 0} {$x &lt;= 5} {incr x} {
+mol modcolor 0 $x ColorID $x 
+}
+```</p>
 </div>
             
         </div>
@@ -144,9 +171,9 @@ usually employed. Here are some useful scripts for setting up and running softwa
         
 
         <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script src="../js/bootstrap-3.0.3.min.js"></script>
-        <script src="../js/prettify-1.0.min.js"></script>
-        <script src="../js/highlight.pack.js"></script>
-        <script src="../js/base.js"></script>
+        <script src="../../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../../js/prettify-1.0.min.js"></script>
+        <script src="../../js/highlight.pack.js"></script>
+        <script src="../../js/base.js"></script>
     </body>
 </html>
