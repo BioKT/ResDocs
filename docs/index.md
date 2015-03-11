@@ -6,4 +6,4 @@ tools that I most commonly use.
 ## Index 
 
 * [GROMACS setup and scripts](Gromacs/installation.md)
-* VMD scripts
+* [VMD scripts](VMD/scripting.md)
