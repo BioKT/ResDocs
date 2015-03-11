@@ -20,6 +20,7 @@ mol modstyle 0 0 NewCartoon
 
 ```
 mol modcolor 0 0 ColorID 2
+```
 
 ### Loops in VMD
 The example below is for changing the colour of five different molecules so that
