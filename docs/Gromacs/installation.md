@@ -20,7 +20,7 @@ way
 ```
 ./configure --prefix=/usr/local/gromacs/4.0.5 --enable-threads --enable-float
 make
-make install
+sudo make install
 ```
 
 I still need to work out how to make this run in parallel on a Mac.
@@ -78,6 +78,8 @@ cmake .. -DGMX_BUILD_OWN_FFTW=ON
 	-DGMX_MPI=ON -DCMAKE_C_COMPILER=mpicc-openmpi-devel-gcc49
 	-DCMAKE_CXX_COMPILER=mpicxx-openmpi-devel-gcc49
 	-DGMX_SIMD=SSE4.1
+make
+sudo make install
 ```
 
 This is only going to build an MPI version of `mdrun`, as the other Gromacs programs do not
