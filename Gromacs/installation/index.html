@@ -143,7 +143,7 @@ sudo make install
 way</p>
 <pre><code>./configure --prefix=/usr/local/gromacs/4.0.5 --enable-threads --enable-float
 make
-make install
+sudo make install
 </code></pre>
 
 <p>I still need to work out how to make this run in parallel on a Mac.</p>
@@ -186,6 +186,8 @@ compilers from MacPorts  do not appear to support OpenMPI. Here is a workaround 
     -DGMX_MPI=ON -DCMAKE_C_COMPILER=mpicc-openmpi-devel-gcc49
     -DCMAKE_CXX_COMPILER=mpicxx-openmpi-devel-gcc49
     -DGMX_SIMD=SSE4.1
+make
+sudo make install
 </code></pre>
 
 <p>This is only going to build an MPI version of <code>mdrun</code>, as the other Gromacs programs do not
