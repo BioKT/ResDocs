@@ -74,7 +74,7 @@ Finally, we can follow the steps above but now we need a more complex cmake inst
 ```
 cmake .. -DGMX_BUILD_OWN_FFTW=ON
 	-DGMX_BUILD_MDRUN_ONLY=on
-	-DCMAKE_INSTALL_PREFIX=/usr/local/gromacs/5.0.2
+	-DCMAKE_INSTALL_PREFIX=/usr/local/gromacs/5.0.4
 	-DGMX_MPI=ON -DCMAKE_C_COMPILER=mpicc-openmpi-devel-gcc49
 	-DCMAKE_CXX_COMPILER=mpicxx-openmpi-devel-gcc49
 	-DGMX_SIMD=SSE4.1
