@@ -146,6 +146,14 @@ make
 sudo make install
 </code></pre>
 
+<p>On occasion I have found this install to give Segmentation Faults or not work. 
+In order to make it work it needed a little tweaking, making explicit the compiler
+and including additional flags, all of which may make a difference</p>
+<pre><code>CFLAGS=&quot;-m64 -U_FORTIFY_SOURCE&quot;; ./configure --prefix=/usr/local/gromacs/4.0.5 --enable-threads --enable-floats --enable-apple-64bit
+make
+sudo make install
+</code></pre>
+
 <p>I still need to work out how to make this run in parallel on a Mac.</p>
 <h2 id="building-gromacs-5-using-cmake">Building Gromacs 5.* using CMAKE</h2>
 <p>(These instructions were borrowed from 
