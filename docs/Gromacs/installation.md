@@ -23,6 +23,16 @@ make
 sudo make install
 ```
 
+On occasion I have found this install to give Segmentation Faults or not work. 
+In order to make it work it needed a little tweaking, making explicit the compiler
+and including additional flags, all of which may make a difference
+
+```
+CFLAGS="-m64 -U_FORTIFY_SOURCE"; ./configure --prefix=/usr/local/gromacs/4.0.5 --enable-threads --enable-floats --enable-apple-64bit
+make
+sudo make install
+```
+
 I still need to work out how to make this run in parallel on a Mac.
 
 ## Building Gromacs 5.* using CMAKE
@@ -54,7 +64,6 @@ sudo make install
 
 This will install the program in `/usr/local/gromacs/5.0.4`, and editing your `.bashrc`
 file you will be able to choose the version of Gromacs that is running.
-
 
 Adding MPI support on a Mac is trickier. This appears mainly to be because the gcc 
 compilers from MacPorts  do not appear to support OpenMPI. Here is a workaround 
