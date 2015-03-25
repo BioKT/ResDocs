@@ -7,3 +7,4 @@ tools that I most commonly use.
 
 * [GROMACS setup and scripts](Gromacs/installation.md)
 * [VMD scripts](VMD/scripting.md)
+* [Mac OS X hacks](MacOSX/hacks.md)
