@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Archer - Research Toolbox</title>
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
+  <script src="../../js/theme.js"></script>
+
+  <style>
+    body {font-size: 90%;}
+    pre, code {font-size: 100%;}
+    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
+  </style> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Research Toolbox</a>
+        
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+      <ul class="current">
+    
+        
+            <li class="toctree-l1 ">
+                <a class="" href="../../about">About</a>
+            </li>
+        
+
+    
+        
+        <span>Gromacs</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../Gromacs/installation">Installation</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>MacOSX</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../MacOSX/hacks">Hacks</a>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>PBS</span>
+            
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Archer</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#binbash-login">!/bin/bash --login</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#pbs-n-jobname">PBS -N jobname</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#select-1-node">Select 1  node</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#pbs-l-select1">PBS -l select=1</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#pbs-l-walltime240000">PBS -l walltime=24:00:00</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#pbs-m-abe">PBS -m abe</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#pbs-m-nameemailproviderorg">PBS -M name@emailprovider.org</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#replace-this-with-your-budget-code">Replace this with your budget code</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#pbs-a-budget">PBS -A budget</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#move-to-directory-that-script-was-submitted-from">Move to directory that script was submitted from</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#export-pbs_o_workdirreadlink-f-pbs_o_workdir">export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#echo-pbs_o_workdir">echo $PBS_O_WORKDIR</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#exit">exit</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#cd-pbs_o_workdir">cd $PBS_O_WORKDIR</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#load-the-gromacs-module">Load the GROMACS module</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#run-gromacs-using-default-input-and-output-file-names">Run GROMACS using default input and output file names</a></li>
+                            
+                        
+                        </ul>
+                    
+                </li>
+            
+        
+
+    
+        
+        <span>VMD</span>
+            
+                <li class="toctree-l1 ">
+                    <a class="" href="../../VMD/scripting">Scripting</a>
+                    
+                </li>
+            
+        
+
+    
+</ul>
+
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
+        <a href="../.."></a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    <li>Archer</li>
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              <p>This is just an example PBS script for submitting jobs in the 
+<a href="https://www.archer.ac.uk">Archer</a>
+supercomputing facility.</p>
+<p>´´´</p>
+<h1 id="binbash-login">!/bin/bash --login</h1>
+<h1 id="pbs-n-jobname">PBS -N jobname</h1>
+<h1 id="select-1-node">Select 1  node</h1>
+<h1 id="pbs-l-select1">PBS -l select=1</h1>
+<h1 id="pbs-l-walltime240000">PBS -l walltime=24:00:00</h1>
+<h1 id="pbs-m-abe">PBS -m abe</h1>
+<h1 id="pbs-m-nameemailproviderorg">PBS -M name@emailprovider.org</h1>
+<h1 id="replace-this-with-your-budget-code">Replace this with your budget code</h1>
+<h1 id="pbs-a-budget">PBS -A budget</h1>
+<h1 id="move-to-directory-that-script-was-submitted-from">Move to directory that script was submitted from</h1>
+<h1 id="export-pbs_o_workdirreadlink-f-pbs_o_workdir">export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)</h1>
+<h1 id="echo-pbs_o_workdir">echo $PBS_O_WORKDIR</h1>
+<h1 id="exit">exit</h1>
+<h1 id="cd-pbs_o_workdir">cd $PBS_O_WORKDIR</h1>
+<p>cd "/work/directory/"</p>
+<h1 id="load-the-gromacs-module">Load the GROMACS module</h1>
+<p>module add gromacs</p>
+<h1 id="run-gromacs-using-default-input-and-output-file-names">Run GROMACS using default input and output file names</h1>
+<p>pull=1
+k=100</p>
+<p>options="-s ${file} -deffnm ${file}"</p>
+<p>aprun -n 24 mdrun_mpi $options
+´´´</p>
+
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../VMD/scripting" class="btn btn-neutral float-right" title="Scripting"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../MacOSX/hacks" class="btn btn-neutral" title="Hacks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+    <!-- Copyright etc -->
+    </p>
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        
+      <span><a href="../../MacOSX/hacks" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../../VMD/scripting" style="color: #fcfcfc">Next &raquo;</a></span>
+    </span>
+</div>
+</body>
+</html>
