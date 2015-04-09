@@ -88,10 +88,25 @@ cmake .. -DGMX_BUILD_OWN_FFTW=ON
 	-DCMAKE_CXX_COMPILER=mpicxx-openmpi-devel-gcc49
 	-DGMX_SIMD=SSE4.1
 make
-sudo make install
+sudo make install-mdrun
 ```
 
 This is only going to build an MPI version of `mdrun`, as the other Gromacs programs do not
 run in parallel. We have to tell cmake what all the new fancy compilers are called and, 
 unfortunately, these don’t support AVX SIMD instructions so we have to fall back to SSE4.1. 
-Experience suggests this doesn’t impact performance as much as you might think. 
+Experience suggests this doesn’t impact performance as much as you might think.
+
+For a previous version of Gromacs (4.6.7) that also happens to be installed using cmake I have
+found this method not to work well. Instead I did something apparently simpler which did work.
+
+```
+CC=mpicc CXX=mpiCC cmake .. -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_INSTALL_PREFIX=/usr/local/gromacs/4.6.7 -DGMX_MPI=ON
+```
+
+And then one would continue with the `make` and `make install-mdrun` steps as before. This allowed 
+for running jobs using the `mpirun` command as
+
+```
+mpirun -np 12 mdrun_mpi -v $OPTIONS
+```
+
