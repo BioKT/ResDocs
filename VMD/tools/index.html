@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hacks - Research Toolbox</title>
+  <title>Tools - Research Toolbox</title>
   
 
   
@@ -62,17 +62,8 @@
         
         <span>MacOSX</span>
             
-                <li class="toctree-l1 current">
-                    <a class="current" href=".">Hacks</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l2"><a href="#mac-os-x-hacks">Mac OS X hacks</a></li>
-                            
-                                <li><a class="toctree-l3" href="#mounting-ext2ext3-volumes">Mounting ext2/ext3 volumes</a></li>
-                            
-                        
-                        </ul>
+                <li class="toctree-l1 ">
+                    <a class="" href="../../MacOSX/hacks">Hacks</a>
                     
                 </li>
             
@@ -93,8 +84,28 @@
         
         <span>VMD</span>
             
-                <li class="toctree-l1 ">
-                    <a class="" href="../../VMD/tools">Tools</a>
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Tools</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#vmd-scripting">VMD scripting</a></li>
+                            
+                                <li><a class="toctree-l3" href="#loading-a-molecule">Loading a molecule</a></li>
+                            
+                                <li><a class="toctree-l3" href="#applying-a-visualization-style">Applying a visualization style</a></li>
+                            
+                                <li><a class="toctree-l3" href="#changing-colour">Changing colour</a></li>
+                            
+                                <li><a class="toctree-l3" href="#loading-a-trajectory">Loading a trajectory</a></li>
+                            
+                                <li><a class="toctree-l3" href="#loops-in-vmd">Loops in VMD</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#making-videos-in-vmd">Making videos in VMD</a></li>
+                            
+                        
+                        </ul>
                     
                 </li>
             
@@ -121,7 +132,7 @@
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../..">Docs</a> &raquo;</li>
-    <li>Hacks</li>
+    <li>Tools</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -130,50 +141,51 @@
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="mac-os-x-hacks">Mac OS X hacks</h1>
-<p>These are just a few tricks that made my life incredibly easier when transitioning
-from a Ubuntu Linux machine to working on a Mac desktop computer.</p>
-<h2 id="mounting-ext2ext3-volumes">Mounting ext2/ext3 volumes</h2>
-<p>This was useful for getting my backups to be read-write-able in my Mac. This is 
-taken from the notes that Uditha Atukorala wrote for the 
-<a href="http://www.thewireframecommunity.com/node/174">WireFrame</a></p>
-<h3 id="1-install-macfuse">1. Install MacFUSE</h3>
-<p>If you haven not already installed it download and install 
-<a href="http://code.google.com/p/macfuse/downloads/list">MacFUSE</a>.</p>
-<h3 id="2-install-fuse-ext2">2. Install FUSE - Ext2</h3>
-<p>Once you have MacFUSE download and install 
-<a href="http://sourceforge.net/projects/fuse-ext2/">fuse-ext2</a>. Even though it 
-says fuse-ext2, this one package gives both ext2 and ext3 read-write 
-support.</p>
-<p>After installation you should see both MacFUSE and fuse-ext2 icons 
-in System Preferences. You now have support for ext2 and ext3 file 
-systems. When you plug in an external ext2/ext3 partition it should 
-automatically show up in Finder, mounted and ready to use.</p>
-<p>If auto-mount is not giving you read/write access to ext2/ext3 
-partitions then you will have to edit the auto-mount script for 
-fuse-ext2 which can be found at <code>/System/Library/Filesystems/fuse-ext2.fs/fuse-ext2.util</code>.</p>
-<pre><code>$ sudo vi -c /System/Library/Filesystems/fuse-ext2.fs/fuse-ext2.util
+              <h1 id="vmd-scripting">VMD scripting</h1>
+<p>It is relatively easy to use the command line instead of the GUI in VMD. This is
+particularly useful when one needs to load multiple molecules, or make multiple
+visualizations look the same (e.g. making multiple molecules look like NewCartoon
+but changing their colour).</p>
+<h3 id="loading-a-molecule">Loading a molecule</h3>
+<pre><code>mol new file.pdb
 </code></pre>
 
-<p>Around line 207 (in function <code>Mount ()</code>) you will find the line 
-<code>OPTIONS="auto_xattr,defer_permissions"</code>. Change that line to read as 
-<code>OPTIONS="auto_xattr,defer_permissions,rw+"</code>.</p>
-<pre><code>...
-function Mount ()
-{
-    LogDebug &quot;[Mount] Entering function Mount...&quot;
-    # Setting both defer_auth and defer_permissions. The option was renamed
-    # starting with MacFUSE 1.0.0, and there seems to be no backward
-    # compatibility on the options.
-    # OPTIONS=&quot;auto_xattr,defer_permissions&quot;
-    OPTIONS=&quot;auto_xattr,defer_permissions,rw+&quot;
+<h3 id="applying-a-visualization-style">Applying a visualization style</h3>
+<pre><code>mol modstyle 0 0 NewCartoon
+</code></pre>
 
-    # The local option is only enabled on Leopard. It causes strange
-...
+<h3 id="changing-colour">Changing colour</h3>
+<pre><code>mol modcolor 0 0 ColorID 2
+</code></pre>
+
+<h3 id="loading-a-trajectory">Loading a trajectory</h3>
+<pre><code>mol addfile traj_comp.xtc
+</code></pre>
+
+<h3 id="loops-in-vmd">Loops in VMD</h3>
+<p>The example below is for changing the colour of five different molecules so that
+each has a different colour.</p>
+<pre><code>for {set x 0} {$x &lt;= 5} {incr x} {
+mol modcolor 0 $x ColorID $x 
 }
 </code></pre>
 
-<p>This last bit was what actually solved my problem.</p>
+<h1 id="making-videos-in-vmd">Making videos in VMD</h1>
+<p>VMD has a built in tool called Movie Maker. You must use it to generate a 
+video according to your particular taste. You can find some instructions
+<a href="http://www.ks.uiuc.edu/Research/vmd/plugins/vmdmovie/">here</a>. 
+One possibility is that you save the files for each of the snapshots of the
+simulation, instead of letting VMD produce the movie and remove the files
+for you. If you do not do that, then you can tweak things a bit, in terms
+of using different movie formats or tuning the bitrate. Below is an example
+of the command that you can invoke for generating the video.</p>
+<pre><code>ffmpeg -i filename.%05d.ppm -r 25 -an -b 10000k -bt 10000k moviename.mpg
+</code></pre>
+
+<p>Clearly, you will need the <code>ffmpeg</code> program for doing this, which in a Mac
+you can obtain from MacPorts. Then the <code>%0.5d</code> in the filename just corresponds
+to the different files written by VMD that you want to process (be careful with 
+format).</p>
 
             </div>
           </div>
@@ -181,10 +193,8 @@ function Mount ()
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../PBS/archer" class="btn btn-neutral float-right" title="Archer"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href="../../Gromacs/installation" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../PBS/archer" class="btn btn-neutral" title="Archer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -210,8 +220,8 @@ function Mount ()
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
         
-      <span><a href="../../Gromacs/installation" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../../PBS/archer" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../PBS/archer" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 </body>
