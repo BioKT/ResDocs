@@ -6,7 +6,7 @@ tools that I most commonly use.
 ## Index 
 
 * [GROMACS setup and scripts](Gromacs/installation.md)
-* [VMD scripts](VMD/scripting.md)
+* [VMD](VMD/tools.md)
 * [Making videos in VMD](VMD/videos.md)
 * [Mac OS X hacks](MacOSX/hacks.md)
 * [PBS scripts](PBS/archer.md)
