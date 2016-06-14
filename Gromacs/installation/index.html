@@ -243,8 +243,8 @@ cd build-cmake/
 
 <p>Finally we use the appropiate flags for building the MPI version of the mdrun program and the non-MPI 
 version of everything else</p>
-<pre><code>sudo cmake .. -DGMX_GPU=ON -DGMX_MPI=ON -DCMAKE_INSTALL_PREFIX=/opt/gromacs/5.1.2
-sudo make install-mdrun
+<pre><code>sudo cmake .. -DGMX_GPU=ON -DGMX_BUILD_MDRUN_ONLY=ON -DGMX_MPI=ON -DCMAKE_INSTALL_PREFIX=/opt/gromacs/5.1.2
+sudo make install
 
 sudo cmake .. -DGMX_GPU=ON -DGMX_MPI=OFF -DCMAKE_INSTALL_PREFIX=/opt/gromacs/5.1.2
 sudo make install
