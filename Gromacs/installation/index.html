@@ -63,6 +63,9 @@
                                 <li><a class="toctree-l3" href="#building-gromacs-5-using-cmake">Building Gromacs 5.* using CMAKE</a></li>
                             
                         
+                            <li class="toctree-l2"><a href="#gromacs-installation-in-linux-ubuntu-server">Gromacs installation in Linux Ubuntu Server</a></li>
+                            
+                        
                         </ul>
                     
                 </li>
@@ -218,6 +221,34 @@ for running jobs using the <code>mpirun</code> command as</p>
 <pre><code>mpirun -np 12 mdrun_mpi -v $OPTIONS
 </code></pre>
 
+<h1 id="gromacs-installation-in-linux-ubuntu-server">Gromacs installation in Linux Ubuntu Server</h1>
+<p>First of all we need to have everything in place for the installation. That is easily done by 
+using Ubuntu's package manager. </p>
+<pre><code>sudo apt-get install libibnetdisc-dev
+sudo apt-get install libgsl0ldbl
+sudo apt-get install openmpi-bin openmpi-common openssh-client openssh-server libopenmpi1.6 libopenmpi-dbg libopenmpi-dev
+sudo apt-get install cmake
+</code></pre>
+
+<p>Then we dowload the relevant Gromacs version</p>
+<pre><code>wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.2.tar.gz
+</code></pre>
+
+<p>We decompress the file and create the build directory for running the installation</p>
+<pre><code>tar -xvf gromacs-5.1.2.tar.gz
+cd gromacs-5.1.2/
+mkdir build-cmake
+cd build-cmake/
+</code></pre>
+
+<p>Finally we use the appropiate flags for building the MPI version of the mdrun program and the non-MPI 
+version of everything else</p>
+<p>```
+sudo cmake .. -DGMX_GPU=ON -DGMX_MPI=ON -DCMAKE_INSTALL_PREFIX=/opt/gromacs/4.6.7
+sudo make install-mdrun</p>
+<p>sudo cmake .. -DGMX_GPU=ON -DGMX_MPI=OFF -DCMAKE_INSTALL_PREFIX=/opt/gromacs/4.6.7
+sudo make install
+``</p>
 
             </div>
           </div>
