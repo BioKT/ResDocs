@@ -178,6 +178,49 @@ echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/managers
 <pre><code>echo &quot;localhost np=56&quot; &gt; /var/spool/torque/server_priv/nodes
 </code></pre>
 
+<p>Then we start the MOM process that handles the compute node</p>
+<pre><code>echo localhost &gt; /var/spool/torque/mom_priv/config
+</code></pre>
+
+<p>After all of these one has to restart the processes again</p>
+<pre><code>/etc/init.d/torque-server start
+/etc/init.d/torque-scheduler start
+/etc/init.d/torque-mom start
+</code></pre>
+
+<p>Finally we need to restart the scheduler, create the default queue and
+configure thee server to allow submissions from itself</p>
+<pre><code>qmgr -c 'set server scheduling = true'
+qmgr -c 'set server keep_completed = 300'
+qmgr -c 'set server mom_job_sync = true'
+# create default queue
+qmgr -c 'create queue batch'
+qmgr -c 'set queue batch queue_type = execution'
+qmgr -c 'set queue batch started = true'
+qmgr -c 'set queue batch enabled = true'
+qmgr -c 'set queue batch resources_default.walltime = 1:00:00'
+qmgr -c 'set queue batch resources_default.nodes = 1'
+qmgr -c 'set server default_queue = batch'
+# configure submission pool
+qmgr -c 'set server submit_hosts = localhost'
+qmgr -c 'set server allow_node_submit = true'
+</code></pre>
+
+<p>Finally you can test whether everything is working right for you using the following command</p>
+<pre><code>qsub -I
+</code></pre>
+
+<p>An additional test script that can be done is to run this simples PBS script <code>test.sh</code></p>
+<pre><code>#!/bin/bash
+cd $PBS_O_WORKDIR
+#direct the output to cluster_nodes
+cat $PBS_NODEFILE &gt; ./cluster_nodes
+</code></pre>
+
+<p>This should run by simply running </p>
+<pre><code>qsub test.sh
+</code></pre>
+
 <h1 id="example-pbs-script">Example PBS script</h1>
 <p>This is just an example PBS script for submitting jobs in the 
 <a href="https://www.archer.ac.uk">Archer</a>
