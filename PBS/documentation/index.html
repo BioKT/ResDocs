@@ -159,6 +159,25 @@ type the following in the terminal</p>
 <pre><code>pbs_server -t create
 </code></pre>
 
+<p>When prompted about whether we want to overwrite the existing database we will reply yes 
+(<code>[y]</code>). Next the just-started server instance is killed using the following command for
+further configuration</p>
+<pre><code>killall pbs_server
+</code></pre>
+
+<p>Next we will set up the server process. In my case the server is simply called <code>localhost</code>
+and I experienced some problems when trying to use a different server domain. </p>
+<pre><code>echo localhost &gt; /etc/torque/server_name
+echo  &gt; /var/spool/torque/server_priv/acl_svr/acl_hosts
+echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/operators
+echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/managers
+</code></pre>
+
+<p>The following step is to simply add the compute nodes. Since here we are using the 
+"head node" as "compute node" then we just need to type the following</p>
+<pre><code>echo &quot;localhost np=56&quot; &gt; /var/spool/torque/server_priv/nodes
+</code></pre>
+
 <h1 id="example-pbs-script">Example PBS script</h1>
 <p>This is just an example PBS script for submitting jobs in the 
 <a href="https://www.archer.ac.uk">Archer</a>
