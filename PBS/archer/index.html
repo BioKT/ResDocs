@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tools - Research Toolbox</title>
+  <title>Archer - Research Toolbox</title>
   
 
   
@@ -73,13 +73,23 @@
         
         <span>PBS</span>
             
-                <li class="toctree-l1 ">
-                    <a class="" href="../../PBS/archer">Archer</a>
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Archer</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#installing-torque">Installing Torque</a></li>
+                            
+                        
+                            <li class="toctree-l2"><a href="#example-pbs-script">Example PBS script</a></li>
+                            
+                        
+                        </ul>
                     
                 </li>
             
                 <li class="toctree-l1 ">
-                    <a class="" href="../../PBS/documentation">Documentation</a>
+                    <a class="" href="../documentation">Documentation</a>
                     
                 </li>
             
@@ -89,28 +99,8 @@
         
         <span>VMD</span>
             
-                <li class="toctree-l1 current">
-                    <a class="current" href=".">Tools</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l2"><a href="#vmd-scripting">VMD scripting</a></li>
-                            
-                                <li><a class="toctree-l3" href="#loading-a-molecule">Loading a molecule</a></li>
-                            
-                                <li><a class="toctree-l3" href="#applying-a-visualization-style">Applying a visualization style</a></li>
-                            
-                                <li><a class="toctree-l3" href="#changing-colour">Changing colour</a></li>
-                            
-                                <li><a class="toctree-l3" href="#loading-a-trajectory">Loading a trajectory</a></li>
-                            
-                                <li><a class="toctree-l3" href="#loops-in-vmd">Loops in VMD</a></li>
-                            
-                        
-                            <li class="toctree-l2"><a href="#making-videos-in-vmd">Making videos in VMD</a></li>
-                            
-                        
-                        </ul>
+                <li class="toctree-l1 ">
+                    <a class="" href="../../VMD/tools">Tools</a>
                     
                 </li>
             
@@ -137,7 +127,7 @@
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../..">Docs</a> &raquo;</li>
-    <li>Tools</li>
+    <li>Archer</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -146,51 +136,58 @@
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="vmd-scripting">VMD scripting</h1>
-<p>It is relatively easy to use the command line instead of the GUI in VMD. This is
-particularly useful when one needs to load multiple molecules, or make multiple
-visualizations look the same (e.g. making multiple molecules look like NewCartoon
-but changing their colour).</p>
-<h3 id="loading-a-molecule">Loading a molecule</h3>
-<pre><code>mol new file.pdb
+              <h1 id="installing-torque">Installing Torque</h1>
+<p>Bellow follow instructions on how to install <a href="http://www.adaptivecomputing.com/products/open-source/torque/">Torque</a>
+in a multiprocessor Ubuntu Linux server. In this case the same machine is used as server, 
+scheduler, submission node and compute node. These notes have been borrowed from 
+<a href="https://jabriffa.wordpress.com/2015/02/11/installing-torquepbs-job-scheduler-on-ubuntu-14-04-lts/">this blog post</a> 
+(thanks!) and are kept here for future records only. The version of Ubuntu used in this 
+case was 14.04 LTS. </p>
+<p>The first thing to note is that you should do all of these as <code>root</code>. Then we must ensure 
+that the first line in the <code>/etc/hosts</code> file reads as follows</p>
+<pre><code>127.0.0.1   localhost
 </code></pre>
 
-<h3 id="applying-a-visualization-style">Applying a visualization style</h3>
-<pre><code>mol modstyle 0 0 NewCartoon
+<p>Next comes the installation of some packages, which we do using Ubuntu`s package manager.</p>
+<pre><code>apt-get install torque-server torque-client torque-mom torque-pam
 </code></pre>
 
-<h3 id="changing-colour">Changing colour</h3>
-<pre><code>mol modcolor 0 0 ColorID 2
+<h1 id="example-pbs-script">Example PBS script</h1>
+<p>This is just an example PBS script for submitting jobs in the 
+<a href="https://www.archer.ac.uk">Archer</a>
+supercomputing facility.</p>
+<pre><code>#!/bin/bash --login
+#PBS -N jobname
+
+# Select 1  node
+#PBS -l select=1
+
+#PBS -l walltime=24:00:00
+#PBS -m abe
+#PBS -M name@emailprovider.org
+
+# Replace this with your budget code
+#PBS -A budget
+
+# Move to directory that script was submitted from
+#export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)
+#echo $PBS_O_WORKDIR
+#exit
+#cd $PBS_O_WORKDIR
+cd &quot;/work/directory/&quot;
+
+# Load the GROMACS module
+module add gromacs
+
+# Run GROMACS using default input and output file names
+pull=1
+k=100
+
+options=&quot;-s ${file} -deffnm ${file}&quot;
+
+aprun -n 24 mdrun_mpi $options
 </code></pre>
 
-<h3 id="loading-a-trajectory">Loading a trajectory</h3>
-<pre><code>mol addfile traj_comp.xtc
-</code></pre>
-
-<h3 id="loops-in-vmd">Loops in VMD</h3>
-<p>The example below is for changing the colour of five different molecules so that
-each has a different colour.</p>
-<pre><code>for {set x 0} {$x &lt;= 5} {incr x} {
-mol modcolor 0 $x ColorID $x 
-}
-</code></pre>
-
-<h1 id="making-videos-in-vmd">Making videos in VMD</h1>
-<p>VMD has a built in tool called Movie Maker. You must use it to generate a 
-video according to your particular taste. You can find some instructions
-<a href="http://www.ks.uiuc.edu/Research/vmd/plugins/vmdmovie/">here</a>. 
-One possibility is that you save the files for each of the snapshots of the
-simulation, instead of letting VMD produce the movie and remove the files
-for you. If you do not do that, then you can tweak things a bit, in terms
-of using different movie formats or tuning the bitrate. Below is an example
-of the command that you can invoke for generating the video.</p>
-<pre><code>ffmpeg -i filename.%05d.ppm -r 25 -an -b 10000k -bt 10000k moviename.mpg
-</code></pre>
-
-<p>Clearly, you will need the <code>ffmpeg</code> program for doing this, which in a Mac
-you can obtain from MacPorts. Then the <code>%0.5d</code> in the filename just corresponds
-to the different files written by VMD that you want to process (be careful with 
-format).</p>
 
             </div>
           </div>
@@ -198,8 +195,10 @@ format).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../documentation" class="btn btn-neutral float-right" title="Documentation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../../PBS/documentation" class="btn btn-neutral" title="Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../../MacOSX/hacks" class="btn btn-neutral" title="Hacks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -225,8 +224,8 @@ format).</p>
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
         
-      <span><a href="../../PBS/documentation" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../MacOSX/hacks" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../documentation" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 </body>
