@@ -190,20 +190,20 @@ echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/managers
 
 <p>Finally we need to restart the scheduler, create the default queue and
 configure thee server to allow submissions from itself</p>
-<pre><code>qmgr -c 'set server scheduling = true'
-qmgr -c 'set server keep_completed = 300'
-qmgr -c 'set server mom_job_sync = true'
+<pre><code>qmgr -c &quot;set server scheduling = true&quot;
+qmgr -c &quot;set server keep_completed = 300&quot;
+qmgr -c &quot;set server mom_job_sync = true&quot;
 # create default queue
-qmgr -c 'create queue batch'
-qmgr -c 'set queue batch queue_type = execution'
-qmgr -c 'set queue batch started = true'
-qmgr -c 'set queue batch enabled = true'
-qmgr -c 'set queue batch resources_default.walltime = 1:00:00'
-qmgr -c 'set queue batch resources_default.nodes = 1'
-qmgr -c 'set server default_queue = batch'
+qmgr -c &quot;create queue batch&quot;
+qmgr -c &quot;set queue batch queue_type = execution&quot;
+qmgr -c &quot;set queue batch started = true&quot;
+qmgr -c &quot;set queue batch enabled = true&quot;
+qmgr -c &quot;set queue batch resources_default.walltime = 1:00:00&quot;
+qmgr -c &quot;set queue batch resources_default.nodes = 1&quot;
+qmgr -c &quot;set server default_queue = batch&quot;
 # configure submission pool
-qmgr -c 'set server submit_hosts = localhost'
-qmgr -c 'set server allow_node_submit = true'
+qmgr -c &quot;set server submit_hosts = localhost&quot;
+qmgr -c &quot;set server allow_node_submit = true&quot;
 </code></pre>
 
 <p>Finally you can test whether everything is working right for you using the following command</p>
