@@ -147,6 +147,18 @@ that the first line in the <code>/etc/hosts</code> file reads as follows</p>
 <pre><code>apt-get install torque-server torque-client torque-mom torque-pam
 </code></pre>
 
+<p>After this step we simply stop these services since, apparently, the initial torque
+ configuration does not really work as one would hope. In order to achieve this we simply
+type the following in the terminal</p>
+<pre><code>/etc/init.d/torque-mom stop
+/etc/init.d/torque-scheduler stop
+/etc/init.d/torque-server stop
+</code></pre>
+
+<p>We then can create a new setup for torque using the following</p>
+<pre><code>pbs_server -t create
+</code></pre>
+
 <h1 id="example-pbs-script">Example PBS script</h1>
 <p>This is just an example PBS script for submitting jobs in the 
 <a href="https://www.archer.ac.uk">Archer</a>
