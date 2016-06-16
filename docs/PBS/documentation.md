@@ -1,3 +1,26 @@
+# Installing Torque
+Bellow follow instructions on how to install [Torque](http://www.adaptivecomputing.com/products/open-source/torque/)
+in a multiprocessor Ubuntu Linux server. In this case the same machine is used as server, 
+scheduler, submission node and compute node. These notes have been borrowed from 
+[this blog post](https://jabriffa.wordpress.com/2015/02/11/installing-torquepbs-job-scheduler-on-ubuntu-14-04-lts/) 
+(thanks!) and are kept here for future records only. The version of Ubuntu used in this 
+case was 14.04 LTS. 
+
+The first thing to note is that you should do all of these as `root`. Then we must ensure 
+that the first line in the `/etc/hosts` file reads as follows
+
+```
+127.0.0.1	localhost
+```
+
+Next comes the installation of some packages, which we do using Ubuntu`s package manager.
+
+```
+apt-get install torque-server torque-client torque-mom torque-pam
+```
+
+# Example PBS script
+
 This is just an example PBS script for submitting jobs in the 
 [Archer](https://www.archer.ac.uk)
 supercomputing facility.
