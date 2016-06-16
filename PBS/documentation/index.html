@@ -168,7 +168,7 @@ further configuration</p>
 <p>Next we will set up the server process. In my case the server is simply called <code>localhost</code>
 and I experienced some problems when trying to use a different server domain. </p>
 <pre><code>echo localhost &gt; /etc/torque/server_name
-echo  &gt; /var/spool/torque/server_priv/acl_svr/acl_hosts
+echo localhost &gt; /var/spool/torque/server_priv/acl_svr/acl_hosts
 echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/operators
 echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/managers
 </code></pre>
@@ -217,7 +217,7 @@ cd $PBS_O_WORKDIR
 cat $PBS_NODEFILE &gt; ./cluster_nodes
 </code></pre>
 
-<p>This should run by simply running </p>
+<p>This should run by simply writing the following command on your terminal </p>
 <pre><code>qsub test.sh
 </code></pre>
 
