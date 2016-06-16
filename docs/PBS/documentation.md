@@ -2,7 +2,7 @@ This is just an example PBS script for submitting jobs in the
 [Archer](https://www.archer.ac.uk)
 supercomputing facility.
 
-´´´
+```
 #!/bin/bash --login
 #PBS -N jobname
 
@@ -33,4 +33,4 @@ k=100
 options="-s ${file} -deffnm ${file}"
 
 aprun -n 24 mdrun_mpi $options
-´´´
+```

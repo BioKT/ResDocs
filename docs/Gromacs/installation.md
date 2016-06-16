@@ -110,3 +110,41 @@ for running jobs using the `mpirun` command as
 mpirun -np 12 mdrun_mpi -v $OPTIONS
 ```
 
+
+# Gromacs installation in Linux Ubuntu Server
+First of all we need to have everything in place for the installation. That is easily done by 
+using Ubuntu's package manager. 
+
+```
+sudo apt-get install libibnetdisc-dev
+sudo apt-get install libgsl0ldbl
+sudo apt-get install openmpi-bin openmpi-common openssh-client openssh-server libopenmpi1.6 libopenmpi-dbg libopenmpi-dev
+sudo apt-get install cmake
+```
+
+Then we dowload the relevant Gromacs version
+
+
+```
+wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.2.tar.gz
+```
+
+We decompress the file and create the build directory for running the installation
+
+```
+tar -xvf gromacs-5.1.2.tar.gz
+cd gromacs-5.1.2/
+mkdir build-cmake
+cd build-cmake/
+```
+
+Finally we use the appropiate flags for building the MPI version of the mdrun program and the non-MPI 
+version of everything else
+
+```
+sudo cmake .. -DGMX_GPU=ON -DGMX_BUILD_MDRUN_ONLY=ON -DGMX_MPI=ON -DCMAKE_INSTALL_PREFIX=/opt/gromacs/5.1.2
+sudo make install
+
+sudo cmake .. -DGMX_GPU=ON -DGMX_MPI=OFF -DCMAKE_INSTALL_PREFIX=/opt/gromacs/5.1.2
+sudo make install
+```
