@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installation - Research Toolbox</title>
+  <title>Documentation - Research Toolbox</title>
   
 
   
@@ -73,13 +73,8 @@
         
         <span>PBS</span>
             
-                <li class="toctree-l1 ">
-                    <a class="" href="../archer">Archer</a>
-                    
-                </li>
-            
                 <li class="toctree-l1 current">
-                    <a class="current" href=".">Installation</a>
+                    <a class="current" href=".">Documentation</a>
                     
                         <ul>
                         
@@ -121,7 +116,7 @@
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../..">Docs</a> &raquo;</li>
-    <li>Installation</li>
+    <li>Documentation</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -130,7 +125,41 @@
 </div>
           <div role="main">
             <div class="section">
-              <p>Installing PBS in a Linux box for use as a cluster.</p>
+              <p>This is just an example PBS script for submitting jobs in the 
+<a href="https://www.archer.ac.uk">Archer</a>
+supercomputing facility.</p>
+<pre><code>#!/bin/bash --login
+#PBS -N jobname
+
+# Select 1  node
+#PBS -l select=1
+
+#PBS -l walltime=24:00:00
+#PBS -m abe
+#PBS -M name@emailprovider.org
+
+# Replace this with your budget code
+#PBS -A budget
+
+# Move to directory that script was submitted from
+#export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)
+#echo $PBS_O_WORKDIR
+#exit
+#cd $PBS_O_WORKDIR
+cd &quot;/work/directory/&quot;
+
+# Load the GROMACS module
+module add gromacs
+
+# Run GROMACS using default input and output file names
+pull=1
+k=100
+
+options=&quot;-s ${file} -deffnm ${file}&quot;
+
+aprun -n 24 mdrun_mpi $options
+</code></pre>
+
 
             </div>
           </div>
@@ -141,7 +170,7 @@
         <a href="../../VMD/tools" class="btn btn-neutral float-right" title="Tools"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../archer" class="btn btn-neutral" title="Archer"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../MacOSX/hacks" class="btn btn-neutral" title="Hacks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -167,7 +196,7 @@
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
         
-      <span><a href="../archer" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span><a href="../../MacOSX/hacks" style="color: #fcfcfc;">&laquo; Previous</a></span>
       <span style="margin-left: 15px"><a href="../../VMD/tools" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
