@@ -1,7 +1,7 @@
 # Beast and Beagle installation in a Linux server
 
-This instructions are valid for a Linux server running Ubuntu 14.04 LTS, with
-2 Intel Xeon processors and 2 Nvidia GPUs. These instructions are based on
+These instructions are valid for a Linux server running Ubuntu 14.04 LTS, with
+2 Intel Xeon processors and 2 Nvidia GPUs. They are are based on
 those found in the [Beast](http://beast.bio.ed.ac.uk/BEAGLE) and 
 [Beagle](https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions) 
 sites, plus my own experience.
