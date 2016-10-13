@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tools - Research Toolbox</title>
+  <title>Installation - Research Toolbox</title>
   
 
   
@@ -51,8 +51,15 @@
         
         <span>Beast</span>
             
-                <li class="toctree-l1 ">
-                    <a class="" href="../../Beast/installation">Installation</a>
+                <li class="toctree-l1 current">
+                    <a class="current" href=".">Installation</a>
+                    
+                        <ul>
+                        
+                            <li class="toctree-l2"><a href="#beast-and-beagle-installation-in-a-linux-server">Beast and Beagle installation in a Linux server</a></li>
+                            
+                        
+                        </ul>
                     
                 </li>
             
@@ -95,28 +102,8 @@
         
         <span>VMD</span>
             
-                <li class="toctree-l1 current">
-                    <a class="current" href=".">Tools</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l2"><a href="#vmd-scripting">VMD scripting</a></li>
-                            
-                                <li><a class="toctree-l3" href="#loading-a-molecule">Loading a molecule</a></li>
-                            
-                                <li><a class="toctree-l3" href="#applying-a-visualization-style">Applying a visualization style</a></li>
-                            
-                                <li><a class="toctree-l3" href="#changing-colour">Changing colour</a></li>
-                            
-                                <li><a class="toctree-l3" href="#loading-a-trajectory">Loading a trajectory</a></li>
-                            
-                                <li><a class="toctree-l3" href="#loops-in-vmd">Loops in VMD</a></li>
-                            
-                        
-                            <li class="toctree-l2"><a href="#making-videos-in-vmd">Making videos in VMD</a></li>
-                            
-                        
-                        </ul>
+                <li class="toctree-l1 ">
+                    <a class="" href="../../VMD/tools">Tools</a>
                     
                 </li>
             
@@ -143,7 +130,7 @@
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../..">Docs</a> &raquo;</li>
-    <li>Tools</li>
+    <li>Installation</li>
       <li class="wy-breadcrumbs-aside">
         
       </li>
@@ -152,51 +139,39 @@
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="vmd-scripting">VMD scripting</h1>
-<p>It is relatively easy to use the command line instead of the GUI in VMD. This is
-particularly useful when one needs to load multiple molecules, or make multiple
-visualizations look the same (e.g. making multiple molecules look like NewCartoon
-but changing their colour).</p>
-<h3 id="loading-a-molecule">Loading a molecule</h3>
-<pre><code>mol new file.pdb
+              <h1 id="beast-and-beagle-installation-in-a-linux-server">Beast and Beagle installation in a Linux server</h1>
+<p>This instructions are valid for a Linux server running Ubuntu 14.04 LTS, with
+2 Intel Xeon processors and 2 Nvidia GPUs. These instructions are based on
+those found in the <a href="http://beast.bio.ed.ac.uk/BEAGLE">Beast</a> and 
+<a href="https://github.com/beagle-dev/beagle-lib/wiki/LinuxInstallInstructions">Beagle</a> 
+sites, plus my own experience.</p>
+<p>The first thing I had to do was to get all the dependencies right, for which I run
+the following</p>
+<pre><code>sudo apt-get install build-essential autoconf automake libtool subversion pkg-config openjdk-6-jdk
 </code></pre>
 
-<h3 id="applying-a-visualization-style">Applying a visualization style</h3>
-<pre><code>mol modstyle 0 0 NewCartoon
+<p>Once these were all in place, I tried using the NVIDIA OpenCL implementation 
+which was accessible via the apt-get command. However, I was unable to install
+the Beagle library so that it was recognized. Tests systematically failed. 
+Hence, I resorted to the Intel implementation of 
+<a href="../../curl http://registrationcenter-download.intel.com/akdlm/irc_nas/9019/opencl_runtime_16.1_x64_ubuntu_5.2.0.10002.tgz -o opencl_runtime_16.1_x64_ubuntu_5.2.0.10002.tgz">OpenCL</a>.  After the download, this can be easily installed </p>
+<pre><code>cd opencl_runtime_16.1.1_x64_ubuntu_6.4.0.25/
+sudo bash install.sh
 </code></pre>
 
-<h3 id="changing-colour">Changing colour</h3>
-<pre><code>mol modcolor 0 0 ColorID 2
+<p>Then I went back to the installation of the Beagle library.</p>
+<pre><code>./autogen.sh
+./configure --prefix=&quot;/opt/beast/beagle-lib&quot; --with-opencl=&quot;/opt/intel/opencl/lib64&quot;
+sudo make install
 </code></pre>
 
-<h3 id="loading-a-trajectory">Loading a trajectory</h3>
-<pre><code>mol addfile traj_comp.xtc
+<p>In order to check whether I was getting the correct functionality I run the 
+test suite </p>
+<pre><code>make check
 </code></pre>
 
-<h3 id="loops-in-vmd">Loops in VMD</h3>
-<p>The example below is for changing the colour of five different molecules so that
-each has a different colour.</p>
-<pre><code>for {set x 0} {$x &lt;= 5} {incr x} {
-mol modcolor 0 $x ColorID $x 
-}
-</code></pre>
-
-<h1 id="making-videos-in-vmd">Making videos in VMD</h1>
-<p>VMD has a built in tool called Movie Maker. You must use it to generate a 
-video according to your particular taste. You can find some instructions
-<a href="http://www.ks.uiuc.edu/Research/vmd/plugins/vmdmovie/">here</a>. 
-One possibility is that you save the files for each of the snapshots of the
-simulation, instead of letting VMD produce the movie and remove the files
-for you. If you do not do that, then you can tweak things a bit, in terms
-of using different movie formats or tuning the bitrate. Below is an example
-of the command that you can invoke for generating the video.</p>
-<pre><code>ffmpeg -i filename.%05d.ppm -r 25 -an -b 10000k -bt 10000k moviename.mpg
-</code></pre>
-
-<p>Clearly, you will need the <code>ffmpeg</code> program for doing this, which in a Mac
-you can obtain from MacPorts. Then the <code>%0.5d</code> in the filename just corresponds
-to the different files written by VMD that you want to process (be careful with 
-format).</p>
+<p>Finally all went well. So that allowed running the downloaded Beast executable available 
+<a href="https://github.com/beast-dev/beast-mcmc/releases/download/v1.8.3/BEASTv1.8.3.tgz">here</a>.</p>
 
             </div>
           </div>
@@ -204,8 +179,10 @@ format).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../../Gromacs/installation" class="btn btn-neutral float-right" title="Installation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../../PBS/documentation" class="btn btn-neutral" title="Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../../about" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -231,8 +208,8 @@ format).</p>
 <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
         
-      <span><a href="../../PBS/documentation" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../about" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      <span style="margin-left: 15px"><a href="../../Gromacs/installation" style="color: #fcfcfc">Next &raquo;</a></span>
     </span>
 </div>
 </body>
