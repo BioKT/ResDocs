@@ -3,28 +3,30 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Hacks - Research Toolbox</title>
   
-
-  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Mac OS X hacks - Research Toolbox</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-
-  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
-  <script src="../../js/theme.js"></script>
-
-  <style>
-    body {font-size: 90%;}
-    pre, code {font-size: 100%;}
-    h3, h4, h5, h6 {color: #2980b9; font-weight: 300}
-  </style> 
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mac OS X hacks";
+    var mkdocs_page_input_path = "MacOSX/hacks.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -35,96 +37,106 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
         <a href="../.." class="icon icon-home"> Research Toolbox</a>
-        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-      <ul class="current">
-    
-        
-            <li class="toctree-l1 ">
-                <a class="" href="../../about">About</a>
-            </li>
-        
-
-    
-        
-        <span>Beast</span>
-            
-                <li class="toctree-l1 ">
-                    <a class="" href="../../Beast/installation">Installation</a>
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Research Toolbox</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Beast</span>
+    <ul class="subnav">
+                <li class="">
                     
+    <a class="" href="../../Beast/installation/">Beast and Beagle installation in a Linux server</a>
                 </li>
-            
-        
-
-    
-        
-        <span>Gromacs</span>
-            
-                <li class="toctree-l1 ">
-                    <a class="" href="../../Gromacs/installation">Installation</a>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gromacs</span>
+    <ul class="subnav">
+                <li class="">
                     
+    <a class="" href="../../Gromacs/installation/">Gromacs installation in Mac OS X</a>
                 </li>
-            
-        
-
-    
-        
-        <span>Linux</span>
-            
-                <li class="toctree-l1 ">
-                    <a class="" href="../../Linux/admin">Admin</a>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Linux</span>
+    <ul class="subnav">
+                <li class="">
                     
+    <a class="" href="../../Linux/admin/">Linux Administration</a>
                 </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">MacOSX</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Mac OS X hacks</a>
+    <ul class="subnav">
             
-        
-
+    <li class="toctree-l3"><a href="#mac-os-x-hacks">Mac OS X hacks</a></li>
     
+        <ul>
         
-        <span>MacOSX</span>
-            
-                <li class="toctree-l1 current">
-                    <a class="current" href=".">Hacks</a>
-                    
-                        <ul>
-                        
-                            <li class="toctree-l2"><a href="#mac-os-x-hacks">Mac OS X hacks</a></li>
-                            
-                                <li><a class="toctree-l3" href="#mounting-ext2ext3-volumes">Mounting ext2/ext3 volumes</a></li>
-                            
-                        
-                        </ul>
-                    
+            <li><a class="toctree-l4" href="#mounting-ext2ext3-volumes">Mounting ext2/ext3 volumes</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
-            
-        
-
-    
-        
-        <span>PBS</span>
-            
-                <li class="toctree-l1 ">
-                    <a class="" href="../../PBS/documentation">Documentation</a>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PBS</span>
+    <ul class="subnav">
+                <li class="">
                     
+    <a class="" href="../../PBS/documentation/">Installing Torque</a>
                 </li>
-            
-        
-
-    
-        
-        <span>VMD</span>
-            
-                <li class="toctree-l1 ">
-                    <a class="" href="../../VMD/tools">Tools</a>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">VMD</span>
+    <ul class="subnav">
+                <li class="">
                     
+    <a class="" href="../../VMD/tools/">VMD scripting</a>
                 </li>
-            
-        
-
-    
-</ul>
-
+    </ul>
+	    </li>
+          
+        </ul>
       </div>
       &nbsp;
     </nav>
@@ -133,8 +145,8 @@
 
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="icon icon-reorder"></i>
-        <a href="../.."></a>
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Research Toolbox</a>
       </nav>
 
       
@@ -143,16 +155,24 @@
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../..">Docs</a> &raquo;</li>
-    <li>Hacks</li>
-      <li class="wy-breadcrumbs-aside">
+    
+      
         
-      </li>
+          <li>MacOSX &raquo;</li>
+        
+      
+    
+    <li>Mac OS X hacks</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
   </ul>
   <hr/>
 </div>
           <div role="main">
             <div class="section">
-              <h1 id="mac-os-x-hacks">Mac OS X hacks</h1>
+              
+                <h1 id="mac-os-x-hacks">Mac OS X hacks</h1>
 <p>These are just a few tricks that made my life incredibly easier when transitioning
 from a Ubuntu Linux machine to working on a Mac desktop computer.</p>
 <h2 id="mounting-ext2ext3-volumes">Mounting ext2/ext3 volumes</h2>
@@ -196,17 +216,17 @@ function Mount ()
 </code></pre>
 
 <p>This last bit was what actually solved my problem.</p>
-
+              
             </div>
           </div>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../PBS/documentation" class="btn btn-neutral float-right" title="Documentation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../PBS/documentation/" class="btn btn-neutral float-right" title="Installing Torque">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../Linux/admin" class="btn btn-neutral" title="Admin"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../Linux/admin/" class="btn btn-neutral" title="Linux Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -214,14 +234,13 @@ function Mount ()
   <hr/>
 
   <div role="contentinfo">
-    <p>
     <!-- Copyright etc -->
-    </p>
+    
   </div>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -229,12 +248,20 @@ function Mount ()
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
-        
-      <span><a href="../../Linux/admin" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      <span style="margin-left: 15px"><a href="../../PBS/documentation" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+      
+        <span><a href="../../Linux/admin/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../PBS/documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
     </span>
 </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
 </body>
 </html>
