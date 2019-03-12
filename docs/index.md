@@ -11,5 +11,5 @@ tools that I most commonly use.
 * [VMD](VMD/tools.md)
 * [Making videos in VMD](VMD/tools.md)
 * [Mac OS X hacks](MacOSX/hacks.md)
-* [Linux Admininstration](Linux/admin.md)
+* [Linux Administration](Linux/admin.md)
 * [PBS scripts](PBS/documentation.md)
