@@ -17,12 +17,12 @@
         },
         {
             "location": "/about/",
-            "text": "About\n\n\nMy name is \nDavid De Sancho\n\nand currently I am an Ikerbasque Research Fellow.\nThat involves working in multiple projects, for which a common set of tools is\nusually employed. Here are some useful scripts for setting up and running software.",
+            "text": "About\n\n\nMy name is David De Sancho and currently I am a Ramon y Cajal fellow in the \n\nUniversity of the Basque Country\n and\nthe \nDonostia International Physics Center\n.\nMy work focuses on the study of the conformational dynamics of biomolecules with\ncomputational methods, primarily molecular simulation.\nYou can find more information about the work we do in my \n\nwebsite\n\nor check my updated list of publications in \n\nGoogle Scholar\n.\nMuch of the code I write is hosted in \nGithub\n.\nIn this website you will find information about a number of common tools that we use\nin our research.",
             "title": "About"
         },
         {
             "location": "/about/#about",
-            "text": "My name is  David De Sancho \nand currently I am an Ikerbasque Research Fellow.\nThat involves working in multiple projects, for which a common set of tools is\nusually employed. Here are some useful scripts for setting up and running software.",
+            "text": "My name is David De Sancho and currently I am a Ramon y Cajal fellow in the  University of the Basque Country  and\nthe  Donostia International Physics Center .\nMy work focuses on the study of the conformational dynamics of biomolecules with\ncomputational methods, primarily molecular simulation.\nYou can find more information about the work we do in my  website \nor check my updated list of publications in  Google Scholar .\nMuch of the code I write is hosted in  Github .\nIn this website you will find information about a number of common tools that we use\nin our research.",
             "title": "About"
         },
         {
