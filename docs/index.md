@@ -3,15 +3,14 @@
 Here you will find documentation and setup scripts for the 
 tools that I most commonly use.
 
-## Index 
-
-
-* [GROMACS setup](Gromacs/installation.md)
-* [GROMACS scripts](Gromacs/md_setup.md)
-* [BEAST](Beast/installation.md)
-* [VMD](VMD/tools.md)
-* [Making videos in VMD](VMD/tools.md)
-* [Mac OS X hacks](MacOSX/hacks.md)
-* [Linux Administration](Linux/admin.md)
-* [PBS scripts](PBS/documentation.md)
-* [Other Documents](Other/other.md)
+* [About me](about.md)
+* System administration: 
+	- [Linux]('Linux/admin.md')
+	- [Mac OSX]('MacOSX/hacks.md')
+* [PBS job submission]('PBS/documentation.md')
+* [Phylogenetic trees with Beast]('Beast/installation.md')
+* MD simulations with Gromacs: 
+	- [Installation]('Gromacs/installation.md')
+	- [Simulation setup]('Gromacs/md_setup.md')
+* [Molecular visualization using VMD](VMD/tools.md)
+* [Other stuff](Other/other.md)
