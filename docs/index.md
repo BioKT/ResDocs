@@ -6,7 +6,8 @@ tools that I most commonly use.
 ## Index 
 
 
-* [GROMACS setup and scripts](Gromacs/installation.md)
+* [GROMACS setup](Gromacs/installation.md)
+* [GROMACS scripts](Gromacs/md_setup.md)
 * [BEAST](Beast/installation.md)
 * [VMD](VMD/tools.md)
 * [Making videos in VMD](VMD/tools.md)
