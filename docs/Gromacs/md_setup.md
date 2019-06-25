@@ -60,7 +60,7 @@ simulation box and it has 1 nm between molecule and box sides (`-d 1`). The seco
 simply solvates the molecule filling the box with the water model geometry of choice.
 
 ### Energy minimization
-Considering that we are starting from a peptide conformation and a fixed water box configuration
+onsidering that we are starting from a peptide conformation and a fixed water box configuration
  that are not particularly meaningful, we will first energy minimize the system using steepest 
 descent.
 ```
@@ -77,40 +77,50 @@ As we will do many times later, we first use the Gromacs preprocessor (`grompp`)
 calculation (`mdrun`). Since we are using the verbose (`-v`) option you will find that this produces
 a lot of output, corresponding to the gradual decrease in the energy of the system.
 
+### MD in the canonical ensemble with position restraints
+We then equilibrate the water molecules while keeping the peptide
+mostly fixed using position restraints on its atoms. This is not too
+important in the context of a small peptide like the one we are considering,
+but can be critical for larger systems.
 ```
 mdp="nvt_posre.mdp"
 inp=$out
 out="${proot}_${ff}_${wat}_nvt_posre"
-#gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out
+gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out
 
-```
-```
 inp=$out
 out=$inp
 gmx mdrun -v -s $inp -deffnm $out
-
 ```
+
+### MD in the isothermal-isobaric ensemble
+The next step is running MD and fixing the pressure to the value
+of interest (typically 1 bar) with the help of a barostat. 
+Most of the remaining parameters stay the same as were in the 
+NVT simulation.
+
 ```
 mdp="npt.mdp"
 inp=$out
 out="${proot}_${ff}_${wat}_npt"
 gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out -t ${inp}.cpt
 
-```
-```
 inp=$out
 out=$inp
 gmx mdrun -v -s $inp -deffnm $out
-
 ```
+
+### Production run
+Finally we run a production run, again in the canonical ensemble, 
+but now removing restraints on the peptide so that we can adequately
+sample conformational space.
+
 ```
 mdp="sd_nvt.mdp"
 inp=$out
 out="${proot}_${ff}_${wat}_nvt"
 gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out -t ${inp}.cpt
 
-```
-```
 inp=$out
 out=$inp
 gmx mdrun -v -s $inp -deffnm $out
