@@ -108,6 +108,12 @@
         
             <li><a class="toctree-l4" href="#energy-minimization">Energy minimization</a></li>
         
+            <li><a class="toctree-l4" href="#md-in-the-canonical-ensemble-with-position-restraints">MD in the canonical ensemble with position restraints</a></li>
+        
+            <li><a class="toctree-l4" href="#md-in-the-isothermal-isobaric-ensemble">MD in the isothermal-isobaric ensemble</a></li>
+        
+            <li><a class="toctree-l4" href="#production-run">Production run</a></li>
+        
         </ul>
     
 
@@ -218,7 +224,7 @@ gmx solvate -p $top -cp $inp -o $out
 simulation box and it has 1 nm between molecule and box sides (<code>-d 1</code>). The second command
 simply solvates the molecule filling the box with the water model geometry of choice.</p>
 <h3 id="energy-minimization">Energy minimization</h3>
-<p>Considering that we are starting from a peptide conformation and a fixed water box configuration
+<p>onsidering that we are starting from a peptide conformation and a fixed water box configuration
  that are not particularly meaningful, we will first energy minimize the system using steepest 
 descent.</p>
 <pre><code>mdp=&quot;mini.mdp&quot;
@@ -234,40 +240,46 @@ gmx mdrun -v -s $inp -deffnm $out
 <p>As we will do many times later, we first use the Gromacs preprocessor (<code>grompp</code>) and then run the
 calculation (<code>mdrun</code>). Since we are using the verbose (<code>-v</code>) option you will find that this produces
 a lot of output, corresponding to the gradual decrease in the energy of the system.</p>
+<h3 id="md-in-the-canonical-ensemble-with-position-restraints">MD in the canonical ensemble with position restraints</h3>
+<p>We then equilibrate the water molecules while keeping the peptide
+mostly fixed using position restraints on its atoms. This is not too
+important in the context of a small peptide like the one we are considering,
+but can be critical for larger systems.</p>
 <pre><code>mdp=&quot;nvt_posre.mdp&quot;
 inp=$out
 out=&quot;${proot}_${ff}_${wat}_nvt_posre&quot;
-#gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out
+gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out
 
-</code></pre>
-
-<pre><code>inp=$out
+inp=$out
 out=$inp
 gmx mdrun -v -s $inp -deffnm $out
-
 </code></pre>
 
+<h3 id="md-in-the-isothermal-isobaric-ensemble">MD in the isothermal-isobaric ensemble</h3>
+<p>The next step is running MD and fixing the pressure to the value
+of interest (typically 1 bar) with the help of a barostat. 
+Most of the remaining parameters stay the same as were in the 
+NVT simulation.</p>
 <pre><code>mdp=&quot;npt.mdp&quot;
 inp=$out
 out=&quot;${proot}_${ff}_${wat}_npt&quot;
 gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out -t ${inp}.cpt
 
-</code></pre>
-
-<pre><code>inp=$out
+inp=$out
 out=$inp
 gmx mdrun -v -s $inp -deffnm $out
-
 </code></pre>
 
+<h3 id="production-run">Production run</h3>
+<p>Finally we run a production run, again in the canonical ensemble, 
+but now removing restraints on the peptide so that we can adequately
+sample conformational space.</p>
 <pre><code>mdp=&quot;sd_nvt.mdp&quot;
 inp=$out
 out=&quot;${proot}_${ff}_${wat}_nvt&quot;
 gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out -t ${inp}.cpt
 
-</code></pre>
-
-<pre><code>inp=$out
+inp=$out
 out=$inp
 gmx mdrun -v -s $inp -deffnm $out
 </code></pre>
