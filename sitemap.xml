@@ -1,48 +1,96 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/about/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/Linux/admin/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/Gromacs/installation/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/Gromacs/md_setup/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/Other/other/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/MacOSX/hacks/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/PBS/documentation/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
     <url>
-     <loc>None</loc>
-     <lastmod>2019-03-12</lastmod>
+     <loc>None/VMD/tools/</loc>
+     <lastmod>2019-06-25</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/Beast/installation/</loc>
+     <lastmod>2019-06-25</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
 </urlset>

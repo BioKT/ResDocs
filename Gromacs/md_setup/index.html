@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tools - Research Toolbox</title>
+  <title>Md setup - Research Toolbox</title>
   
 
   <link rel="shortcut icon" href="../../img/favicon.ico">
@@ -20,7 +20,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Tools";
+    var mkdocs_page_name = "Md setup";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -85,14 +85,21 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../Gromacs/installation/">Installation</a>
+        <a class="" href="../installation/">Installation</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../Gromacs/md_setup/">Md setup</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Md setup</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#running-a-simulation-in-gromacs">Running a simulation in Gromacs</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -151,28 +158,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Tools</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#vmd-scripting">VMD scripting</a></li>
-                
-                    <li><a class="toctree-l4" href="#loading-a-molecule">Loading a molecule</a></li>
-                
-                    <li><a class="toctree-l4" href="#applying-a-visualization-style">Applying a visualization style</a></li>
-                
-                    <li><a class="toctree-l4" href="#changing-colour">Changing colour</a></li>
-                
-                    <li><a class="toctree-l4" href="#loading-a-trajectory">Loading a trajectory</a></li>
-                
-                    <li><a class="toctree-l4" href="#loops-in-vmd">Loops in VMD</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#making-videos-in-vmd">Making videos in VMD</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../VMD/tools/">Tools</a>
         
     </li>
 
@@ -217,11 +204,11 @@
     
       
         
-          <li>VMD &raquo;</li>
+          <li>Gromacs &raquo;</li>
         
       
     
-    <li>Tools</li>
+    <li>Md setup</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -231,51 +218,18 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="vmd-scripting">VMD scripting</h1>
-<p>It is relatively easy to use the command line instead of the GUI in VMD. This is
-particularly useful when one needs to load multiple molecules, or make multiple
-visualizations look the same (e.g. making multiple molecules look like NewCartoon
-but changing their colour).</p>
-<h3 id="loading-a-molecule">Loading a molecule</h3>
-<pre><code>mol new file.pdb
+                <h1 id="running-a-simulation-in-gromacs">Running a simulation in Gromacs</h1>
+<p>These brief instructions are a general guide to how to run a simple MD simulation using 
+Gromacs. In this case we are simulating the alanine dipeptide using Gromacs 2018 but 
+things should not change too much for other recent versions of the software. You must 
+have a working version installed in your machine. First of all, you will have to 
+download the compressed files in
+<a href="https://drive.google.com/file/d/1V6fZSjJbAAqDeQY_J5BHu0GQuj6eMtNx/view?usp=sharing">alaTB_files.tar.gz</a>
+to your computer and extract them typing </p>
+<pre><code>tar -xvf ala_TB_files.tar.gz
 </code></pre>
 
-<h3 id="applying-a-visualization-style">Applying a visualization style</h3>
-<pre><code>mol modstyle 0 0 NewCartoon
-</code></pre>
-
-<h3 id="changing-colour">Changing colour</h3>
-<pre><code>mol modcolor 0 0 ColorID 2
-</code></pre>
-
-<h3 id="loading-a-trajectory">Loading a trajectory</h3>
-<pre><code>mol addfile traj_comp.xtc
-</code></pre>
-
-<h3 id="loops-in-vmd">Loops in VMD</h3>
-<p>The example below is for changing the colour of five different molecules so that
-each has a different colour.</p>
-<pre><code>for {set x 0} {$x &lt;= 5} {incr x} {
-mol modcolor 0 $x ColorID $x 
-}
-</code></pre>
-
-<h1 id="making-videos-in-vmd">Making videos in VMD</h1>
-<p>VMD has a built in tool called Movie Maker. You must use it to generate a 
-video according to your particular taste. You can find some instructions
-<a href="http://www.ks.uiuc.edu/Research/vmd/plugins/vmdmovie/">here</a>. 
-One possibility is that you save the files for each of the snapshots of the
-simulation, instead of letting VMD produce the movie and remove the files
-for you. If you do not do that, then you can tweak things a bit, in terms
-of using different movie formats or tuning the bitrate. Below is an example
-of the command that you can invoke for generating the video.</p>
-<pre><code>ffmpeg -i filename.%05d.ppm -r 25 -an -b 10000k -bt 10000k moviename.mpg
-</code></pre>
-
-<p>Clearly, you will need the <code>ffmpeg</code> program for doing this, which in a Mac
-you can obtain from MacPorts. Then the <code>%0.5d</code> in the filename just corresponds
-to the different files written by VMD that you want to process (be careful with 
-format).</p>
+<p>in your terminal.</p>
               
             </div>
           </div>
@@ -283,10 +237,10 @@ format).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../Beast/installation/" class="btn btn-neutral float-right" title="Installation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../Other/other/" class="btn btn-neutral float-right" title="Other"/>Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../PBS/documentation/" class="btn btn-neutral" title="Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../installation/" class="btn btn-neutral" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -312,10 +266,10 @@ format).</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../PBS/documentation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../Beast/installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../Other/other/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
