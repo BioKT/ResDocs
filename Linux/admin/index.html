@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Admin - Research Toolbox</title>
   
-
   <link rel="shortcut icon" href="../../img/favicon.ico">
-
-  
+  <title>Linux - Research Toolbox</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Admin";
+    var mkdocs_page_name = "Linux";
+    var mkdocs_page_input_path = "Linux/admin.md";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script>
-  <script src="../../js/theme.js"></script> 
-
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,148 +39,86 @@
         <a href="../.." class="icon icon-home"> Research Toolbox</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../..">Home</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
           
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../about/">About</a>
-        
-    </li>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../about/">About</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Systems</span>
     <ul class="subnav">
-    <li><span>Linux</span></li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Admin</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#linux-administration">Linux Administration</a></li>
-                
-                    <li><a class="toctree-l4" href="#creating-and-mounting-new-partitions">Creating and mounting new partitions</a></li>
-                
-            
-            </ul>
-        
-    </li>
-
-        
-    </ul>
-<li>
-          
-            <li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Linux</a>
     <ul class="subnav">
-    <li><span>Gromacs</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../Gromacs/installation/">Installation</a>
+    <li class="toctree-l3"><a href="#linux-administration">Linux Administration</a></li>
+    
+        <ul>
         
-    </li>
+            <li><a class="toctree-l4" href="#creating-and-mounting-new-partitions">Creating and mounting new partitions</a></li>
+        
+        </ul>
+    
 
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Gromacs/md_setup/">Md setup</a>
-        
-    </li>
-
-        
     </ul>
-<li>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../MacOSX/hacks/">Mac OSX</a>
+                </li>
+    </ul>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Other</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Other/other/">Other</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../PBS/documentation/">PBS</a>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>MacOSX</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../MacOSX/hacks/">Hacks</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Beast/installation/">Beast</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gromacs</span>
     <ul class="subnav">
-    <li><span>PBS</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../PBS/documentation/">Documentation</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="../../Gromacs/installation/">Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../Gromacs/md_setup/">Simulation setup</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>VMD</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../VMD/tools/">Tools</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../VMD/tools/">VMD</a>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Beast</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../Beast/installation/">Installation</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="../../Other/other/">Other</a>
+	    </li>
           
         </ul>
       </div>
@@ -206,11 +142,11 @@
     
       
         
-          <li>Linux &raquo;</li>
+          <li>Systems &raquo;</li>
         
       
     
-    <li>Admin</li>
+    <li>Linux</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -316,7 +252,7 @@ type of partition in a line looking very much like the one that follows</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../Gromacs/installation/" class="btn btn-neutral float-right" title="Installation"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../MacOSX/hacks/" class="btn btn-neutral float-right" title="Mac OSX">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../about/" class="btn btn-neutral" title="About"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -333,7 +269,7 @@ type of partition in a line looking very much like the one that follows</p>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -341,17 +277,20 @@ type of partition in a line looking very much like the one that follows</p>
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
         <span><a href="../../about/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../Gromacs/installation/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../MacOSX/hacks/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>

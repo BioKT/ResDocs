@@ -3,31 +3,29 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
   
-  <title>Research Toolbox</title>
-  
-
-  <link rel="shortcut icon" href="./img/favicon.ico">
-
-  
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Home - Research Toolbox</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="./css/highlight.css">
-
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
   <script>
     // Current page data
-    var mkdocs_page_name = "None";
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = null;
   </script>
   
-  <script src="./js/jquery-2.1.1.min.js"></script>
-  <script src="./js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="./js/highlight.pack.js"></script>
-  <script src="./js/theme.js"></script> 
-
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
   
 </head>
 
@@ -41,148 +39,80 @@
         <a href="." class="icon icon-home"> Research Toolbox</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        <ul class="current">
+	<ul class="current">
+	  
           
-            <li>
-    <li class="toctree-l1 current">
-        <a class="current" href=".">Home</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#research-toolbox">Research Toolbox</a></li>
-                
-                    <li><a class="toctree-l4" href="#index">Index</a></li>
-                
-            
-            </ul>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="about/">About</a>
-        
-    </li>
-<li>
-          
-            <li>
+            <li class="toctree-l1 current">
+		
+    <a class="current" href=".">Home</a>
     <ul class="subnav">
-    <li><span>Linux</span></li>
-
-        
             
-    <li class="toctree-l1 ">
-        <a class="" href="Linux/admin/">Admin</a>
-        
-    </li>
+    <li class="toctree-l2"><a href="#research-toolbox">Research Toolbox</a></li>
+    
 
-        
     </ul>
-<li>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Gromacs</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="Gromacs/installation/">Installation</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="Gromacs/md_setup/">Md setup</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="about/">About</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Systems</span>
     <ul class="subnav">
-    <li><span>Other</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="Other/other/">Other</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="Linux/admin/">Linux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="MacOSX/hacks/">Mac OSX</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>MacOSX</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="MacOSX/hacks/">Hacks</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="PBS/documentation/">PBS</a>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>PBS</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="PBS/documentation/">Documentation</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="Beast/installation/">Beast</a>
+	    </li>
           
-            <li>
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Gromacs</span>
     <ul class="subnav">
-    <li><span>VMD</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="VMD/tools/">Tools</a>
-        
-    </li>
-
-        
+                <li class="">
+                    
+    <a class="" href="Gromacs/installation/">Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="Gromacs/md_setup/">Simulation setup</a>
+                </li>
     </ul>
-<li>
+	    </li>
           
-            <li>
-    <ul class="subnav">
-    <li><span>Beast</span></li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="Beast/installation/">Installation</a>
-        
-    </li>
-
-        
-    </ul>
-<li>
+            <li class="toctree-l1">
+		
+    <a class="" href="VMD/tools/">VMD</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="Other/other/">Other</a>
+	    </li>
           
         </ul>
       </div>
@@ -219,17 +149,22 @@
                 <h1 id="research-toolbox">Research Toolbox</h1>
 <p>Here you will find documentation and setup scripts for the 
 tools that I most commonly use.</p>
-<h2 id="index">Index</h2>
 <ul>
-<li><a href="Gromacs/installation/">GROMACS setup</a></li>
-<li><a href="Gromacs/md_setup/">GROMACS scripts</a></li>
-<li><a href="Beast/installation/">BEAST</a></li>
-<li><a href="VMD/tools/">VMD</a></li>
-<li><a href="VMD/tools/">Making videos in VMD</a></li>
-<li><a href="MacOSX/hacks/">Mac OS X hacks</a></li>
-<li><a href="Linux/admin/">Linux Administration</a></li>
-<li><a href="PBS/documentation/">PBS scripts</a></li>
-<li><a href="Other/other/">Other Documents</a></li>
+<li><a href="about/">About me</a></li>
+<li>System administration: <ul>
+<li><a href="" title="Linux/admin.md">Linux</a></li>
+<li><a href="" title="MacOSX/hacks.md">Mac OSX</a></li>
+</ul>
+</li>
+<li><a href="" title="PBS/documentation.md">PBS job submission</a></li>
+<li><a href="" title="Beast/installation.md">Phylogenetic trees with Beast</a></li>
+<li>MD simulations with Gromacs: <ul>
+<li><a href="" title="Gromacs/installation.md">Installation</a></li>
+<li><a href="" title="Gromacs/md_setup.md">Simulation setup</a></li>
+</ul>
+</li>
+<li><a href="VMD/tools/">Molecular visualization using VMD</a></li>
+<li><a href="Other/other/">Other stuff</a></li>
 </ul>
               
             </div>
@@ -238,7 +173,7 @@ tools that I most commonly use.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="about/" class="btn btn-neutral float-right" title="About"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
     </div>
@@ -253,7 +188,7 @@ tools that I most commonly use.</p>
 
   Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
-	  
+      
         </div>
       </div>
 
@@ -261,7 +196,7 @@ tools that I most commonly use.</p>
 
   </div>
 
-<div class="rst-versions" role="note" style="cursor: pointer">
+  <div class="rst-versions" role="note" style="cursor: pointer">
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
@@ -270,11 +205,14 @@ tools that I most commonly use.</p>
       
     </span>
 </div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
 
 </body>
 </html>
 
 <!--
-MkDocs version : 0.14.0
-Build Date UTC : 2019-06-25 12:27:36.004780
+MkDocs version : 1.0.4
+Build Date UTC : 2019-06-25 13:58:57
 -->
