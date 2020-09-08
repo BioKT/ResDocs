@@ -1,46 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url>
-     <loc>https://biokt.github.io/ResDocs/</loc>
+     <loc>https://biokt.github.io/ResDocs/index.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/about/</loc>
+     <loc>https://biokt.github.io/ResDocs/Linux/admin.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/Linux/admin/</loc>
+     <loc>https://biokt.github.io/ResDocs/MacOSX/hacks.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/MacOSX/hacks/</loc>
+     <loc>https://biokt.github.io/ResDocs/PBS/documentation.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/PBS/documentation/</loc>
+     <loc>https://biokt.github.io/ResDocs/Beast/installation.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/Beast/installation/</loc>
+     <loc>https://biokt.github.io/ResDocs/Gromacs/installation.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/Gromacs/installation/</loc>
+     <loc>https://biokt.github.io/ResDocs/Gromacs/md_setup.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/Gromacs/md_setup/</loc>
+     <loc>https://biokt.github.io/ResDocs/Gromacs/benchmarks.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/Gromacs/benchmarks/</loc>
+     <loc>https://biokt.github.io/ResDocs/VMD/tools.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://biokt.github.io/ResDocs/VMD/tools/</loc>
-     <lastmod>2020-09-08</lastmod>
-     <changefreq>daily</changefreq>
-    </url><url>
-     <loc>https://biokt.github.io/ResDocs/Other/other/</loc>
+     <loc>https://biokt.github.io/ResDocs/Other/other.html</loc>
      <lastmod>2020-09-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
