@@ -1,10 +1,10 @@
 site_name: Research Toolbox
 site_url: https://biokt.github.io/ResDocs/
 repo_url: https://github.com/BioKT/ResDocs
+use_directory_urls: False 
 theme: readthedocs
 nav:
-    - Home: 'index.md'
-    - About: 'about.md'
+    - 'index.md'
     - Systems: 
         - 'Linux': 'Linux/admin.md'
         - 'Mac OSX': 'MacOSX/hacks.md'
