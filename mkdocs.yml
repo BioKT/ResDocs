@@ -1,16 +1,18 @@
 site_name: Research Toolbox
+site_url: https://biokt.github.io/ResDocs/
+repo_url: https://github.com/BioKT/ResDocs
 theme: readthedocs
 nav:
-    - Home: index.md
-    - About: about.md
+    - Home: 'index.md'
+    - About: 'about.md'
     - Systems: 
         - 'Linux': 'Linux/admin.md'
         - 'Mac OSX': 'MacOSX/hacks.md'
-    - PBS: PBS/documentation.md
-    - Beast: Beast/installation.md
-    - Gromacs: 
-        - 'Installation': 'Gromacs/installation.md'
-        - 'Simulation setup': 'Gromacs/md_setup.md'
-        - 'Benchmarks': 'Gromacs/benchmarks.md'
-    - VMD: VMD/tools.md 
-    - Other: Other/other.md   
+    - PBS: 'PBS/documentation.md'
+    - Beast: 'Beast/installation.md'
+    - Gromacs:
+        - Installation: 'Gromacs/installation.md'
+        - Simulation setup: 'Gromacs/md_setup.md'
+        - Benchmarks: 'Gromacs/benchmarks.md'
+    - VMD: 'VMD/tools.md' 
+    - Other: 'Other/other.md'

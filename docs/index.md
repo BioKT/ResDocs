@@ -9,8 +9,9 @@ tools that I most commonly use.
 	- [Mac OSX]('MacOSX/hacks.md')
 * [PBS job submission]('PBS/documentation.md')
 * [Phylogenetic trees with Beast]('Beast/installation.md')
-* MD simulations with Gromacs: 
+* [Gromacs]('Gromacs/intro.md')
 	- [Installation]('Gromacs/installation.md')
 	- [Simulation setup]('Gromacs/md_setup.md')
+	- [Benchmarks]('Gromacs/benchmarks.md')
 * [Molecular visualization using VMD](VMD/tools.md)
 * [Other stuff](Other/other.md)

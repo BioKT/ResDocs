@@ -2,8 +2,7 @@
 
 ## Hydrogenase 
 This system consists of a protein with 19054 water molecules
-plus ions, summing a total of 83764 atoms, in a 
-9.71602*9.71602*6.87026 nm simulation box. We have run 
+plus ions, summing a total of 83764 atoms. We have run 
 simulations in both the ATLAS and ARINA clusters.
 Below we show PBS scripts for both supercomputers.
 
