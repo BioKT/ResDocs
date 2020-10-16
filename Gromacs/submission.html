@@ -74,9 +74,11 @@
                     </li>
                     <li class="toctree-l1 current"><a class="reference internal current" href="submission.html">Submission scripts</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#atlas-fdr">ATLAS-FDR</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#kalk">KALK</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#atlas-fdr">ATLAS-FDR</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#atlas-edr">ATLAS-EDR</a>
     </li>
@@ -136,29 +138,6 @@
 <p>We are using both the Arina and Atlas clusters for
 running jobs using the Gromacs software package.
 Below we show PBS scripts for both supercomputers.</p>
-<h4 id="atlas-fdr">ATLAS-FDR</h4>
-<pre><code>#!/bin/bash
-#PBS -q qchem
-#PBS -l nodes=1:ppn=16
-#PBS -l mem=1gb
-#PBS -l cput=1000:00:00
-#PBS -N qchem
-
-module load GROMACS/2019.4-foss-2019b
-
-cd $PBS_O_WORKDIR
-
-export NPROCS=`wc -l &lt; $PBS_NODEFILE`
-
-tpr=&quot;dd_ff03w_tip4p2005_ions0.1_posre.tpr&quot;
-
-np=8
-ntomp=2
-
-out=&quot;ntmpi${np}_ntomp${ntomp}&quot;
-gmx mdrun -ntmpi $np -ntomp $ntomp -s $tpr -deffnm $out
-</code></pre>
-
 <h3 id="kalk">KALK</h3>
 <pre><code>#!/bin/bash
 #PBS -l nodes=nd15:ppn=16
@@ -181,16 +160,39 @@ cp -r  $PBS_O_WORKDIR/*tpr $scr/.
 #module load GROMACS/2019.4-fosscuda-2018b
 module load GROMACS/2020-fosscuda-2018b
 
-tpr=dd_ff03w_tip4p2005_ions0.1_posre
-out=$tpr
-/usr/bin/time -p mpirun -np 1 gmx_mpi mdrun -ntomp 16 -quiet -nb gpu -gpu_id 01 -s $tpr -deffnm $out &gt; $PBS_JOBID.out
+tpr=&quot;topol.tpr&quot;
+/usr/bin/time -p mpirun -np 1 gmx_mpi mdrun -ntomp 16 -quiet -nb gpu -gpu_id 01 -s $tpr &gt; $PBS_JOBID.out
 recover
 rm -f  /home/qsub_priv/pbs_paths/PBS.$PBS_JOBID.$USER
 </code></pre>
 
+<h4 id="atlas-fdr">ATLAS-FDR</h4>
+<pre><code>#!/bin/bash
+#PBS -q qchem
+#PBS -l nodes=1:ppn=16
+#PBS -l mem=1gb
+#PBS -l cput=1000:00:00
+#PBS -N qchem
+
+module load GROMACS/2019.4-foss-2019b
+
+cd $PBS_O_WORKDIR
+
+export NPROCS=`wc -l &lt; $PBS_NODEFILE`
+
+tpr=&quot;topol.tpr&quot;
+
+np=8
+ntomp=2
+
+gmx mdrun -ntmpi $np -ntomp $ntomp -s $tpr
+</code></pre>
+
 <h3 id="atlas-edr">ATLAS-EDR</h3>
 <p>We are also using the extension of the Atlas supercomputer, which 
-uses SLURM instead of PBS. A submission script for Gromacs looks as follows.</p>
+uses SLURM instead of PBS. A submission script for Gromacs looks as 
+follows. You can check the documentation for options in Slurm 
+<a href="http://dipc.ehu.es/cc/computing_resources/jobs/batch_systems/slurm">here</a>.</p>
 <pre><code>#!/bin/bash
 #SBATCH --partition=long
 #SBATCH --job-name=hase
@@ -203,15 +205,13 @@ uses SLURM instead of PBS. A submission script for Gromacs looks as follows.</p>
 
 module load GROMACS/2020-fosscuda-2019b
 
-tpr=&quot;dd_ff03w_tip4p2005_ions0.1_nvt.tpr&quot;
+tpr=&quot;topol.tpr&quot;
 
 np=8
 ntomp=1
 ngpu=2
 
-out=&quot;dd_ff03w_tip4p2005_ions0.1_nvt&quot;
-#gmx mdrun -ntmpi $np -ntomp $ntomp -s $tpr -deffnm $out
-mpirun --map-by ppr:4:node -np $np gmx_mpi mdrun -ntomp $ntomp -s $tpr -cpi $out -deffnm $out
+mpirun --map-by ppr:4:node -np $np gmx_mpi mdrun -ntomp $ntomp -s $tpr
 </code></pre>
               
             </div>
