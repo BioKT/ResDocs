@@ -13,6 +13,7 @@ nav:
     - Gromacs:
         - Installation: 'Gromacs/installation.md'
         - Simulation setup: 'Gromacs/md_setup.md'
+        - Submission scripts: 'Gromacs/submission.md'
         - Benchmarks: 'Gromacs/benchmarks.md'
     - VMD: 'VMD/tools.md' 
     - Other: 'Other/other.md'
