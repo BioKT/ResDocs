@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://biokt.github.io/ResDocs/Other/other.html">
+  <link rel="canonical" href="https://biokt.github.io/ResDocs/Gromacs/submission.html">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Other - Research Toolbox</title>
+  <title>Submission scripts - Research Toolbox</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Other";
-    var mkdocs_page_input_path = "Other/other.md";
-    var mkdocs_page_url = "/ResDocs/Other/other.html";
+    var mkdocs_page_name = "Submission scripts";
+    var mkdocs_page_input_path = "Gromacs/submission.md";
+    var mkdocs_page_url = "/ResDocs/Gromacs/submission.html";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -67,24 +67,30 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Gromacs</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
+                    <li class="toctree-l1"><a class="reference internal" href="md_setup.html">Simulation setup</a>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="submission.html">Submission scripts</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#atlas-fdr">ATLAS-FDR</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#kalk">KALK</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#atlas-edr">ATLAS-EDR</a>
+    </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
+                    <li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="other.html">Other</a>
-    <ul class="current">
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
                     </li>
                 </ul>
       </div>
@@ -107,11 +113,15 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Gromacs &raquo;</li>
+        
+      
     
-    <li>Other</li>
+    <li>Submission scripts</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/BioKT/ResDocs/edit/master/docs/Other/other.md"
+        <a href="https://github.com/BioKT/ResDocs/edit/master/docs/Gromacs/submission.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -122,15 +132,87 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="advice-on-writing-scientific-papers">Advice on writing scientific papers</h1>
-<ul>
-<li>
-<p>The Art of Writing Science, by Kevin W. Plaxco (<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/pro.514">Protein Sci., 2010</a>).</p>
-</li>
-<li>
-<p>Whitesides' Group: Writing a Paper, by G. M. Whitesides (<a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/adma.200400767">Adv. Materials, 2004</a>).</p>
-</li>
-</ul>
+                <h1 id="submission-scripts-for-our-local-supercomputers">Submission scripts for our local supercomputers</h1>
+<p>We are using both the Arina and Atlas clusters for
+running jobs using the Gromacs software package.
+Below we show PBS scripts for both supercomputers.</p>
+<h4 id="atlas-fdr">ATLAS-FDR</h4>
+<pre><code>#!/bin/bash
+#PBS -q qchem
+#PBS -l nodes=1:ppn=16
+#PBS -l mem=1gb
+#PBS -l cput=1000:00:00
+#PBS -N qchem
+
+module load GROMACS/2019.4-foss-2019b
+
+cd $PBS_O_WORKDIR
+
+export NPROCS=`wc -l &lt; $PBS_NODEFILE`
+
+tpr=&quot;dd_ff03w_tip4p2005_ions0.1_posre.tpr&quot;
+
+np=8
+ntomp=2
+
+out=&quot;ntmpi${np}_ntomp${ntomp}&quot;
+gmx mdrun -ntmpi $np -ntomp $ntomp -s $tpr -deffnm $out
+</code></pre>
+
+<h3 id="kalk">KALK</h3>
+<pre><code>#!/bin/bash
+#PBS -l nodes=nd15:ppn=16
+#PBS -l walltime=480:00:00
+#PBS -joe
+#PBS -q gpu2
+## Do not change below this line
+. /home/users/etc/send_funcs.sh
+HOST=$(hostname)
+echo Job runing on $HOST
+echo $PBS_O_WORKDIR &gt; /home/qsub_priv/pbs_paths/PBS.$PBS_JOBID.$USER
+chmod 755  /home/qsub_priv/pbs_paths/PBS.$PBS_JOBID.$USER
+cd $PBS_O_WORKDIR
+chooseScr
+cd $scr
+#echo &quot;cp -r $PBS_O_WORKDIR/* $scr/.&quot;
+cp -r  $PBS_O_WORKDIR/*tpr $scr/.
+#source /software/gromacs/bin/GMXRC.bash
+
+#module load GROMACS/2019.4-fosscuda-2018b
+module load GROMACS/2020-fosscuda-2018b
+
+tpr=dd_ff03w_tip4p2005_ions0.1_posre
+out=$tpr
+/usr/bin/time -p mpirun -np 1 gmx_mpi mdrun -ntomp 16 -quiet -nb gpu -gpu_id 01 -s $tpr -deffnm $out &gt; $PBS_JOBID.out
+recover
+rm -f  /home/qsub_priv/pbs_paths/PBS.$PBS_JOBID.$USER
+</code></pre>
+
+<h3 id="atlas-edr">ATLAS-EDR</h3>
+<p>We are also using the extension of the Atlas supercomputer, which 
+uses SLURM instead of PBS. A submission script for Gromacs looks as follows.</p>
+<pre><code>#!/bin/bash
+#SBATCH --partition=long
+#SBATCH --job-name=hase
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=4
+#SBATCH --cpus-per-task=1
+#SBATCH --gres=gpu:p40:1
+#SBATCH --time=1-00:00:00
+#SBATCH --mem=64G
+
+module load GROMACS/2020-fosscuda-2019b
+
+tpr=&quot;dd_ff03w_tip4p2005_ions0.1_nvt.tpr&quot;
+
+np=8
+ntomp=1
+ngpu=2
+
+out=&quot;dd_ff03w_tip4p2005_ions0.1_nvt&quot;
+#gmx mdrun -ntmpi $np -ntomp $ntomp -s $tpr -deffnm $out
+mpirun --map-by ppr:4:node -np $np gmx_mpi mdrun -ntomp $ntomp -s $tpr -cpi $out -deffnm $out
+</code></pre>
               
             </div>
           </div>
@@ -138,8 +220,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="benchmarks.html" class="btn btn-neutral float-right" title="Benchmarks">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../VMD/tools.html" class="btn btn-neutral" title="VMD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="md_setup.html" class="btn btn-neutral" title="Simulation setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -167,8 +251,10 @@
           <a href="https://github.com/BioKT/ResDocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../VMD/tools.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="md_setup.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="benchmarks.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
