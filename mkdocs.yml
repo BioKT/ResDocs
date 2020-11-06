@@ -5,15 +5,16 @@ use_directory_urls: False
 theme: readthedocs
 nav:
     - 'index.md'
-    - Systems: 
-        - 'Linux': 'Linux/admin.md'
-        - 'Mac OSX': 'MacOSX/hacks.md'
-    - PBS: 'PBS/documentation.md'
+    - Getting Started: 'Starting/guide.md'
     - Beast: 'Beast/installation.md'
     - Gromacs:
         - Installation: 'Gromacs/installation.md'
         - Simulation setup: 'Gromacs/md_setup.md'
         - Submission scripts: 'Gromacs/submission.md'
         - Benchmarks: 'Gromacs/benchmarks.md'
-    - VMD: 'VMD/tools.md' 
+    - VMD: 'VMD/tools.md'
+    - PBS: 'PBS/documentation.md'
+    - Systems: 
+        - 'Linux': 'Linux/admin.md'
+        - 'Mac OSX': 'MacOSX/hacks.md'
     - Other: 'Other/other.md'
