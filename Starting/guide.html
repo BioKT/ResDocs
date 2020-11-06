@@ -7,9 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   
-  <link rel="canonical" href="https://biokt.github.io/ResDocs/VMD/tools.html">
+  <link rel="canonical" href="https://biokt.github.io/ResDocs/Starting/guide.html">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>VMD - Research Toolbox</title>
+  <title>Getting Started - Research Toolbox</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,9 +18,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "VMD";
-    var mkdocs_page_input_path = "VMD/tools.md";
-    var mkdocs_page_url = "/ResDocs/VMD/tools.html";
+    var mkdocs_page_name = "Getting Started";
+    var mkdocs_page_input_path = "Starting/guide.md";
+    var mkdocs_page_url = "/ResDocs/Starting/guide.html";
   </script>
   
   <script src="../js/jquery-2.1.1.min.js" defer></script>
@@ -51,8 +51,10 @@
                     <li class="toctree-l1"><a class="reference internal" href="../index.html">Research Toolbox</a>
                     </li>
                 </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="guide.html">Getting Started</a>
+    <ul class="current">
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -70,20 +72,8 @@
                     <li class="toctree-l1"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
                     </li>
                 </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="tools.html">VMD</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#loading-a-molecule">Loading a molecule</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#applying-a-visualization-style">Applying a visualization style</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#changing-colour">Changing colour</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#loading-a-trajectory">Loading a trajectory</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#loops-in-vmd">Loops in VMD</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
                     </li>
                 </ul>
                 <ul>
@@ -122,10 +112,10 @@
     
       
     
-    <li>VMD</li>
+    <li>Getting Started</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/BioKT/ResDocs/edit/master/docs/VMD/tools.md"
+        <a href="https://github.com/BioKT/ResDocs/edit/master/docs/Starting/guide.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -136,51 +126,14 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="vmd-scripting">VMD scripting</h1>
-<p>It is relatively easy to use the command line instead of the GUI in VMD. This is
-particularly useful when one needs to load multiple molecules, or make multiple
-visualizations look the same (e.g. making multiple molecules look like NewCartoon
-but changing their colour).</p>
-<h3 id="loading-a-molecule">Loading a molecule</h3>
-<pre><code>mol new file.pdb
-</code></pre>
-
-<h3 id="applying-a-visualization-style">Applying a visualization style</h3>
-<pre><code>mol modstyle 0 0 NewCartoon
-</code></pre>
-
-<h3 id="changing-colour">Changing colour</h3>
-<pre><code>mol modcolor 0 0 ColorID 2
-</code></pre>
-
-<h3 id="loading-a-trajectory">Loading a trajectory</h3>
-<pre><code>mol addfile traj_comp.xtc
-</code></pre>
-
-<h3 id="loops-in-vmd">Loops in VMD</h3>
-<p>The example below is for changing the colour of five different molecules so that
-each has a different colour.</p>
-<pre><code>for {set x 0} {$x &lt;= 5} {incr x} {
-mol modcolor 0 $x ColorID $x 
-}
-</code></pre>
-
-<h1 id="making-videos-in-vmd">Making videos in VMD</h1>
-<p>VMD has a built in tool called Movie Maker. You must use it to generate a 
-video according to your particular taste. You can find some instructions
-<a href="http://www.ks.uiuc.edu/Research/vmd/plugins/vmdmovie/">here</a>. 
-One possibility is that you save the files for each of the snapshots of the
-simulation, instead of letting VMD produce the movie and remove the files
-for you. If you do not do that, then you can tweak things a bit, in terms
-of using different movie formats or tuning the bitrate. Below is an example
-of the command that you can invoke for generating the video.</p>
-<pre><code>ffmpeg -i filename.%05d.ppm -r 25 -an -b 10000k -bt 10000k moviename.mpg
-</code></pre>
-
-<p>Clearly, you will need the <code>ffmpeg</code> program for doing this, which in a Mac
-you can obtain from MacPorts. Then the <code>%0.5d</code> in the filename just corresponds
-to the different files written by VMD that you want to process (be careful with 
-format).</p>
+                <h1 id="getting-started-guide">Getting started guide</h1>
+<p>There is so much to say about molecular dynamics (MD) simulations
+that it may seem a bit daunting. Below we list a few resources that
+may be useful to step into the world of MD.</p>
+<ul>
+<li>Best Practices for Foundations in Molecular Simulations, Braun et al.
+<strong>Living J. Comp. Mol. Sci.</strong> (2019). https://doi.org/10.33011/livecoms.1.1.5957</li>
+</ul>
               
             </div>
           </div>
@@ -188,10 +141,10 @@ format).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../PBS/documentation.html" class="btn btn-neutral float-right" title="PBS">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Beast/installation.html" class="btn btn-neutral float-right" title="Beast">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Gromacs/benchmarks.html" class="btn btn-neutral" title="Benchmarks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../index.html" class="btn btn-neutral" title="Research Toolbox"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +172,10 @@ format).</p>
           <a href="https://github.com/BioKT/ResDocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../Gromacs/benchmarks.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../PBS/documentation.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Beast/installation.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
