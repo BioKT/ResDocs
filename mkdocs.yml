@@ -4,17 +4,23 @@ repo_url: https://github.com/BioKT/ResDocs
 use_directory_urls: False 
 theme: readthedocs
 nav:
-    - 'index.md'
-    - Getting Started: 'Starting/guide.md'
-    - Beast: 'Beast/installation.md'
+  - Home: 'index.md'
+  - 'Molecular Dynamics':
+    - 'Getting Started': 'Starting/guide.md'
     - Gromacs:
-        - Installation: 'Gromacs/installation.md'
-        - Simulation setup: 'Gromacs/md_setup.md'
-        - Submission scripts: 'Gromacs/submission.md'
-        - Benchmarks: 'Gromacs/benchmarks.md'
-    - VMD: 'VMD/tools.md'
-    - PBS: 'PBS/documentation.md'
-    - Systems: 
-        - 'Linux': 'Linux/admin.md'
-        - 'Mac OSX': 'MacOSX/hacks.md'
-    - Other: 'Other/other.md'
+      - Installation: 'Gromacs/installation.md'
+      - Simulation setup: 'Gromacs/md_setup.md'
+      - Submission scripts: 'Gromacs/submission.md'
+      - Benchmarks: 'Gromacs/benchmarks.md'
+      - PBS scripts: 'PBS/documentation.md'
+    - Amber:
+      - Building molecules: 'Amber/peptide.md'
+    - 'VMD': 'VMD/tools.md'
+  - Phylogenetic trees:
+    - Beast: 'Beast/installation.md'
+  - Systems: 
+      - Linux:
+        - 'Linux administration': 'Linux/admin.md'
+      - Mac OS X:
+        - 'Mac OS X hacks': 'MacOSX/hacks.md'
+  - Other: 'Other/other.md'

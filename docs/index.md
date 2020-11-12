@@ -1,4 +1,4 @@
-# Research Toolbox
+# BioKT Research Toolbox
 This is the documentation website for the BioKT group at the 
 [University of the Basque Country](https://www.ehu.eus) and
 the [Donostia International Physics Center](http://dipc.ehu.es).
