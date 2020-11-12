@@ -48,29 +48,33 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Research Toolbox</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
                     </li>
                 </ul>
-                <ul>
+                <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
                     </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Gromacs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PBS/documentation.html">PBS scripts</a>
+                </li>
+    </ul>
                     </li>
-                </ul>
-                <p class="caption"><span class="caption-text">Gromacs</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
-                    </li>
-                </ul>
-                <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="tools.html">VMD</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#loading-a-molecule">Loading a molecule</a>
@@ -86,15 +90,24 @@
     </ul>
                     </li>
                 </ul>
+                <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../PBS/documentation.html">PBS</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Systems</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Linux/admin.html">Linux</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Linux/admin.html">Linux administration</a>
+                </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../MacOSX/hacks.html">Mac OSX</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -121,6 +134,10 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Molecular Dynamics &raquo;</li>
+        
+      
     
     <li>VMD</li>
     <li class="wy-breadcrumbs-aside">
@@ -144,19 +161,15 @@ but changing their colour).</p>
 <h3 id="loading-a-molecule">Loading a molecule</h3>
 <pre><code>mol new file.pdb
 </code></pre>
-
 <h3 id="applying-a-visualization-style">Applying a visualization style</h3>
 <pre><code>mol modstyle 0 0 NewCartoon
 </code></pre>
-
 <h3 id="changing-colour">Changing colour</h3>
 <pre><code>mol modcolor 0 0 ColorID 2
 </code></pre>
-
 <h3 id="loading-a-trajectory">Loading a trajectory</h3>
 <pre><code>mol addfile traj_comp.xtc
 </code></pre>
-
 <h3 id="loops-in-vmd">Loops in VMD</h3>
 <p>The example below is for changing the colour of five different molecules so that
 each has a different colour.</p>
@@ -164,7 +177,6 @@ each has a different colour.</p>
 mol modcolor 0 $x ColorID $x 
 }
 </code></pre>
-
 <h1 id="making-videos-in-vmd">Making videos in VMD</h1>
 <p>VMD has a built in tool called Movie Maker. You must use it to generate a 
 video according to your particular taste. You can find some instructions
@@ -176,7 +188,6 @@ of using different movie formats or tuning the bitrate. Below is an example
 of the command that you can invoke for generating the video.</p>
 <pre><code>ffmpeg -i filename.%05d.ppm -r 25 -an -b 10000k -bt 10000k moviename.mpg
 </code></pre>
-
 <p>Clearly, you will need the <code>ffmpeg</code> program for doing this, which in a Mac
 you can obtain from MacPorts. Then the <code>%0.5d</code> in the filename just corresponds
 to the different files written by VMD that you want to process (be careful with 
@@ -188,10 +199,10 @@ format).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../PBS/documentation.html" class="btn btn-neutral float-right" title="PBS">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Beast/installation.html" class="btn btn-neutral float-right" title="Beast">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Gromacs/benchmarks.html" class="btn btn-neutral" title="Benchmarks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Amber/peptide.html" class="btn btn-neutral" title="Building molecules"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -219,10 +230,10 @@ format).</p>
           <a href="https://github.com/BioKT/ResDocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../Gromacs/benchmarks.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Amber/peptide.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../PBS/documentation.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Beast/installation.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

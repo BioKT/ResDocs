@@ -48,47 +48,60 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Research Toolbox</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
                     </li>
                 </ul>
-                <ul>
+                <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
                     </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Gromacs</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="installation.html">Installation</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#building-gromacs-4-using-make">Building Gromacs 4.* using MAKE</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-gromacs-5-using-cmake">Building Gromacs 5.* using CMAKE</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="md_setup.html">Simulation setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PBS/documentation.html">PBS scripts</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
+                    </li>
                 </ul>
+                <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">Gromacs</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="installation.html">Installation</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#building-gromacs-4-using-make">Building Gromacs 4.* using MAKE</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#building-gromacs-5-using-cmake">Building Gromacs 5.* using CMAKE</a>
-    </li>
-    </ul>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="md_setup.html">Simulation setup</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="submission.html">Submission scripts</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="benchmarks.html">Benchmarks</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../PBS/documentation.html">PBS</a>
-                    </li>
-                </ul>
                 <p class="caption"><span class="caption-text">Systems</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Linux/admin.html">Linux</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Linux/admin.html">Linux administration</a>
+                </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../MacOSX/hacks.html">Mac OSX</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -119,6 +132,10 @@
           <li>Gromacs &raquo;</li>
         
       
+        
+          <li>Molecular Dynamics &raquo;</li>
+        
+      
     
     <li>Installation</li>
     <li class="wy-breadcrumbs-aside">
@@ -146,14 +163,12 @@ on your computer. Then you can simply install as</p>
 make
 sudo make install
 </code></pre>
-
 <p>Then you can download the source code and proceed to install Gromacs in the usual 
 way</p>
 <pre><code>./configure --prefix=/usr/local/gromacs/4.0.5 --enable-threads --enable-float
 make
 sudo make install
 </code></pre>
-
 <p>On occasion I have found this install to give Segmentation Faults or not work. 
 In order to make it work it needed a little tweaking, making explicit the compiler
 and including additional flags, all of which may make a difference</p>
@@ -161,7 +176,6 @@ and including additional flags, all of which may make a difference</p>
 make
 sudo make install
 </code></pre>
-
 <p>I still need to work out how to make this run in parallel on a Mac.</p>
 <h2 id="building-gromacs-5-using-cmake">Building Gromacs 5.* using CMAKE</h2>
 <p>(These instructions were borrowed from 
@@ -174,7 +188,6 @@ website and unpack the software.</p>
 cd gromacs-5.0.4
 mkdir build
 </code></pre>
-
 <p>Then we start with the interestign stuff. In the last few versions Gromacs
 has made a transition towards using cmake instead of make. Cmake is readily 
 available for Mac OS X, so no problem with this. Then you must run the following
@@ -183,18 +196,15 @@ in the command line:</p>
 make
 sudo make install
 </code></pre>
-
 <p>This will install the program in <code>/usr/local/gromacs/5.0.4</code>, and editing your <code>.bashrc</code>
 file you will be able to choose the version of Gromacs that is running.</p>
 <p>Adding MPI support on a Mac is trickier. This appears mainly to be because the gcc 
 compilers from MacPorts  do not appear to support OpenMPI. Here is a workaround </p>
 <pre><code>sudo port install openmpi
 </code></pre>
-
 <p>Now we need a compiler that supports OpenMPI</p>
 <pre><code>sudo port install openmpi-devel-gcc49
 </code></pre>
-
 <p>Finally, we can follow the steps above but now we need a more complex cmake instruction</p>
 <pre><code>cmake .. -DGMX_BUILD_OWN_FFTW=ON
     -DGMX_BUILD_MDRUN_ONLY=on
@@ -205,7 +215,6 @@ compilers from MacPorts  do not appear to support OpenMPI. Here is a workaround 
 make
 sudo make install-mdrun
 </code></pre>
-
 <p>This is only going to build an MPI version of <code>mdrun</code>, as the other Gromacs programs do not
 run in parallel. We have to tell cmake what all the new fancy compilers are called and, 
 unfortunately, these don’t support AVX SIMD instructions so we have to fall back to SSE4.1. 
@@ -214,12 +223,10 @@ Experience suggests this doesn’t impact performance as much as you might think
 found this method not to work well. Instead I did something apparently simpler which did work.</p>
 <pre><code>CC=mpicc CXX=mpiCC cmake .. -DGMX_BUILD_OWN_FFTW=ON -DCMAKE_INSTALL_PREFIX=/usr/local/gromacs/4.6.7 -DGMX_MPI=ON
 </code></pre>
-
 <p>And then one would continue with the <code>make</code> and <code>make install-mdrun</code> steps as before. This allowed 
 for running jobs using the <code>mpirun</code> command as</p>
 <pre><code>mpirun -np 12 mdrun_mpi -v $OPTIONS
 </code></pre>
-
 <h1 id="gromacs-installation-in-linux-ubuntu-server">Gromacs installation in Linux Ubuntu Server</h1>
 <p>First of all we need to have everything in place for the installation. That is easily done by 
 using Ubuntu's package manager. </p>
@@ -228,18 +235,15 @@ sudo apt-get install libgsl0ldbl
 sudo apt-get install openmpi-bin openmpi-common openssh-client openssh-server libopenmpi1.6 libopenmpi-dbg libopenmpi-dev
 sudo apt-get install cmake
 </code></pre>
-
 <p>Then we dowload the relevant Gromacs version</p>
 <pre><code>wget ftp://ftp.gromacs.org/pub/gromacs/gromacs-5.1.2.tar.gz
 </code></pre>
-
 <p>We decompress the file and create the build directory for running the installation</p>
 <pre><code>tar -xvf gromacs-5.1.2.tar.gz
 cd gromacs-5.1.2/
 mkdir build-cmake
 cd build-cmake/
 </code></pre>
-
 <p>Finally we use the appropiate flags for building the MPI version of the mdrun program and the non-MPI 
 version of everything else</p>
 <pre><code>sudo cmake .. -DGMX_GPU=ON -DGMX_BUILD_MDRUN_ONLY=ON -DGMX_MPI=ON -DCMAKE_INSTALL_PREFIX=/opt/gromacs/5.1.2
@@ -258,7 +262,7 @@ sudo make install
         <a href="md_setup.html" class="btn btn-neutral float-right" title="Simulation setup">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../Beast/installation.html" class="btn btn-neutral" title="Beast"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Starting/guide.html" class="btn btn-neutral" title="Getting Started"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -286,7 +290,7 @@ sudo make install
           <a href="https://github.com/BioKT/ResDocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../Beast/installation.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Starting/guide.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="md_setup.html" style="color: #fcfcfc">Next &raquo;</a></span>

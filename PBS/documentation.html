@@ -9,7 +9,7 @@
   
   <link rel="canonical" href="https://biokt.github.io/ResDocs/PBS/documentation.html">
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>PBS - Research Toolbox</title>
+  <title>PBS scripts - Research Toolbox</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "PBS";
+    var mkdocs_page_name = "PBS scripts";
     var mkdocs_page_input_path = "PBS/documentation.md";
     var mkdocs_page_url = "/ResDocs/PBS/documentation.html";
   </script>
@@ -48,43 +48,56 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Research Toolbox</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
                     </li>
                 </ul>
-                <ul>
+                <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+                <ul class="current">
                     <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
                     </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Gromacs</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="documentation.html">PBS scripts</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
+                    </li>
                 </ul>
+                <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
                     </li>
                 </ul>
-                <p class="caption"><span class="caption-text">Gromacs</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
-                    </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
-                    </li>
-                </ul>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="documentation.html">PBS</a>
-    <ul class="current">
-    </ul>
-                    </li>
-                </ul>
                 <p class="caption"><span class="caption-text">Systems</span></p>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../Linux/admin.html">Linux</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Linux/admin.html">Linux administration</a>
+                </li>
+    </ul>
                     </li>
-                    <li class="toctree-l1"><a class="reference internal" href="../MacOSX/hacks.html">Mac OSX</a>
+                    <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
                     </li>
                 </ul>
                 <ul>
@@ -111,8 +124,16 @@
     <li><a href="..">Docs</a> &raquo;</li>
     
       
+        
+          <li>Gromacs &raquo;</li>
+        
+      
+        
+          <li>Molecular Dynamics &raquo;</li>
+        
+      
     
-    <li>PBS</li>
+    <li>PBS scripts</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/BioKT/ResDocs/edit/master/docs/PBS/documentation.md"
@@ -137,11 +158,9 @@ case was 14.04 LTS. </p>
 that the first line in the <code>/etc/hosts</code> file reads as follows</p>
 <pre><code>127.0.0.1   localhost
 </code></pre>
-
 <p>Next comes the installation of some packages, which we do using Ubuntu`s package manager.</p>
 <pre><code>apt-get install torque-server torque-client torque-mom torque-pam
 </code></pre>
-
 <p>After this step we simply stop these services since, apparently, the initial torque
  configuration does not really work as one would hope. In order to achieve this we simply
 type the following in the terminal</p>
@@ -149,17 +168,14 @@ type the following in the terminal</p>
 /etc/init.d/torque-scheduler stop
 /etc/init.d/torque-server stop
 </code></pre>
-
 <p>We then can create a new setup for torque using the following</p>
 <pre><code>pbs_server -t create
 </code></pre>
-
 <p>When prompted about whether we want to overwrite the existing database we will reply yes 
 (<code>[y]</code>). Next the just-started server instance is killed using the following command for
 further configuration</p>
 <pre><code>killall pbs_server
 </code></pre>
-
 <p>Next we will set up the server process. In my case the server is simply called <code>localhost</code>
 and I experienced some problems when trying to use a different server domain. </p>
 <pre><code>echo localhost &gt; /etc/torque/server_name
@@ -167,22 +183,18 @@ echo localhost &gt; /var/spool/torque/server_priv/acl_svr/acl_hosts
 echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/operators
 echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/managers
 </code></pre>
-
 <p>The following step is to simply add the compute nodes. Since here we are using the 
 "head node" as "compute node" then we just need to type the following</p>
 <pre><code>echo &quot;localhost np=56&quot; &gt; /var/spool/torque/server_priv/nodes
 </code></pre>
-
 <p>Then we start the MOM process that handles the compute node</p>
 <pre><code>echo localhost &gt; /var/spool/torque/mom_priv/config
 </code></pre>
-
 <p>After all of these one has to restart the processes again</p>
 <pre><code>/etc/init.d/torque-server start
 /etc/init.d/torque-scheduler start
 /etc/init.d/torque-mom start
 </code></pre>
-
 <p>Finally we need to restart the scheduler, create the default queue and
 configure thee server to allow submissions from itself</p>
 <pre><code>qmgr -c &quot;set server scheduling = true&quot;
@@ -200,22 +212,18 @@ qmgr -c &quot;set server default_queue = batch&quot;
 qmgr -c &quot;set server submit_hosts = localhost&quot;
 qmgr -c &quot;set server allow_node_submit = true&quot;
 </code></pre>
-
 <p>Finally you can test whether everything is working right for you using the following command</p>
 <pre><code>qsub -I
 </code></pre>
-
 <p>An additional test script that can be done is to run this simples PBS script <code>test.sh</code></p>
 <pre><code>#!/bin/bash
 cd $PBS_O_WORKDIR
 #direct the output to cluster_nodes
 cat $PBS_NODEFILE &gt; ./cluster_nodes
 </code></pre>
-
 <p>This should run by simply writing the following command on your terminal </p>
 <pre><code>qsub test.sh
 </code></pre>
-
 <h1 id="example-pbs-script">Example PBS script</h1>
 <p>This is just an example PBS script for submitting jobs in the 
 <a href="https://www.archer.ac.uk">Archer</a>
@@ -258,10 +266,10 @@ aprun -n 24 mdrun_mpi $options
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../Linux/admin.html" class="btn btn-neutral float-right" title="Linux">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../Amber/peptide.html" class="btn btn-neutral float-right" title="Building molecules">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../VMD/tools.html" class="btn btn-neutral" title="VMD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Gromacs/benchmarks.html" class="btn btn-neutral" title="Benchmarks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -289,10 +297,10 @@ aprun -n 24 mdrun_mpi $options
           <a href="https://github.com/BioKT/ResDocs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../VMD/tools.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../Gromacs/benchmarks.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../Linux/admin.html" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../Amber/peptide.html" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
