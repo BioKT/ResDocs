@@ -167,7 +167,6 @@ Welcome to LEaP!
 <p>This will leave a prompt for you to type a series
 of commands. Next we define the sequence of the peptide</p>
 <pre><code>&gt; source leaprc.protein.ff14SBonlysc
-&gt; ala5 = sequence {ACE ALA ALA ALA ALA ALA NHE}
 
 ----- Source: /Users/.../anaconda3/dat/leap/cmd/leaprc.protein.ff14SBonlysc
 ----- Source of /Users/.../anaconda3/dat/leap/cmd/leaprc.protein.ff14SBonlysc done
@@ -186,6 +185,10 @@ ff99SB backbone parameters (Hornak &amp; Simmerling) with ff14SB atom types
 Loading library: /Users/.../anaconda3/dat/leap/lib/amino12.lib
 Loading library: /Users/.../anaconda3/dat/leap/lib/aminoct12.lib
 Loading library: /Users/.../anaconda3/dat/leap/lib/aminont12.lib
+</code></pre>
+<p>Then we specify the sequence and whether we want to define a helical conformation.</p>
+<pre><code>&gt; ala5 = sequence {ACE ALA ALA ALA ALA ALA NHE}
+&gt; impose ala5 { 1 2 3 4 5 } {{ &quot;N&quot; &quot;CA&quot; &quot;C&quot; &quot;N&quot; -40} {&quot;C&quot; &quot;N&quot; &quot;CA&quot; &quot;C&quot; -60}}
 </code></pre>
 <p>Finally, we can save the structure to a PDB file</p>
 <pre><code>&gt; savepdb ala5 ala5.pdb
