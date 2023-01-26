@@ -140,8 +140,8 @@ The RESP charge fitting is performed and the mol2 files for the metal site resid
 MCPB.py -i 1ze9.in -s 4
 ```
 
-The tleap input file is generated ($\textit{1ze9}$ _ $\textit{tleap.in}$) and a new PDB file is created,
-where the residues coordinating the metal ion are renamed ($\textit{1ze9}$ _ $\textit{mcpbpy.pdb}$).
+The tleap input file is generated ( $\textit{1ze9}$ _ $\textit{tleap.in}$ ) and a new PDB file is created,
+where the residues coordinating the metal ion are renamed ( $\textit{1ze9}$ _ $\textit{mcpbpy.pdb}$ ).
 In the new PDB file, ASP residues are to be renamed as ASH for tleap to process them. Occasionally, 
 an incorrect bond could be created in the tleap input file. Bonds are defined as:
 
@@ -159,8 +159,8 @@ Once the files are corrected, tleap is used to generate the topology and coordin
 tleap -s -f 1ze9_tleap.in > 1ze9_tleap.out
 ```
 
-Tleap should have created a topology ($\textit{1ze9}$ _ $\textit{dry.prmtop}$) and
-a coordinate file ($\textit{1ze9}$ _ $\textit{dry.inpcrd}$).
+Tleap should have created a topology ( $\textit{1ze9}$ _ $\textit{dry.prmtop}$ ) and
+a coordinate file ( $\textit{1ze9}$ _ $\textit{dry.inpcrd}$ ).
 
 Lastly, parameters are converted from Amber to Gromacs synthax using acpype:
 
