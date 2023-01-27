@@ -15,7 +15,11 @@ nav:
       - PBS scripts: 'PBS/documentation.md'
     - Amber:
       - Building molecules: 'Amber/peptide.md'
-    - 'VMD': 'VMD/tools.md'
+    - 'VMD': 'VMD/tools.md' 
+  - Parametrization:
+    - MCPB.py:
+      - Installation: 'MCPB.py/installation.md'
+      
   - Phylogenetic trees:
     - Beast: 'Beast/installation.md'
   - Systems: 
