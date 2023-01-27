@@ -117,5 +117,5 @@ working directory.
 Lastly, when running `gmx pdb2gmx`, the following line should be used:
 
 ```
-gmx pdb2gmx -f *pdb -ignh -o *out -p *out -merge all
+gmx pdb2gmx -f *pdb -ignh -o ${out} -p ${out} -merge all
 ```
