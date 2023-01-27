@@ -47,7 +47,7 @@ must be merged:
 ```
 cat 1ze9_chimera.pdb ZN.pdb > 1ze9_H.pdb
 ```
-One must be cautious when merging PDB files, as the $\textit{END}$ line present in
+One must be cautious when merging PDB files, as the $\textbf{END}$ line present in
 the protein PDB file will be written before the PDB of the metal. Therefore, removing
 the line is indispensable.
 
@@ -73,12 +73,12 @@ force_field ff99SB
 software_version g09
 ```
 
-The $\textit{cut}$ _ $\textit{off}$ value specifies that a bond exists between the metal ion and 
+The `cut_off` value specifies that a bond exists between the metal ion and 
 surrounding atoms, therefore, it must be double checked to ensure the cutoff value is selected 
-correctly. To double check, the $\textit{1ze9}$ _ $\textit{small}$ _ $\textit{opt.com}$ file should 
+correctly. To double check, the `1ze9_small_opt.com` file should 
 be visualized to ensure that the desired metal-protein bonds are present.
 The ion_ids value specifies the atom number of the ion present in the
-specified PDB file. The $\textit{large}$ _ $\textit{opt}$ variable is used to indicate whether to do 
+specified PDB file. The `large_opt` variable is used to indicate whether to do 
 a geometry optimization in the Gaussian input file. With the value 1, we indicate that an 
 optimization of the hydrogen positions will be done. More variables can be indicated
 in the input file, such as different force fields, different softwares to run QM calculations
@@ -121,7 +121,7 @@ Next, the Seminario method will be used to generate force field parameters:
 MCPB.py -i 1ze9.in -s 2
 ```
 
-This line will create the $\textit{1ze9}$ _ $\textit{mcpbpy.frcmod}$ file which will be used
+This line will create the `1ze9_mcpbpy.frcmod` file which will be used
 in the leap modelling.
 
 ```
@@ -140,8 +140,8 @@ The RESP charge fitting is performed and the mol2 files for the metal site resid
 MCPB.py -i 1ze9.in -s 4
 ```
 
-The tleap input file is generated ( $\textit{1ze9}$ _ $\textit{tleap.in}$ ) and a new PDB file is created,
-where the residues coordinating the metal ion are renamed ( $\textit{1ze9}$ _ $\textit{mcpbpy.pdb}$ ).
+The tleap input file is generated (`1ze9_tleap.in`) and a new PDB file is created,
+where the residues coordinating the metal ion are renamed (`1ze9_mcpbpy.pdb`).
 In the new PDB file, ASP residues are to be renamed as ASH for tleap to process them. Occasionally, 
 an incorrect bond could be created in the tleap input file. Bonds are defined as:
 
@@ -159,8 +159,8 @@ Once the files are corrected, tleap is used to generate the topology and coordin
 tleap -s -f 1ze9_tleap.in > 1ze9_tleap.out
 ```
 
-Tleap should have created a topology ( $\textit{1ze9}$ _ $\textit{dry.prmtop}$ ) and
-a coordinate file ( $\textit{1ze9}$ _ $\textit{dry.inpcrd}$ ).
+Tleap should have created a topology (`1ze9_dry.prmtop`) and
+a coordinate file (`1ze9_dry.inpcrd`).
 
 Lastly, parameters are converted from Amber to Gromacs synthax using acpype:
 
@@ -168,5 +168,5 @@ Lastly, parameters are converted from Amber to Gromacs synthax using acpype:
 acpype -p 1ze9_dry.prmtop -x 1ze9_dry.inpcrd -o gmx -n -1 -l
 ```
 
-A new directory called $\textit{1ze9}$ _ $\textit{dry.amb2gmx}$ is created where all Gromacs
+A new directory called `1ze9_dry.amb2gmx` is created where all Gromacs
 parameters are stored.
