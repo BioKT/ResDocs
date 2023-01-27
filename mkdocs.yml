@@ -16,7 +16,7 @@ nav:
     - Amber:
       - Building molecules: 'Amber/peptide.md'
     - 'VMD': 'VMD/tools.md' 
-  - Parametrization:
+  - 'Parametrization':
     - MCPB.py:
       - Installation: 'MCPB.py/installation.md'
       
