@@ -7,7 +7,7 @@ nav:
   - Home: 'index.md'
   - 'Molecular Dynamics':
     - 'Getting Started': 'Starting/guide.md'
-    - Groacs:
+    - Gromacs:
       - Installation: 'Gromacs/installation.md'
       - Simulation setup: 'Gromacs/md_setup.md'
       - Submission scripts: 'Gromacs/submission.md'
