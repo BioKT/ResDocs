@@ -29,3 +29,6 @@ nav:
       - Mac OS X:
         - 'Mac OS X hacks': 'MacOSX/hacks.md'
   - Other: 'Other/other.md'
+  - How to contribute?:
+    - MkDocs:
+      - Installation: 'MkDocs/installation.md'
