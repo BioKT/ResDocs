@@ -41,21 +41,19 @@ A new atomtype should be created for the atom(s) bonded to the metal. For exampl
 this being a HID residue and knowing that Zn(II) is coordinated via the NE2 atom, the new residue with 
 the new atomtype should be added as:
 
-        ``` [ HID ]
+        [ HID ]
         [ atoms ]
           ...
           NE2    NB    -0.57270
           ... 
-        ```
 
     would be converted to
 
-        ``` [ HDB ]
+        [ HDB ]
         [ atoms ]
           ...
           NE2   NB3    -0.22712
           ... 
-        ```
 
     The metal ion should be added following the same steps.
 
@@ -75,24 +73,20 @@ and `dihedrals` in which NE2 participates should also be redefined for the new a
 5. In the `residuetypes.dat` file a new line for each new residue should be added, specifying they are `protein`. The same
 should be done for the metal ion:
 
- ```
- ...
- HID    Protein
- HDB    Protein
- .
- .
- .
- ZNB    Protein
- ...
- ```
+        ...
+        HID    Protein
+        HDB    Protein
+        .
+        .
+        .
+        ZNB    Protein
+        ...
 
 6.    In the `specbond.dat` file a line specifying the bonds between protein and metal ion should be added:
 
- ```
- ...
- HDB    NE2    1    ZNB    ZNB    4    0.2    HDB    ZNB
- ...
- ```
+        ...
+        HDB    NE2    1    ZNB    ZNB    4    0.2    HDB    ZNB
+        ...
 
 First column specifies the first residue taking part in the bond, the second colums specifies the first atom that forms the bonds,
 the third column specifies que ammount of special bonds this atom forms. The Fourth, fifth and sixth columns specify the same
@@ -106,15 +100,15 @@ Once the editing is finished, you must indicate which is the force field you wan
 
 1.    Define the `$PATH` in which the force field directory is stored and execute Gromacs from that directory:
 
- ```
- gmx=/usr/local/gromacs/gromacs-1ZE9/bin/gmx
- ```
+    ```
+    gmx=/usr/local/gromacs/gromacs-1ZE9/bin/gmx
+    ```
 
 2.    Store force field in the working directory, then when running `gmx pdb2gmx` you should select the force field present in the
 working directory.
 
-Lastly, when running `gmx pdb2gmx`, the following line should be used:
+    Lastly, when running `gmx pdb2gmx`, the following line should be used:
 
-```
-gmx pdb2gmx -f *pdb -ignh -o ${out} -p ${out} -merge all
-```
+    ```
+    gmx pdb2gmx -f *pdb -ignh -o ${out} -p ${out} -merge all
+    ```
