@@ -3,7 +3,7 @@
 These brief instructions are a general guide to how to parametrize a simple 
 metalloprotein system. More detailed tutorials for a variety of systems 
 can be found [elsewhere](http://ambermd.org/tutorials/advanced/tutorial20/mcpbpy.htm).
-In this case we are simulating a monomeric Amyloid &beta - Zn(II) system with a 1:1 stoichiometry
+In this case we are simulating a monomeric Amyloid &beta; - Zn(II) system with a 1:1 stoichiometry
 using the AmberTools21 software version, but things should not change too much for other recent 
 versions of the software. The parameters will be obtained for the Amber99SB*-ILDN force field.
 You must have a working version installed in your machine.
