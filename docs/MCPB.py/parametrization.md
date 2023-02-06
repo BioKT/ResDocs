@@ -33,8 +33,8 @@ where, the charge must be specified with the -c flag.
 Then, the file containing the protein must be processed. Both the ACE and NH2 residues
 must be removed. Once the file is processed, protons must be added using Chimera.
 It is important to know the protonation state of each histidine (if present). In this case,
-both His6 and His14 are protonated in the $\varepsilon$ N (HIE) and His13 is protonated in 
-the $\delta$ N (HID). To protonate the protein:
+both His6 and His14 are protonated in the &epsilon; N (HIE) and His13 is protonated in 
+the &delta; N (HID). To protonate the protein:
 
 - Open Chimera and load PDB file
 - Tools > Structure Editing > AddH
@@ -47,7 +47,7 @@ must be merged:
 ```
 cat 1ze9_chimera.pdb ZN.pdb > 1ze9_H.pdb
 ```
-One must be cautious when merging PDB files, as the $\textbf{END}$ line present in
+One must be cautious when merging PDB files, as the **END** line present in
 the protein PDB file will be written before the PDB of the metal. Therefore, removing
 the line is indispensable.
 
