@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biokt.github.io/ResDocs/Gromacs/md_setup.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Simulation setup - Research Toolbox</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Simulation setup";
+        var mkdocs_page_input_path = "Gromacs/md_setup.md";
+        var mkdocs_page_url = "/ResDocs/Gromacs/md_setup.html";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Research Toolbox
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Gromacs</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="md_setup.html">Simulation setup</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#get-the-files">Get the files</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#generate-the-topology">Generate the topology</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#editing-the-box-and-solvation">Editing the box and solvation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#energy-minimization">Energy minimization</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#md-in-the-canonical-ensemble-with-position-restraints">MD in the canonical ensemble with position restraints</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#md-in-the-isothermal-isobaric-ensemble">MD in the isothermal-isobaric ensemble</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#production-run">Production run</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PBS/documentation.html">PBS scripts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Parametrization</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MCPB.py</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/parametrization.html">Parametrization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/force-field-editing.html">Editing force fields</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Linux/admin.html">Linux administration</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Markdown/syntax.html">Syntax</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Research Toolbox</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Molecular Dynamics &raquo;</li>
+          <li>Gromacs &raquo;</li>
+      <li>Simulation setup</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BioKT/ResDocs/edit/master/docs/Gromacs/md_setup.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="running-a-simulation-in-gromacs">Running a simulation in Gromacs</h1>
+<p>These brief instructions are a general guide to how to run a simple MD simulation using 
+Gromacs. More detailed tutorials for a variety of systems can be found 
+<a href="http://www.mdtutorials.com/gmx/index.html">elsewhere</a>.
+In this case we are simulating the alanine dipeptide using Gromacs 2018 but 
+things should not change too much for other recent versions of the software.
+You must have a working version installed in your machine. </p>
+<h3 id="get-the-files">Get the files</h3>
+<p>First of all, you will have to 
+download the compressed files in
+<a href="https://drive.google.com/file/d/1V6fZSjJbAAqDeQY_J5BHu0GQuj6eMtNx/view?usp=sharing">alaTB_files.tar.gz</a>
+to your computer and extract them typing </p>
+<pre><code>tar -xvf ala_TB_files.tar.gz
+</code></pre>
+<p>in your terminal. When you do this, you should be able to find a file called <code>alaTB.gro</code> together with
+ a number of <code>mdp</code> files that we will later use.</p>
+<h3 id="generate-the-topology">Generate the topology</h3>
+<p>The next step is generating a topology file from the configuration file <code>alaTB.gro</code>.
+We will do this using the <code>pdb2gmx</code> program. Before we do this we will generate variables in
+bash with informative names which will be useful for sensible file name structure.
+This is what we will run in our terminal</p>
+<pre><code>proot=&quot;alaTB&quot;
+ff=&quot;ff03&quot;
+wat=&quot;tip3p&quot;
+
+out=&quot;${proot}_${ff}_${wat}&quot;
+top=&quot;${proot}_${ff}_${wat}&quot;
+gmx pdb2gmx -f $proot -o $out -p $out &lt;&lt;EOF
+1
+1
+EOF
+</code></pre>
+<p>Using <code>1</code> and <code>1</code> as options after the <code>EOF</code> we are choosing specific options for 
+our force field and water model
+(Amber03 and TIP3P respectively). These will suffice in this illustrative example but it 
+would be advisable to do some research on your system for an educated choice of force 
+field and water model combination.</p>
+<h3 id="editing-the-box-and-solvation">Editing the box and solvation</h3>
+<p>Next we will change the size of our simulation box and we will fill it with water molecules.
+For this we will use two additional Gromacs programs: </p>
+<pre><code>inp=$out
+out=&quot;${proot}_${ff}_${wat}_edit&quot;
+gmx editconf -f $inp -o $out -c -d 1 -bt cubic
+
+inp=$out
+out=&quot;${proot}_${ff}_${wat}_solv&quot;
+gmx solvate -p $top -cp $inp -o $out
+
+</code></pre>
+<p>The first command edits the box so that the molecule is centered (<code>-c</code>) in the cubic (<code>-bt cubic</code>)
+simulation box and it has 1 nm between molecule and box sides (<code>-d 1</code>). The second command
+simply solvates the molecule filling the box with the water model geometry of choice.</p>
+<h3 id="energy-minimization">Energy minimization</h3>
+<p>onsidering that we are starting from a peptide conformation and a fixed water box configuration
+ that are not particularly meaningful, we will first energy minimize the system using steepest 
+descent.</p>
+<pre><code>mdp=&quot;mini.mdp&quot;
+inp=&quot;${proot}_${ff}_${wat}_solv&quot;
+out=&quot;${proot}_${ff}_${wat}_mini&quot;
+gmx grompp -p $top -c $inp -f $mdp -o $out
+
+inp=$out
+out=$inp
+gmx mdrun -v -s $inp -deffnm $out
+</code></pre>
+<p>As we will do many times later, we first use the Gromacs preprocessor (<code>grompp</code>) and then run the
+calculation (<code>mdrun</code>). Since we are using the verbose (<code>-v</code>) option you will find that this produces
+a lot of output, corresponding to the gradual decrease in the energy of the system.</p>
+<h3 id="md-in-the-canonical-ensemble-with-position-restraints">MD in the canonical ensemble with position restraints</h3>
+<p>We then equilibrate the water molecules while keeping the peptide
+mostly fixed using position restraints on its atoms. This is not too
+important in the context of a small peptide like the one we are considering,
+but can be critical for larger systems.</p>
+<pre><code>mdp=&quot;nvt_posre.mdp&quot;
+inp=$out
+out=&quot;${proot}_${ff}_${wat}_nvt_posre&quot;
+gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out
+
+inp=$out
+out=$inp
+gmx mdrun -v -s $inp -deffnm $out
+</code></pre>
+<h3 id="md-in-the-isothermal-isobaric-ensemble">MD in the isothermal-isobaric ensemble</h3>
+<p>The next step is running MD and fixing the pressure to the value
+of interest (typically 1 bar) with the help of a barostat. 
+Most of the remaining parameters stay the same as were in the 
+NVT simulation.</p>
+<pre><code>mdp=&quot;npt.mdp&quot;
+inp=$out
+out=&quot;${proot}_${ff}_${wat}_npt&quot;
+gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out -t ${inp}.cpt
+
+inp=$out
+out=$inp
+gmx mdrun -v -s $inp -deffnm $out
+</code></pre>
+<h3 id="production-run">Production run</h3>
+<p>Finally we run a production run, again in the canonical ensemble, 
+but now removing restraints on the peptide so that we can adequately
+sample conformational space.</p>
+<pre><code>mdp=&quot;sd_nvt.mdp&quot;
+inp=$out
+out=&quot;${proot}_${ff}_${wat}_nvt&quot;
+gmx grompp -f $mdp -c $inp -p $top -r $inp -o $out -t ${inp}.cpt
+
+inp=$out
+out=$inp
+gmx mdrun -v -s $inp -deffnm $out
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="submission.html" class="btn btn-neutral float-right" title="Submission scripts">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BioKT/ResDocs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="installation.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="submission.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

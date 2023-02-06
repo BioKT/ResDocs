@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biokt.github.io/ResDocs/PBS/documentation.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>PBS scripts - Research Toolbox</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "PBS scripts";
+        var mkdocs_page_input_path = "PBS/documentation.md";
+        var mkdocs_page_url = "/ResDocs/PBS/documentation.html";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Research Toolbox
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Gromacs</a>
+    <ul class="current">
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2 current"><a class="reference internal current" href="documentation.html">PBS scripts</a>
+    <ul class="current">
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Parametrization</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MCPB.py</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/parametrization.html">Parametrization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/force-field-editing.html">Editing force fields</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Linux/admin.html">Linux administration</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Markdown/syntax.html">Syntax</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Research Toolbox</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Molecular Dynamics &raquo;</li>
+          <li>Gromacs &raquo;</li>
+      <li>PBS scripts</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BioKT/ResDocs/edit/master/docs/PBS/documentation.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="installing-torque">Installing Torque</h1>
+<p>Bellow follow instructions on how to install <a href="http://www.adaptivecomputing.com/products/open-source/torque/">Torque</a>
+in a multiprocessor Ubuntu Linux server. In this case the same machine is used as server, 
+scheduler, submission node and compute node. These notes have been borrowed from 
+<a href="https://jabriffa.wordpress.com/2015/02/11/installing-torquepbs-job-scheduler-on-ubuntu-14-04-lts/">this blog post</a> 
+(thanks!) and are kept here for future records only. The version of Ubuntu used in this 
+case was 14.04 LTS. </p>
+<p>The first thing to note is that you should do all of these as <code>root</code>. Then we must ensure 
+that the first line in the <code>/etc/hosts</code> file reads as follows</p>
+<pre><code>127.0.0.1   localhost
+</code></pre>
+<p>Next comes the installation of some packages, which we do using Ubuntu`s package manager.</p>
+<pre><code>apt-get install torque-server torque-client torque-mom torque-pam
+</code></pre>
+<p>After this step we simply stop these services since, apparently, the initial torque
+ configuration does not really work as one would hope. In order to achieve this we simply
+type the following in the terminal</p>
+<pre><code>/etc/init.d/torque-mom stop
+/etc/init.d/torque-scheduler stop
+/etc/init.d/torque-server stop
+</code></pre>
+<p>We then can create a new setup for torque using the following</p>
+<pre><code>pbs_server -t create
+</code></pre>
+<p>When prompted about whether we want to overwrite the existing database we will reply yes 
+(<code>[y]</code>). Next the just-started server instance is killed using the following command for
+further configuration</p>
+<pre><code>killall pbs_server
+</code></pre>
+<p>Next we will set up the server process. In my case the server is simply called <code>localhost</code>
+and I experienced some problems when trying to use a different server domain. </p>
+<pre><code>echo localhost &gt; /etc/torque/server_name
+echo localhost &gt; /var/spool/torque/server_priv/acl_svr/acl_hosts
+echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/operators
+echo root@localhost &gt; /var/spool/torque/server_priv/acl_svr/managers
+</code></pre>
+<p>The following step is to simply add the compute nodes. Since here we are using the 
+"head node" as "compute node" then we just need to type the following</p>
+<pre><code>echo &quot;localhost np=56&quot; &gt; /var/spool/torque/server_priv/nodes
+</code></pre>
+<p>Then we start the MOM process that handles the compute node</p>
+<pre><code>echo localhost &gt; /var/spool/torque/mom_priv/config
+</code></pre>
+<p>After all of these one has to restart the processes again</p>
+<pre><code>/etc/init.d/torque-server start
+/etc/init.d/torque-scheduler start
+/etc/init.d/torque-mom start
+</code></pre>
+<p>Finally we need to restart the scheduler, create the default queue and
+configure thee server to allow submissions from itself</p>
+<pre><code>qmgr -c &quot;set server scheduling = true&quot;
+qmgr -c &quot;set server keep_completed = 300&quot;
+qmgr -c &quot;set server mom_job_sync = true&quot;
+# create default queue
+qmgr -c &quot;create queue batch&quot;
+qmgr -c &quot;set queue batch queue_type = execution&quot;
+qmgr -c &quot;set queue batch started = true&quot;
+qmgr -c &quot;set queue batch enabled = true&quot;
+qmgr -c &quot;set queue batch resources_default.walltime = 1:00:00&quot;
+qmgr -c &quot;set queue batch resources_default.nodes = 1&quot;
+qmgr -c &quot;set server default_queue = batch&quot;
+# configure submission pool
+qmgr -c &quot;set server submit_hosts = localhost&quot;
+qmgr -c &quot;set server allow_node_submit = true&quot;
+</code></pre>
+<p>Finally you can test whether everything is working right for you using the following command</p>
+<pre><code>qsub -I
+</code></pre>
+<p>An additional test script that can be done is to run this simples PBS script <code>test.sh</code></p>
+<pre><code>#!/bin/bash
+cd $PBS_O_WORKDIR
+#direct the output to cluster_nodes
+cat $PBS_NODEFILE &gt; ./cluster_nodes
+</code></pre>
+<p>This should run by simply writing the following command on your terminal </p>
+<pre><code>qsub test.sh
+</code></pre>
+<h1 id="example-pbs-script">Example PBS script</h1>
+<p>This is just an example PBS script for submitting jobs in the 
+<a href="https://www.archer.ac.uk">Archer</a>
+supercomputing facility.</p>
+<pre><code>#!/bin/bash --login
+#PBS -N jobname
+
+# Select 1  node
+#PBS -l select=1
+
+#PBS -l walltime=24:00:00
+#PBS -m abe
+#PBS -M name@emailprovider.org
+
+# Replace this with your budget code
+#PBS -A budget
+
+# Move to directory that script was submitted from
+#export PBS_O_WORKDIR=$(readlink -f $PBS_O_WORKDIR)
+#echo $PBS_O_WORKDIR
+#exit
+#cd $PBS_O_WORKDIR
+cd &quot;/work/directory/&quot;
+
+# Load the GROMACS module
+module add gromacs
+
+# Run GROMACS using default input and output file names
+pull=1
+k=100
+
+options=&quot;-s ${file} -deffnm ${file}&quot;
+
+aprun -n 24 mdrun_mpi $options
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Gromacs/benchmarks.html" class="btn btn-neutral float-left" title="Benchmarks"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../Amber/peptide.html" class="btn btn-neutral float-right" title="Building molecules">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BioKT/ResDocs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Gromacs/benchmarks.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../Amber/peptide.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

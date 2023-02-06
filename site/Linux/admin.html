@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biokt.github.io/ResDocs/Linux/admin.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Linux administration - Research Toolbox</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Linux administration";
+        var mkdocs_page_input_path = "Linux/admin.md";
+        var mkdocs_page_url = "/ResDocs/Linux/admin.html";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Research Toolbox
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Gromacs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PBS/documentation.html">PBS scripts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Parametrization</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MCPB.py</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/parametrization.html">Parametrization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/force-field-editing.html">Editing force fields</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Systems</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Linux</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="admin.html">Linux administration</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#creating-and-mounting-new-partitions">Creating and mounting new partitions</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Markdown/syntax.html">Syntax</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Research Toolbox</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Systems &raquo;</li>
+          <li>Linux &raquo;</li>
+      <li>Linux administration</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BioKT/ResDocs/edit/master/docs/Linux/admin.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="linux-administration">Linux Administration</h1>
+<h2 id="creating-and-mounting-new-partitions">Creating and mounting new partitions</h2>
+<p>In order to create a /scratch partition for my Linux server I had to first create 
+a partition for a hard drive and then mount it in a new location. The first step
+needed for this was made easy by the fdisk program. Initially when running it 
+I would get something like this</p>
+<pre><code>username@machinename:$ sudo fdisk -l
+[sudo] password:
+Note: sector size is 4096 (not 512)
+
+Disk /dev/sdb: 999.0 GB, 998997229568 bytes
+255 heads, 63 sectors/track, 15181 cylinders, total 243895808 sectors
+Units = sectors of 1 * 4096 = 4096 bytes
+Sector size (logical/physical): 4096 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0x00000000
+
+Disk /dev/sdb doesn't contain a valid partition table
+
+Disk /dev/sda: 128.0 GB, 128035676160 bytes
+255 heads, 63 sectors/track, 15566 cylinders, total 250069680 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000979b9
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    19531775     9764864   83  Linux
+/dev/sda2        19533822   250068991   115267585    5  Extended
+/dev/sda5        19533824    28801023     4633600   82  Linux swap / Solaris
+/dev/sda6        28803072   250068991   110632960   83  Linux
+</code></pre>
+<p>You can see that there are two drives, sda and sdb, the latter of which
+does not have a partition table. To create a new partition I simply typed 
+<code>sudo fdisk /dev/sdb</code> and then I entered the dialogue from the fdisk program.
+First I created a new partition accepting most of the defaults, which resulted 
+in the following output for <code>fdisk -l</code></p>
+<pre><code>Note: sector size is 4096 (not 512)
+
+Disk /dev/sdb: 999.0 GB, 998997229568 bytes
+208 heads, 2 sectors/track, 586288 cylinders, total 243895808 sectors
+Units = sectors of 1 * 4096 = 4096 bytes
+Sector size (logical/physical): 4096 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disk identifier: 0xc7a7c4cd
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sdb1             256   243895807   975582208   83  Linux
+
+Disk /dev/sda: 128.0 GB, 128035676160 bytes
+255 heads, 63 sectors/track, 15566 cylinders, total 250069680 sectors
+Units = sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disk identifier: 0x000979b9
+
+   Device Boot      Start         End      Blocks   Id  System
+/dev/sda1   *        2048    19531775     9764864   83  Linux
+/dev/sda2        19533822   250068991   115267585    5  Extended
+/dev/sda5        19533824    28801023     4633600   82  Linux swap / Solaris
+/dev/sda6        28803072   250068991   110632960   83  Linux
+</code></pre>
+<p>Note the change in that now /dev/sdb1 appears. The next step was formating the
+partition, which can be achieved by typing in the command line</p>
+<pre><code>sudo mkfs.ext4 /dev/sdb1
+</code></pre>
+<p>Then I created a mount point, which in this case is called /scratch and mounting
+the new partition sdb1 in that mount point.</p>
+<pre><code>sudo mkdir /scratch
+sudo mount /dev/sdb1 /scratch
+</code></pre>
+<p>The final bit was getting my system to mount that partition automatically, by
+editing the /etc/fstab file. For this I needed the UUID for my partition. This
+can be obtained from </p>
+<pre><code>ls -l /dev/disk/by-uuid/
+</code></pre>
+<p>Then one must edit the /etc/fstab file with the UUID for sdb1, the mount point and the
+type of partition in a line looking very much like the one that follows</p>
+<pre><code>UUID=31321321zxcgdfsdg-sdfgsdfaadsas31245 /scratch        ext4    errors=remount-ro 0     2`
+</code></pre>
+<p>A final detail was to recursively give read+write permissions to everyone.</p>
+<pre><code>sudo chmod -R 777 /scratch/
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../Beast/installation.html" class="btn btn-neutral float-left" title="Beast"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../MacOSX/hacks.html" class="btn btn-neutral float-right" title="Mac OS X hacks">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BioKT/ResDocs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../Beast/installation.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../MacOSX/hacks.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

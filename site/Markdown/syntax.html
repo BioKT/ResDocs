@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biokt.github.io/ResDocs/Markdown/syntax.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Syntax - Research Toolbox</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Syntax";
+        var mkdocs_page_input_path = "Markdown/syntax.md";
+        var mkdocs_page_url = "/ResDocs/Markdown/syntax.html";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Research Toolbox
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Gromacs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PBS/documentation.html">PBS scripts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Parametrization</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MCPB.py</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/parametrization.html">Parametrization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/force-field-editing.html">Editing force fields</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Linux/admin.html">Linux administration</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Markdown</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="syntax.html">Syntax</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#block-elements">Block Elements.</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Research Toolbox</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>How to contribute? &raquo;</li>
+          <li>Markdown &raquo;</li>
+      <li>Syntax</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BioKT/ResDocs/edit/master/docs/Markdown/syntax.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="markdown-syntax">Markdown Syntax</h1>
+<p>The syntax that allows us to write this web site is <em>Markdown</em>. You can find more information about it on the internet but here you have some initial tips.</p>
+<h2 id="block-elements">Block Elements.</h2>
+<ul>
+<li>Paragraphs and line breaks.</li>
+</ul>
+<p>For a new paragraph, use two <em>enter</em> keys. Double blank space is not supported.
+For a line break, you will need two <em>space bar</em> keys before using the <em>enter</em> key.</p>
+<ul>
+<li>Headers.</li>
+</ul>
+<p>Headers are created by levels using <code>#</code> symbol. Here you have and example</p>
+<pre><code># Header 1
+## Header 2
+### Header 3
+#### Header 4
+</code></pre>
+<p>will correspond to:</p>
+<h1 id="header-1">Header 1</h1>
+<h2 id="header-2">Header 2</h2>
+<h3 id="header-3">Header 3</h3>
+<h4 id="header-4">Header 4</h4>
+<ul>
+<li>Quotes.</li>
+</ul>
+<p>To quote text you must use the symbol <code>&gt;</code> at the start of your text:</p>
+<pre><code>&gt; Hace falta toda una vida para aprender a vivir. - Séneca
+</code></pre>
+<p>will give you:</p>
+<blockquote>
+<p>Hace falta toda una vida para aprender a vivir. - Séneca</p>
+</blockquote>
+<ul>
+<li>Lists.</li>
+</ul>
+<p>There are two types of lists: unordered using <code>*</code>, <code>-</code> or <code>+</code> and ordered using numbers.
+You can also nest elements of the lists by using four <em>space bar</em> keys before the corresponding symbol of your list.
+Here an example:</p>
+<pre><code>- Unordered List
+    + Element 1
+
+        You can include paragraphs or other text inside lists by leaving a blank space after and the corresponding _space bar_ keys for the nested element (8 in this case).
+    + Element 2
+        + Element 3
+* Ordered List
+    1.  Ordered element 1
+    2.  Ordered element 2
+</code></pre>
+<p>will give you:
+- Unordered List
+    + Element 1</p>
+<pre><code>    You can include paragraphs or other text inside lists by leaving a blank space after and the corresponding _space bar_ keys for the nested element (8 in this case).
++ Element 2
+    + Element 3
+</code></pre>
+<ul>
+<li>
+<p>Ordered List</p>
+<ol>
+<li>Ordered element 1</li>
+<li>Ordered element 2</li>
+</ol>
+</li>
+<li>
+<p>Code.</p>
+</li>
+</ul>
+<p>For writing code you can use the ``` symbol three times before and after to create <em>code blocks</em> that will be visualized inside a code box.</p>
+<pre><code>\```
+echo &quot;Hello World&quot;
+\```
+</code></pre>
+<p>will give you:</p>
+<pre><code>echo &quot;Hello World&quot;
+</code></pre>
+<ul>
+<li>Horizontal lines.</li>
+</ul>
+<p>Horizontal lines are used to enhance the visualization and reading of your documentation. Notice how they have been used to separate the sections in this document.
+You can place them by repeating the symbol <code>*</code>, <code>-</code> or <code>_</code> three times. It is always a good idea to separate them with spaces (see the example below) and leave blank spaces before and after.</p>
+<pre><code>* * *
+- - -
+_ _ _
+</code></pre>
+<p>will give you:</p>
+<hr />
+<h2 id="line-elements">Line Elements.</h2>
+<ul>
+<li>Emphasis.</li>
+<li>Links.</li>
+<li>Code.</li>
+</ul>
+<h2 id="others">Others.</h2>
+<ul>
+<li>Images.</li>
+<li>Skip Markdown syntax.</li>
+</ul>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../MkDocs/installation.html" class="btn btn-neutral float-left" title="Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BioKT/ResDocs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../MkDocs/installation.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
