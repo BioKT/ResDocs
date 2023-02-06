@@ -35,46 +35,46 @@ for each atom of the residue. Otherwise, new atomtypes for each of the atoms sho
 
 The parameters to be added in the `ff99sb-star-ildn.ff/` directory are the following:
 
-1.    In the `aminoacids.rtp` file a new residue with a new name should be created for each
+1. In the `aminoacids.rtp` file a new residue with a new name should be created for each
 residue that you have parametrized. In this file, charges of each atom are to be specified. 
 A new atomtype should be created for the atom(s) bonded to the metal. For example, in the case of His13,
 this being a HID residue and knowing that Zn(II) is coordinated via the NE2 atom, the new residue with 
 the new atomtype should be added as:
 
- ```
- [ HID ]
-  [ atoms ]
-    ...
-    NE2    NB    -0.57270
-    ...
- ```
+    ```
+    [ HID ]
+    [ atoms ]
+      ...
+      NE2    NB    -0.57270
+      ...
+    ```
 
- would be converted to
+    would be converted to
 
- ```
- [ HDB ]
-  [ atoms ]
-    ...
-    NE2   NB3    -0.22712
-    ...
- ```
+    ```
+    [ HDB ]
+    [ atoms ]
+      ...
+      NE2   NB3    -0.22712
+      ...
+    ```
 
- The metal ion should be added following the same steps.
+    The metal ion should be added following the same steps.
 
-2.    In the `aminoacids.hdb` and `aminoacids.vsd` files, you should copy and paste the same lines present for each 
+2. In the `aminoacids.hdb` and `aminoacids.vsd` files, you should copy and paste the same lines present for each 
 residue and edit the residue name to match the newly created one.
 
-3.    In the `ffnonbonded.itp` file, nonbonded parameters &sigma; and &epsilon; must be added for every new
+3. In the `ffnonbonded.itp` file, nonbonded parameters &sigma; and &epsilon; must be added for every new
 atomtype created.
 
-4.    In the `ffbonded.itp` file, bonded parameters for `bonds`, `angles` and `dihedrals` should be added. These paramters
+4. In the `ffbonded.itp` file, bonded parameters for `bonds`, `angles` and `dihedrals` should be added. These paramters
 are to be found in the `1ze9_dry.amb2gmx/1ze9_dry_GMX.top` file. The parameters to be added should include all parameters
 where the metal ion is present as well as the new atomtypes. That means that, for the previous example, all `bonds`, `angles` 
 and `dihedrals` in which NE2 participates should also be redefined for the new atomtype (NB3).
 
- The next files are to be found in the `gromacs-1ZE9/share/gromacs/top/` directory:
+    The next files are to be found in the `gromacs-1ZE9/share/gromacs/top/` directory:
 
-5.    In the `residuetypes.dat` file a new line for each new residue should be added, specifying they are `protein`. The same
+5. In the `residuetypes.dat` file a new line for each new residue should be added, specifying they are `protein`. The same
 should be done for the metal ion:
 
  ```
