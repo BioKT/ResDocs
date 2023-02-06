@@ -41,23 +41,21 @@ A new atomtype should be created for the atom(s) bonded to the metal. For exampl
 this being a HID residue and knowing that Zn(II) is coordinated via the NE2 atom, the new residue with 
 the new atomtype should be added as:
 
-    ```
-    [ HID ]
+    ``` [ HID ]
     [ atoms ]
       ...
       NE2    NB    -0.57270
-      ...
-    ```
+      ... 
+      ```
 
     would be converted to
 
-    ```
-    [ HDB ]
+    ``` [ HDB ]
     [ atoms ]
       ...
       NE2   NB3    -0.22712
-      ...
-    ```
+      ... 
+      ```
 
     The metal ion should be added following the same steps.
 
