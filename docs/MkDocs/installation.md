@@ -74,7 +74,7 @@ git commit -m "Add brief explanation of editions or contributions"
 git push
 ``` 
 
-Once your commitments are pushed in the remote repository you can call MkDocs to re-built the web site including your contributions. To do so, run:
+Once your commitments are pushed in the remote repository you can call MkDocs to re-built the web site including your contributions. **This command is executed in the same directory as mkdocs.yml**. To do so:
 
 ```console
 mkdocs gh-deploy
