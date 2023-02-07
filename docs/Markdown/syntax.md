@@ -73,12 +73,12 @@ will give you:
 
 - Code.
 
-For writing code you can use the `\`` symbol three times before and after to create _code blocks_ that will be visualized inside a code box.
+For writing code you can use the ``` symbol before and after to create _code blocks_ that will be visualized inside a code box. For "inline code" see Code in the Line Elements section (below).
 
 ```
-```
+\```
 echo "Hello World"
-```
+\```
 ```
 will give you:
 ```
@@ -106,22 +106,29 @@ will give you:
 ## Line Elements.
 - Emphasis.
 
+To emphasis text, markdown have options line **bold** text and *italic*. Use one `*` symbol before and after the text to apply italic and two for bold. You can apply both by using the symbol three times (combining bold and italic).
+ 
 * * *
 
 - Links.
 
+For introducing links in the text, use the syntax [text to hyperlink] followed by (URL or .md file path inside repo). Here you have and example where our [BioKT Lab Page](https://sites.google.com/view/biokt?pli=1) is hyperlinked.
 
 * * *
 
 - Code.
+
+If you want to introduce some commands "in line", `like this`, you have to use the "`" symbol before and after.
 
 * * *
 
 ## Others.
 - Images.
 
+
 * * *
 
 - Skip Markdown syntax.
 
+If you want to ignore the characters of the Markdown syntax, use \ before any character.
 * * *
