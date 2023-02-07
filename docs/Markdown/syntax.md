@@ -7,6 +7,8 @@ The syntax that allows us to write this web site is *Markdown*. You can find mor
 
 For a new paragraph, use two _enter_ keys. Double blank space is not supported.
 For a line break, you will need two _space bar_ keys before using the _enter_ key.
+
+* * *
       
 - Headers.
 
@@ -24,6 +26,8 @@ will correspond to:
 ### Header 3
 #### Header 4
 
+* * *
+
 - Quotes.
 
 To quote text you must use the symbol `>` at the start of your text:
@@ -33,6 +37,8 @@ To quote text you must use the symbol `>` at the start of your text:
 ```
 will give you:
 > Hace falta toda una vida para aprender a vivir. - Séneca
+
+* * *
 
 - Lists.
 
@@ -52,6 +58,7 @@ Here an example:
     2.  Ordered element 2
 ``` 
 will give you:
+
 - Unordered List
     + Element 1
 
@@ -62,19 +69,23 @@ will give you:
     1.  Ordered element 1
     2.  Ordered element 2
 
+* * *
+
 - Code.
 
 For writing code you can use the `\`` symbol three times before and after to create _code blocks_ that will be visualized inside a code box.
 
 ```
-\```
+```
 echo "Hello World"
-\```
+```
 ```
 will give you:
 ```
 echo "Hello World"
 ```
+
+* * *
  
 - Horizontal lines.
 
@@ -90,10 +101,27 @@ will give you:
 
 * * *
 
+* * *
+
 ## Line Elements.
 - Emphasis.
+
+* * *
+
 - Links.
+
+
+* * *
+
 - Code.
+
+* * *
+
 ## Others.
 - Images.
+
+* * *
+
 - Skip Markdown syntax.
+
+* * *
