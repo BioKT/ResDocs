@@ -50,7 +50,14 @@ Now modify the corresponding files of any section you want or create your new se
 In case you already have a clone of the remote repo, you would like to update your local repo to work over the last contributions made by the rest of the contributors. This is done with the command:
 
 ```console
-git remote add upstream https://github.com/BioKT/ResDocs.git
+git pull origin master
+```
+YOU SHOULD DO THIS EVERY SINGLE TIME YOUR START WORKING, BEFORE MODIFING ANYTHING.
+
+Probably you will get a message talking about how should Git behave when it has to reconcile changes from your local repo and the remote repo. Just copy the first line that it recommends:
+
+```console
+git config pull.rebase false # merge (the default strategy)
 ```
 
 Once you are done you will have to add your contributions to the version control using:
