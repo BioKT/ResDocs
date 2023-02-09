@@ -2,12 +2,14 @@ site_name: Research Toolbox
 site_url: https://biokt.github.io/ResDocs/
 repo_url: https://github.com/BioKT/ResDocs
 use_directory_urls: False 
-theme: readthedocs
+theme: readthedocs 
+locale: en
+include_sidebar: false 
 nav:
   - Home: 'index.md'
   - 'Molecular Dynamics':
     - 'Getting Started': 'Starting/guide.md'
-    - Gromacs:
+    - Gromacs: 
       - Installation: 'Gromacs/installation.md'
       - Simulation setup: 'Gromacs/md_setup.md'
       - Submission scripts: 'Gromacs/submission.md'

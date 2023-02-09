@@ -3,10 +3,12 @@ There is so much to say about molecular dynamics (MD) simulations
 that at the beginning it may seem a bit daunting. Below we list 
 a few resources that may be useful to step into the world of MD.
 
-1. Fundamentals of MD simulations
+1. Some useful books and reviews
+	* Frenkel & Smit, *Understanding Molecular Simulation, From Algorithms to Applications* (2nd. Ed., 2001). 
+	* Allen & Tildesley, *Computer Simulation of Liquids* (2nd. Ed., 2017). See the [companion repository](https://github.com/Allen-Tildesley).
 	* Best Practices for Foundations in Molecular Simulations, Braun et al. *Living J. Comp. Mol. Sci.* (2019). DOI: [10.33011/livecoms.1.1.5957](https://doi.org/10.33011/livecoms.1.1.5957)
 
-2. The Gromacs software package
+2. How to use the Gromacs software package
 	* Justin Lemkul's tutorials page: [http://www.mdtutorials.com/](http://www.mdtutorials.com/)
 
 3. Analysis packages:
