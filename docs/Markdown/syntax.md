@@ -3,6 +3,7 @@
 The syntax that allows us to write this web site is *Markdown*. You can find more information about it on the internet but here you have some initial tips.
 
 ## Block Elements.
+
 - Paragraphs and line breaks.
 
 For a new paragraph, use two _enter_ keys. Double blank space is not supported.
@@ -12,7 +13,7 @@ For a line break, you will need two _space bar_ keys before using the _enter_ ke
       
 - Headers.
 
-Headers are created by levels using `#` symbol. Here you have and example
+Headers are created by levels using `#` symbol. Here you have an example:
 
 ```
 # Header 1
@@ -100,8 +101,9 @@ _ _ _
 will give you:
 
 * * *
+- - -
+_ _ _
 
-* * *
 
 ## Line Elements.
 - Emphasis.
@@ -112,19 +114,18 @@ To emphasis text, markdown have options line **bold** text and *italic*. Use one
 
 - Links.
 
-For introducing links in the text, use the syntax [text to hyperlink] followed by (URL or .md file path inside repo). Here you have and example where our [BioKT Lab Page](https://sites.google.com/view/biokt?pli=1) is hyperlinked.
+For introducing links in the text, use the syntax [text to hyperlink] followed by (URL or .md file path inside repo). Here you have an example where our [BioKT Lab Page](https://sites.google.com/view/biokt?pli=1) is hyperlinked using [BioKT Lab Page](URL).
 
 * * *
 
 - Code.
 
-If you want to introduce some commands "in line", `like this`, you have to use the "`" symbol before and after.
+If you want to introduce some commands "in line", `like this`, you have to use the ` symbol before and after.
 
 * * *
 
 ## Others.
 - Images.
-
 
 * * *
 

@@ -15,19 +15,23 @@ The softwares required for this work are Git, MkDocs and presumably GitHub CLI.
 ## Installing software.
 
 ### Git.
-- **Windows:** Git should be installed already.
+- **Windows:** Git could be already installed. If not, go to the Git website and download it.
 - **MacOS:** Check if Git is already available: `git --version`. If not, it will prompt you to install it.
 - **Linux:** 
     - Ubuntu: `sudo apt install git-all` should work.
 
 ### MkDocs.
+- MkDocs requires a recent version of Python and the python package manager pip.
 - **MacOS:** Simply run the following command: `pip install mkdocs`.
+- **Linux:** Simply run the command : `pip install mkdocs`.
+- **Windows:** Run: 'py -m pip install mkdocs'
 
 ### GitHub CLI.
 - **MacOS:** Via Conda with the command: `conda install gh --channel conda-forge`.
 Once installed, in the command line enter `gh auth login` and follow the instructions.
 - Select HTTPS as preferred protocol.
 - Use GitHub credentials to authenticate to Git.
+- **Linux:** Follow the instructions [here](https://github.com/cli/cli/blob/trunk/docs/install_linux.md)
 
 * * *
 
@@ -82,7 +86,7 @@ mkdocs gh-deploy
 
 It is always a good idea to use `mkdocs serve` in order to see your contributions added to the web site locally before adding them officially to the online version.
 
-Congratulations you are now a contributor of our BioKT ToolBox!! :)
+Congratulations you are now a contributor of our BioKT ToolBox!! :blush:
 
 Summary of commands for contribution work-flow:
 
