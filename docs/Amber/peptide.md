@@ -55,3 +55,16 @@ Finally, we can save the structure to a PDB file
 > savepdb ala5 ala5.pdb
 Writing pdb file: ala5.pdb
 ```
+
+## Adding D-amino acids to proteins
+
+Following the example shown above, lets consider that the 2nd ALA is a D-amino
+acid rather than the defaul L-amino acid. In order to add the D-amino acid,
+after the sequence is built, we flip the selected residue. To do so, we define
+the sequence name, `ala5` in this case, number of residue to flip and the atom
+we want to flip `CA`. Lastly, we flip the selected amino acid as shown below:
+```
+select ala5.2.CA
+flip ala5
+```
+then, we continue with the following steps. In
