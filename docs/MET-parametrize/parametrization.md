@@ -7,5 +7,7 @@ ACE and NME caps, e.g., if I want to parametrize a methionine my
 structure will be ACE-MET-NME. To do so, we need to build the amino
 acid using the building software of our liking (Amber's tleap, 
 Gaussview or any other works). The structure built for this tutorial
-can be found [here](https://drive.google.com/file/d/14VTesUlBdBR3O2gln5xxqVhOX5dlqAq7/view?usp=sharing).
+can be found here [MET.xyz](https://drive.google.com/file/d/14VTesUlBdBR3O2gln5xxqVhOX5dlqAq7/view?usp=sharing).
+
+
 
