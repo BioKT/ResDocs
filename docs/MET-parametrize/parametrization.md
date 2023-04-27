@@ -1,4 +1,11 @@
 # Parametrizing an amino acid using AmberTools21
+Below is a step-by-step guide for amino acid parametrization
+using the tools provided with the 
+[Amber MD package](https://ambermd.org/). Specifically, we
+will be using [Ambertools](https://ambermd.org/AmberTools.php),
+which can be installed using Anaconda 
+
+   conda install -c conda-forge ambertools compilers
 
 ### Build a structure
 
