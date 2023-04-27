@@ -73,6 +73,12 @@
               </ul>
               <p class="caption"><span class="caption-text">Parametrization</span></p>
               <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="#">Ambertools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MET-parametrize/parametrization.html">Aminoacid residue</a>
+                </li>
+    </ul>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">MCPB.py</a>
     <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a>
@@ -111,6 +117,21 @@
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
                 </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Markdown/syntax.html">Syntax</a>
+                </li>
+    </ul>
+                  </li>
               </ul>
       </div>
     </div>
@@ -156,41 +177,42 @@ Once the directory is placed in the desired location, you are ready to start add
 <p>One importart step, is to check wheter the newly parametrized residues are chemicaly aquivalent
 in any way. For example, when working with exact copies of the same protein in a dimer, at least
 two residues will be equivalent. In those cases, all parameters of equivalent residues should be
-averaged.</p>
-<p>The first step is to compare nonbonded parameters $\sigma$ and $\varepsilon$ of the newly 
+averaged. To see some examples of dimer systems where averaged parameters are added, look at systems
+5LFY, 2LI9 or 2MGT in the following <a href="https://osf.io/y4zk5/">OSF repository</a>.</p>
+<p>The first step is to compare nonbonded parameters &sigma; and &epsilon; of the newly 
 parametrized residue and the residue present in the original force field. To do so, you should
 look at the <code>ff99sb-star-ildn.ff/ffnonbonded.itp</code> file and the <code>1ze9_dry.amb2gmx/1ze9_dry_GMX.top</code> 
 file. If the parameters are the same, which is usually the case, one can ommit creating new atomtypes
 for each atom of the residue. Otherwise, new atomtypes for each of the atoms should be created.</p>
 <p>The parameters to be added in the <code>ff99sb-star-ildn.ff/</code> directory are the following:</p>
 <ol>
-<li>In the <code>aminoacids.rtp</code> file a new residue with a new name should be created for each
+<li>
+<p>In the <code>aminoacids.rtp</code> file a new residue with a new name should be created for each
 residue that you have parametrized. In this file, charges of each atom are to be specified. 
 A new atomtype should be created for the atom(s) bonded to the metal. For example, in the case of His13,
 this being a HID residue and knowing that Zn(II) is coordinated via the NE2 atom, the new residue with 
-the new atomtype should be added as:</li>
-</ol>
+the new atomtype should be added as:</p>
 <pre><code>[ HID ]
- [ atoms ]
-   ...
-   NE2    NB    -0.57270
-   ...
+[ atoms ]
+  ...
+  NE2    NB    -0.57270
+  ...
 </code></pre>
 <p>would be converted to</p>
 <pre><code>[ HDB ]
- [ atoms ]
-   ...
-   NE2   NB3    -0.22712
-   ...
+[ atoms ]
+  ...
+  NE2   NB3    -0.22712
+  ...
 </code></pre>
 <p>The metal ion should be added following the same steps.</p>
-<ol>
+</li>
 <li>
 <p>In the <code>aminoacids.hdb</code> and <code>aminoacids.vsd</code> files, you should copy and paste the same lines present for each 
 residue and edit the residue name to match the newly created one.</p>
 </li>
 <li>
-<p>In the <code>ffnonbonded.itp</code> file, nonbonded parameters $\sigma$ and $\varepsilon$ must be added for every new
+<p>In the <code>ffnonbonded.itp</code> file, nonbonded parameters &sigma; and &epsilon; must be added for every new
 atomtype created.</p>
 </li>
 <li>
@@ -198,13 +220,11 @@ atomtype created.</p>
 are to be found in the <code>1ze9_dry.amb2gmx/1ze9_dry_GMX.top</code> file. The parameters to be added should include all parameters
 where the metal ion is present as well as the new atomtypes. That means that, for the previous example, all <code>bonds</code>, <code>angles</code> 
 and <code>dihedrals</code> in which NE2 participates should also be redefined for the new atomtype (NB3).</p>
-</li>
-</ol>
 <p>The next files are to be found in the <code>gromacs-1ZE9/share/gromacs/top/</code> directory:</p>
-<ol>
-<li>In the <code>residuetypes.dat</code> file a new line for each new residue should be added, specifying they are <code>protein</code>. The same
-should be done for the metal ion:</li>
-</ol>
+</li>
+<li>
+<p>In the <code>residuetypes.dat</code> file a new line for each new residue should be added, specifying they are <code>protein</code>. The same
+should be done for the metal ion:</p>
 <pre><code>...
 HID    Protein
 HDB    Protein
@@ -214,32 +234,34 @@ HDB    Protein
 ZNB    Protein
 ...
 </code></pre>
-<ol>
-<li>In the <code>specbond.dat</code> file a line specifying the bonds between protein and metal ion should be added:</li>
-</ol>
+</li>
+<li>
+<p>In the <code>specbond.dat</code> file a line specifying the bonds between protein and metal ion should be added:</p>
 <pre><code>...
 HDB    NE2    1    ZNB    ZNB    4    0.2    HDB    ZNB
 ...
 </code></pre>
+</li>
+</ol>
 <p>First column specifies the first residue taking part in the bond, the second colums specifies the first atom that forms the bonds,
 the third column specifies que ammount of special bonds this atom forms. The Fourth, fifth and sixth columns specify the same
-information for the second residue and atom forming the bond. The seventh column specifies the distance $\pm$ 10% of the reference
+information for the second residue and atom forming the bond. The seventh column specifies the distance &pm; 10% of the reference
 distance under which, a bond will be formed for the specified atoms. The last two colums once again define the residues forming the bond.</p>
 <p>Lastly, to start running simulations in Gromacs, you must edit the PDB file so that the newly parametrized residues have the new
 residue names, e.g., HIS13 should be changed to HDB.</p>
 <p>Once the editing is finished, you must indicate which is the force field you want to use. This can be done in two different ways:</p>
 <ol>
-<li>Define the <code>$PATH</code> in which the force field directory is stored and execute Gromacs from that directory:</li>
-</ol>
-<pre><code>gmx=/usr/local/gromacs/gromacs-1ZE9/bin/gmx
-</code></pre>
-<ol>
-<li>Store force field in the working directory, then when running <code>gmx pdb2gmx</code> you should select the force field present in the
-working directory.</li>
-</ol>
+<li>
+<p>Define the <code>$PATH</code> in which the force field directory is stored and execute Gromacs from that directory:</p>
+<p><code>gmx=/usr/local/gromacs/gromacs-1ZE9/bin/gmx</code></p>
+</li>
+<li>
+<p>Store force field in the working directory, then when running <code>gmx pdb2gmx</code> you should select the force field present in the
+working directory.</p>
 <p>Lastly, when running <code>gmx pdb2gmx</code>, the following line should be used:</p>
-<pre><code>gmx pdb2gmx -f *pdb -ignh -o ${out} -p ${out} -merge all
-</code></pre>
+<p><code>gmx pdb2gmx -f *pdb -ignh -o ${out} -p ${out} -merge all</code></p>
+</li>
+</ol>
               
             </div>
           </div><footer>

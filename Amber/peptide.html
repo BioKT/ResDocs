@@ -66,6 +66,8 @@
     <ul class="current">
                 <li class="toctree-l2 current"><a class="reference internal current" href="peptide.html">Building molecules</a>
     <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#adding-d-amino-acids-to-proteins">Adding D-amino acids to proteins</a>
+    </li>
     </ul>
                 </li>
     </ul>
@@ -75,6 +77,12 @@
               </ul>
               <p class="caption"><span class="caption-text">Parametrization</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Ambertools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MET-parametrize/parametrization.html">Aminoacid residue</a>
+                </li>
+    </ul>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="#">MCPB.py</a>
     <ul>
                 <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/installation.html">Installation</a>
@@ -109,6 +117,21 @@
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
                 </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Markdown/syntax.html">Syntax</a>
+                </li>
+    </ul>
+                  </li>
               </ul>
       </div>
     </div>
@@ -183,6 +206,16 @@ Loading library: /Users/.../anaconda3/dat/leap/lib/aminont12.lib
 <pre><code>&gt; savepdb ala5 ala5.pdb
 Writing pdb file: ala5.pdb
 </code></pre>
+<h2 id="adding-d-amino-acids-to-proteins">Adding D-amino acids to proteins</h2>
+<p>Following the example shown above, lets consider that the 2nd ALA is a D-amino
+acid rather than the defaul L-amino acid. In order to add the D-amino acid,
+after the sequence is built, we flip the selected residue. To do so, we define
+the sequence name, <code>ala5</code> in this case, number of residue to flip and the atom
+we want to flip <code>CA</code>. Lastly, we flip the selected amino acid as shown below:</p>
+<pre><code>select ala5.2.CA
+flip ala5
+</code></pre>
+<p>then, we continue with the following steps. In</p>
               
             </div>
           </div><footer>

@@ -73,6 +73,12 @@
               </ul>
               <p class="caption"><span class="caption-text">Parametrization</span></p>
               <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="#">Ambertools</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MET-parametrize/parametrization.html">Aminoacid residue</a>
+                </li>
+    </ul>
+                  </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="#">MCPB.py</a>
     <ul class="current">
                 <li class="toctree-l2"><a class="reference internal" href="installation.html">Installation</a>
@@ -116,6 +122,21 @@
                 <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
                 </li>
               </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Markdown/syntax.html">Syntax</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
       </div>
     </div>
     </nav>
@@ -146,7 +167,7 @@
 <p>These brief instructions are a general guide to how to parametrize a simple 
 metalloprotein system. More detailed tutorials for a variety of systems 
 can be found <a href="http://ambermd.org/tutorials/advanced/tutorial20/mcpbpy.htm">elsewhere</a>.
-In this case we are simulating a monomeric Amyloid $\beta$ - Zn(II) system with a 1:1 stoichiometry
+In this case we are simulating a monomeric Amyloid &beta; - Zn(II) system with a 1:1 stoichiometry
 using the AmberTools21 software version, but things should not change too much for other recent 
 versions of the software. The parameters will be obtained for the Amber99SB*-ILDN force field.
 You must have a working version installed in your machine.</p>
@@ -167,8 +188,8 @@ must be converted from PDB to MOL2 format:</p>
 <p>Then, the file containing the protein must be processed. Both the ACE and NH2 residues
 must be removed. Once the file is processed, protons must be added using Chimera.
 It is important to know the protonation state of each histidine (if present). In this case,
-both His6 and His14 are protonated in the $\varepsilon$ N (HIE) and His13 is protonated in 
-the $\delta$ N (HID). To protonate the protein:</p>
+both His6 and His14 are protonated in the &epsilon; N (HIE) and His13 is protonated in 
+the &delta; N (HID). To protonate the protein:</p>
 <ul>
 <li>Open Chimera and load PDB file</li>
 <li>Tools &gt; Structure Editing &gt; AddH</li>
@@ -179,7 +200,7 @@ the $\delta$ N (HID). To protonate the protein:</p>
 must be merged:</p>
 <pre><code>cat 1ze9_chimera.pdb ZN.pdb &gt; 1ze9_H.pdb
 </code></pre>
-<p>One must be cautious when merging PDB files, as the $\textbf{END}$ line present in
+<p>One must be cautious when merging PDB files, as the <strong>END</strong> line present in
 the protein PDB file will be written before the PDB of the metal. Therefore, removing
 the line is indispensable.</p>
 <p>Once the files are merged, the newly merged PDB file is renumbered:</p>

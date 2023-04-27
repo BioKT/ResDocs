@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://biokt.github.io/ResDocs/MET-parametrize/parametrization.html" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Aminoacid residue - Research Toolbox</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Aminoacid residue";
+        var mkdocs_page_input_path = "MET-parametrize/parametrization.md";
+        var mkdocs_page_url = "/ResDocs/MET-parametrize/parametrization.html";
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../index.html" class="icon icon-home"> Research Toolbox
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../index.html">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Molecular Dynamics</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Starting/guide.html">Getting Started</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Gromacs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/md_setup.html">Simulation setup</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/submission.html">Submission scripts</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../Gromacs/benchmarks.html">Benchmarks</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../PBS/documentation.html">PBS scripts</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Amber</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Amber/peptide.html">Building molecules</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../VMD/tools.html">VMD</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Parametrization</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Ambertools</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="parametrization.html">Aminoacid residue</a>
+    <ul class="current">
+    <li class="toctree-l3"><a class="reference internal" href="#build-a-structure">Build a structure</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#choose-your-force-field">Choose your force field</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#quantum-mechanical-calculations">Quantum-mechanical calculations</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parametrizing-with-ambertools">Parametrizing with AmberTools</a>
+    </li>
+    </ul>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MCPB.py</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/installation.html">Installation</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/parametrization.html">Parametrization</a>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="../MCPB.py/force-field-editing.html">Editing force fields</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Phylogenetic trees</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../Beast/installation.html">Beast</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Systems</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Linux</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Linux/admin.html">Linux administration</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Mac OS X</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MacOSX/hacks.html">Mac OS X hacks</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Other/other.html">Other</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How to contribute?</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="#">MkDocs</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../MkDocs/installation.html">Installation</a>
+                </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="#">Markdown</a>
+    <ul>
+                <li class="toctree-l2"><a class="reference internal" href="../Markdown/syntax.html">Syntax</a>
+                </li>
+    </ul>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Research Toolbox</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html" class="icon icon-home" alt="Docs"></a> &raquo;</li>
+          <li>Parametrization &raquo;</li>
+          <li>Ambertools &raquo;</li>
+      <li>Aminoacid residue</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/BioKT/ResDocs/edit/master/docs/MET-parametrize/parametrization.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="parametrizing-an-amino-acid-using-ambertools21">Parametrizing an amino acid using AmberTools21</h1>
+<p>Below is a step-by-step guide for amino acid parametrization
+using the tools provided with the 
+<a href="https://ambermd.org/"><strong>Amber MD package</strong></a>. Specifically, we
+will be using <a href="https://ambermd.org/AmberTools.php"><strong>Ambertools</strong></a>,
+which can be installed using Anaconda simply typing</p>
+<pre><code>conda install -c conda-forge ambertools compilers
+</code></pre>
+<h3 id="build-a-structure">Build a structure</h3>
+<p>In order to parametrize an amino acid, the first thing we will 
+need is a structure, which we will normally build in the 
+acetylated and amidated form (i.e. with ACE and NME caps). 
+Here we illustrata parametrization with the methionine residue,
+and hence we will need a structure for ACE-MET-NME (we can generate
+it using <a href="Amber/peptide.md"><strong>tleap</strong></a> or <strong>Gaussview</strong>). </p>
+<p>In this example, we have created the structure for you. It can be 
+downloaded from the following <a href="https://drive.google.com/file/d/14VTesUlBdBR3O2gln5xxqVhOX5dlqAq7/view?usp=sharing">link</a>.
+Mind that atom numbers are ordered to match the sequence (ACE-MET-NME), and
+that in the case of the aminoacid, the atom number of the atoms of MET
+match the order in which they appear in <strong>GROMACS</strong>. The order of the atoms
+will be important for future steps.</p>
+<h3 id="choose-your-force-field">Choose your force field</h3>
+<p>Once the structure is built, one must follow the steps mentioned in the
+relevant article of the force field of choice. Here, we will generate 
+parameters for the 
+Amber99SB*-ILDN force field, which includes corrections in both 
+the <a href="https://doi.org/10.1021/jp901540t">backbone</a> and 
+<a href="https://doi.org/10.1002/prot.22711">sidechains</a> torsions. </p>
+<h3 id="quantum-mechanical-calculations">Quantum-mechanical calculations</h3>
+<p>To perform the optimization of the structure, we will be using the 
+<strong>Gaussian16</strong> software that is available both in the Arina and Atlas
+clusters. The input file for geometry optimization can be found
+ <a href="https://drive.google.com/file/d/1uwgWsbBYX_GkuoYXiIxZOoyUzQeSApi5/view?usp=sharing">here</a>.
+The file looks something like this</p>
+<pre><code>%chk=00.chk
+# B3LYP/6-31G* Opt
+
+Methionine
+
+0  1
+ C     2.000000     2.090000     0.000000
+ H     1.486000     2.454000     0.890000
+ H     1.486000     2.454000    -0.890000
+...
+</code></pre>
+<p>where we have ommited most of the coordinates in the input. 
+For convenience, we have prepared a folder including all the 
+<a href="https://drive.google.com/drive/folders/1KP_juucM5HoVWYu1N6cnb1D87KyUdrr3?usp=sharing">output files</a>.</p>
+<p>Once the geometry optimization is done, a second calculation must be performed
+ to derive the charges. For this, you will need the following <a href="https://drive.google.com/file/d/1OtG-hHixxj28nn3dZAFq_VbB3i3yNOQJ/view?usp=sharing">input 
+file</a>.
+The contents of the file are as follows:</p>
+<pre><code>%chk=00.chk
+# B3LYP/6-31G* geom=check guess=read Integral=(Grid=UltraFine) Pop(MK,ReadRadii)
+IOp(6/33=2,6/42=6)
+
+Methionine
+
+0  1
+</code></pre>
+<p>With the <code>Integral</code> keyword we modify the method of computation and use 
+two-electron integrals and their derivatives. 
+With the <code>Population</code> keyword we print molecular orbitals
+and several types of population analysis and atomic charge assignements.
+Lastly, with the <code>IOp</code> keyword we set internal options. 
+This calculation must be run in the same directory as the <code>00.chk.gz</code>
+file as the geometry will be read from it.
+All the configurations for this last part have been taken from the workflow
+ created with the MCPB.py program of AmberTools. The output from this 
+calculation can be downloaded from <a href="https://drive.google.com/drive/folders/1fBlb3yddsKRmj5ysZJMOxwwqVAsf7Kdv?usp=sharing">here</a>.</p>
+<h3 id="parametrizing-with-ambertools">Parametrizing with AmberTools</h3>
+<p>Next we jump into the actual parametrization of the molecular mechanics
+force field. All the files necessary for this part are available in this
+<a href="https://drive.google.com/drive/folders/1CScwN_MEvd2U18LFbZkF3OLA9JXDM8AF?usp=sharing">folder</a>.</p>
+<p>The first step is to perform the fitting of the charges using 
+the Restrained Electrostatic Potential (RESP) method. The electrostatic 
+potential has to be reformated to obtain a RESP-friendly syntax. We will
+achieve so by processing the Gaussian output with <strong>espgen</strong>:</p>
+<pre><code>espgen -i MET-charges.log -o esp.dat
+</code></pre>
+<p>Then, two additional files must be created: <code>resp.in</code> and <code>resp.qin</code>.
+The <code>resp.in</code> file indicates a variety of options for the RESP calculation.
+It looks as follows:</p>
+<pre><code>capped-resp run 1   #This is name of the calculation, it is up to you
+ &amp;cntrl
+ nmol=1,     #  Number of molecules included in the calculation
+ ihfree=1,   #  Weak restraints only in the heavy atoms
+ qwt=0.0005, #  This is the strength of the restraint in A.U
+ iqopt=2,    #  Read the initial charges from the resp.qin file
+ /
+    1        #  Number of the molecule included
+  MET        #  Name of the residue, this info is just for you
+0  29        #  Charge of the molecule and number of atoms
+</code></pre>
+<p>The following lines in the file contain two columns. The first
+column indicates the atomic number of each atom. The second column
+determines whether the charge must be calculated (if the value is 0)
+ or, alternatively, is defined by the user (if the value -1). In the
+latter case, the charge will be set in the <code>resp.qin</code> file.
+Finally, if another number appears, both that atom and the atom 
+indicated will have the same charge (e.g., H12 and H13 or H15 and H16).
+In our example, the lines corresponding to ACE and NME atoms have a value
+of -1; hence their charges are set by the user. We can find them in the
+<code>resp.qin</code> file. 
+Additionally, the charges of the NH- and CO- are indicated, as for the
+Amber99SB*-ILDN force field these charges are the same for all amino acids.</p>
+<p>Once these files are ready, we run the RESP calculation:</p>
+<pre><code>resp -O -i resp.in -o resp.out -p resp.pch -t resp.chg -q resp.qin -e esp.dat
+</code></pre>
+<p>If you get error messages such as 
+<code>At line 403 of file resp.F (unit=5,file='resp.in')</code>
+error, you have to look at the spaces present in your <code>resp.in</code> file. Mind
+that a blank line must be added at the end of the <code>resp.in</code> file.</p>
+<p>The next step in our workflow is to run the <strong>antechamber</strong>  program, 
+which will associate the partial charges to each atom:</p>
+<pre><code>antechamber -fi gout -i MET-charges.log -bk MET -fo ac -o MET.ac -c rc -cf resp.chg -at amber
+</code></pre>
+<p>Now, we will delete the capping groups from the custom residue. To do so
+we need the <code>MET.mc</code> file, which is pretty self explanatory. The omited
+atoms are the ones belonging to the caps. One must then run the following
+line:</p>
+<pre><code>prepgen -i MET.ac -o MET.prepin -m MET.mc -rn MET
+</code></pre>
+<p>Lastly, we will generate the parameters using parmchk2:</p>
+<pre><code>parmchk2 -i MET.ac -f ac -o MET_gaff.frcmod
+</code></pre>
+<p>The final step is then to run tleap to obtain the Amber parameters. Open
+tleap by typing: tleap.</p>
+<p>Once inside, type the following lines.</p>
+<pre><code>loadamberprep MET.prepin
+source oldff/leaprc.ff99
+loadamberparams MET_gaff.frcmod
+aa = sequence {ACE MET NME}
+saveAmberParm aa MET.prmtop MET.inpcrd
+quit
+</code></pre>
+<p>To convert the parameters from Amber to GROMACS we then run acpype:</p>
+<pre><code>acpype -p MET.prmtop -x MET.inpcrd -o gmx -n -1 -l
+</code></pre>
+<p>Parameters with the GROMACS syntax will be located to a directory
+called <code>MET.amb2gmx</code>. GROMACS parameters are available in this folder:
+<a href="https://drive.google.com/drive/folders/1c6v6RRbjuviPSuCLcg-vlnU8uC0RR6Ya?usp=sharing">GROMACS-files</a>.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../VMD/tools.html" class="btn btn-neutral float-left" title="VMD"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../MCPB.py/installation.html" class="btn btn-neutral float-right" title="Installation">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/BioKT/ResDocs" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../VMD/tools.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../MCPB.py/installation.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
