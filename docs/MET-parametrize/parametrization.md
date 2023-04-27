@@ -1,110 +1,137 @@
 # Parametrizing an amino acid using AmberTools21
 Below is a step-by-step guide for amino acid parametrization
 using the tools provided with the 
-[Amber MD package](https://ambermd.org/). Specifically, we
-will be using [Ambertools](https://ambermd.org/AmberTools.php),
-which can be installed using Anaconda 
-
-   conda install -c conda-forge ambertools compilers
+[**Amber MD package**](https://ambermd.org/). Specifically, we
+will be using [**Ambertools**](https://ambermd.org/AmberTools.php),
+which can be installed using Anaconda simply typing
+```
+conda install -c conda-forge ambertools compilers
+```
 
 ### Build a structure
+In order to parametrize an amino acid, the first thing we will 
+need is a structure, which we will normally build in the 
+acetylated and amidated form (i.e. with ACE and NME caps). 
+Here we illustrata parametrization with the methionine residue,
+and hence we will need a structure for ACE-MET-NME (we can generate
+it using [**tleap**](Amber/peptide.md) or **Gaussview**). 
 
-In order to paramterize an amino acid, the first thing we need
-is an structure. Conventionally, the structure used to parametrize
-an amino acid is to build an structure with the amino acid with
-ACE and NME caps, e.g., if I want to parametrize a methionine my
-structure will be ACE-MET-NME. To do so, we need to build the amino
-acid using the building software of our liking (Amber's tleap, 
-Gaussview or any other works). The structure built for this tutorial
-can be found here: [MET.xyz](https://drive.google.com/file/d/14VTesUlBdBR3O2gln5xxqVhOX5dlqAq7/view?usp=sharing).
+In this example, we have created the structure for you. It can be 
+downloaded from the following [link](https://drive.google.com/file/d/14VTesUlBdBR3O2gln5xxqVhOX5dlqAq7/view?usp=sharing).
 Mind that atom numbers are ordered to match the sequence (ACE-MET-NME), and
 that in the case of the aminoacid, the atom number of the atoms of MET
-match the order in which they appear in GROMACS. The order of the atoms
+match the order in which they appear in **GROMACS**. The order of the atoms
 will be important for future steps.
 
-### Quantum-mechanical calculations
 
+### Choose your force field 
 Once the structure is built, one must follow the steps mentioned in the
-artcile of the force field selected. To easily find which paper one should
-follow, one can directly find it referenced in the `forcefield.doc` file
-present in each force field directory present in the `${gromacs-path}/share/
-gromacs/top/${force-field}.ff` directory. Since in this tutorial we are
-interested in obtaining parameters for the Amber99SB*-ILDN force field,
-[this](https://onlinelibrary.wiley.com/doi/full/10.1002/1096-987X%28200009%2921%3A12%3C1049%3A%3AAID-JCC3%3E3.0.CO%3B2-F)
-is the article we should be looking at. In this article, it is clearly 
-stated that RESP charges were calculated following these steps: 
->"Quantum-mechanical optimizations were performed for all the compounds using the 6-31G* basis set (...) electrostatic potentials were then calculatedat the same level for the minimized geometry."
+relevant article of the force field of choice. Here, we will generate 
+parameters for the 
+Amber99SB\*-ILDN force field, which includes corrections in both 
+the [backbone](https://doi.org/10.1021/jp901540t) and 
+[sidechains](https://doi.org/10.1002/prot.22711) torsions. 
 
+
+### Quantum-mechanical calculations
 To perform the optimization of the structure, we will be using the 
-Gaussian16 software that is available both in Arina and Atlas. 
-The input file can be found
-here: [MET.com](https://drive.google.com/file/d/1uwgWsbBYX_GkuoYXiIxZOoyUzQeSApi5/view?usp=sharing).
-All output files are included in this directory: [MET-optimization](https://drive.google.com/drive/folders/1KP_juucM5HoVWYu1N6cnb1D87KyUdrr3?usp=sharing).
+**Gaussian16** software that is available both in the Arina and Atlas
+clusters. The input file for geometry optimization can be found
+ [here](https://drive.google.com/file/d/1uwgWsbBYX_GkuoYXiIxZOoyUzQeSApi5/view?usp=sharing).
+The file looks something like this
+```
+%chk=00.chk
+# B3LYP/6-31G* Opt
 
-Once the geometry optimization is done, a second calculations to calculate
-charges is done using this input file: [MET-charges.com](https://drive.google.com/file/d/1OtG-hHixxj28nn3dZAFq_VbB3i3yNOQJ/view?usp=sharing).
-This calculation must be performed in the same directory as the `00.chk.gz`
-file as the geometry will be read from it. With the `Integral` keyword we
-modify the method of computation and use two-electron integrals and their
-derivatives. With the `Population` keyword we print molecular orbitals
+Methionine
+
+0  1
+ C     2.000000     2.090000     0.000000
+ H     1.486000     2.454000     0.890000
+ H     1.486000     2.454000    -0.890000
+...
+```
+where we have ommited most of the coordinates in the input. 
+For convenience, we have prepared a folder including all the 
+[output files](https://drive.google.com/drive/folders/1KP_juucM5HoVWYu1N6cnb1D87KyUdrr3?usp=sharing).
+
+Once the geometry optimization is done, a second calculation must be performed
+ to derive the charges. For this, you will need the following [input 
+file](https://drive.google.com/file/d/1OtG-hHixxj28nn3dZAFq_VbB3i3yNOQJ/view?usp=sharing).
+The contents of the file are as follows:
+```
+%chk=00.chk
+# B3LYP/6-31G* geom=check guess=read Integral=(Grid=UltraFine) Pop(MK,ReadRadii)
+IOp(6/33=2,6/42=6)
+
+Methionine
+
+0  1
+```
+With the `Integral` keyword we modify the method of computation and use 
+two-electron integrals and their derivatives. 
+With the `Population` keyword we print molecular orbitals
 and several types of population analysis and atomic charge assignements.
-Lastly, with the `IOp` keyword we set internal options. All the
-configurations for this last part have been taken from the workflow created
-with the MCPB.py program of AmberTools. Files of the charge calculations
-can be found in this directory: [MET-charges](https://drive.google.com/drive/folders/1fBlb3yddsKRmj5ysZJMOxwwqVAsf7Kdv?usp=sharing).
+Lastly, with the `IOp` keyword we set internal options. 
+This calculation must be run in the same directory as the `00.chk.gz`
+file as the geometry will be read from it.
+All the configurations for this last part have been taken from the workflow
+ created with the MCPB.py program of AmberTools. The output from this 
+calculation can be downloaded from [here](https://drive.google.com/drive/folders/1fBlb3yddsKRmj5ysZJMOxwwqVAsf7Kdv?usp=sharing).
 
 ### Parametrizing with AmberTools
+Next we jump into the actual parametrization of the molecular mechanics
+force field. All the files necessary for this part are available in this
+[folder](
+https://drive.google.com/drive/folders/1CScwN_MEvd2U18LFbZkF3OLA9JXDM8AF?usp=sharing).
 
-All files necessary for this following part are available here:
-[Amber-files](https://drive.google.com/drive/folders/1CScwN_MEvd2U18LFbZkF3OLA9JXDM8AF?usp=sharing).
-
-The first step is to perform the RESP calculation. The electrostatic 
+The first step is to perform the fitting of the charges using 
+the Restrained Electrostatic Potential (RESP) method. The electrostatic 
 potential has to be reformated to obtain a RESP-friendly syntax. We will
-achieve so by processing the Gaussian output with `espgen`:
-
+achieve so by processing the Gaussian output with **espgen**:
 ```
 espgen -i MET-charges.log -o esp.dat
 ```
 
 Then, two additional files must be created: `resp.in` and `resp.qin`.
-The `resp.in` file indicates a variety of options for the RESP calculation:
-
+The `resp.in` file indicates a variety of options for the RESP calculation.
+It looks as follows:
 ```
 capped-resp run 1	#This is name of the calculation, it is up to you
  &cntrl
- nmol=1,		#Number of molecules included in the calculation
- ihfree=1,		#Weak restraints only in the heavy atoms
- qwt=0.0005,		#This is the strength of the restraint in A.U
- iqopt=2,		#Read the initial charges from the resp.qin file
+ nmol=1,     #  Number of molecules included in the calculation
+ ihfree=1,   #  Weak restraints only in the heavy atoms
+ qwt=0.0005, #  This is the strength of the restraint in A.U
+ iqopt=2,    #  Read the initial charges from the resp.qin file
  /
-    1			#Number of the molecule included
-MET			#Name of the residue, this info is just for you
-    0   29		#Charge of the molecule and number of amtoms
+    1        #  Number of the molecule included
+  MET        #  Name of the residue, this info is just for you
+0  29        #  Charge of the molecule and number of atoms
 ```
-
-The following lines indicate the atomic number of each atom. If a -1 is 
-indicated after the atomic number, the charge must be specified in the
-`resp.qin` file, whereas if a 0 is indicated, the charge is calculated.
-Additionally, if another number appears, both that atom and the atom 
+The following lines in the file contain two columns. The first
+column indicates the atomic number of each atom. The second column
+determines whether the charge must be calculated (if the value is 0)
+ or, alternatively, is defined by the user (if the value -1). In the
+latter case, the charge will be set in the `resp.qin` file.
+Finally, if another number appears, both that atom and the atom 
 indicated will have the same charge (e.g., H12 and H13 or H15 and H16).
-
-In the `resp.qin` file the charges to the ACE and NME are given. 
+In our example, the lines corresponding to ACE and NME atoms have a value
+of -1; hence their charges are set by the user. We can find them in the
+`resp.qin` file. 
 Additionally, the charges of the NH- and CO- are indicated, as for the
-Amber99SB*-ILDN force field these charges are the same for all amino acids.
+Amber99SB\*-ILDN force field these charges are the same for all amino acids.
 
 Once these files are ready, we run the RESP calculation:
-
 ```
 resp -O -i resp.in -o resp.out -p resp.pch -t resp.chg -q resp.qin -e esp.dat
 ```
-
-If having errors such as "At line 403 of file resp.F (unit=5,file='resp.in')"
+If you get error messages such as 
+`At line 403 of file resp.F (unit=5,file='resp.in')`
 error, you have to look at the spaces present in your `resp.in` file. Mind
 that a blank line must be added at the end of the `resp.in` file.
 
-Next, we run antechamber, which will associate the partial charges to each
-atom:
-
+The next step in our workflow is to run the **antechamber**  program, 
+which will associate the partial charges to each atom:
 ```
 antechamber -fi gout -i MET-charges.log -bk MET -fo ac -o MET.ac -c rc -cf resp.chg -at amber
 ```
@@ -113,7 +140,6 @@ Now, we will delete the capping groups from the custom residue. To do so
 we need the `MET.mc` file, which is pretty self explanatory. The omited
 atoms are the ones belonging to the caps. One must then run the following
 line:
-
 ```
 prepgen -i MET.ac -o MET.prepin -m MET.mc -rn MET
 ```
