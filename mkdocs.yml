@@ -19,10 +19,14 @@ nav:
       - Building molecules: 'Amber/peptide.md'
     - 'VMD': 'VMD/tools.md' 
   - 'Parametrization':
+    - Ambertools:
+      - Aminoacid residue: 'MET-parametrize/parametrization.md'
     - MCPB.py:
       - Installation: 'MCPB.py/installation.md'
       - Parametrization: 'MCPB.py/parametrization.md'
       - Editing force fields: 'MCPB.py/force-field-editing.md'
+
+
   - Phylogenetic trees:
     - Beast: 'Beast/installation.md'
   - Systems: 
