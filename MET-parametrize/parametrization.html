@@ -233,7 +233,8 @@ Lastly, with the <code>IOp</code> keyword we set internal options.
 This calculation must be run in the same directory as the <code>00.chk.gz</code>
 file as the geometry will be read from it.
 All the configurations for this last part have been taken from the workflow
- created with the MCPB.py program of AmberTools. The output from this 
+ created with the <strong>MCPB.py</strong> program of <strong>AmberTools</strong>. 
+The output from this 
 calculation can be downloaded from <a href="https://drive.google.com/drive/folders/1fBlb3yddsKRmj5ysZJMOxwwqVAsf7Kdv?usp=sharing">here</a>.</p>
 <h3 id="parametrizing-with-ambertools">Parametrizing with AmberTools</h3>
 <p>Next we jump into the actual parametrization of the molecular mechanics
@@ -242,7 +243,8 @@ force field. All the files necessary for this part are available in this
 <p>The first step is to perform the fitting of the charges using 
 the Restrained Electrostatic Potential (RESP) method. The electrostatic 
 potential has to be reformated to obtain a RESP-friendly syntax. We will
-achieve so by processing the Gaussian output with <strong>espgen</strong>:</p>
+achieve so by processing the Gaussian output with the <strong>espgen</strong>
+program:</p>
 <pre><code>espgen -i MET-charges.log -o esp.dat
 </code></pre>
 <p>Then, two additional files must be created: <code>resp.in</code> and <code>resp.qin</code>.
@@ -258,19 +260,23 @@ It looks as follows:</p>
     1        #  Number of the molecule included
   MET        #  Name of the residue, this info is just for you
 0  29        #  Charge of the molecule and number of atoms
+...
 </code></pre>
-<p>The following lines in the file contain two columns. The first
-column indicates the atomic number of each atom. The second column
-determines whether the charge must be calculated (if the value is 0)
- or, alternatively, is defined by the user (if the value -1). In the
-latter case, the charge will be set in the <code>resp.qin</code> file.
-Finally, if another number appears, both that atom and the atom 
-indicated will have the same charge (e.g., H12 and H13 or H15 and H16).
-In our example, the lines corresponding to ACE and NME atoms have a value
-of -1; hence their charges are set by the user. We can find them in the
-<code>resp.qin</code> file. 
-Additionally, the charges of the NH- and CO- are indicated, as for the
-Amber99SB*-ILDN force field these charges are the same for all amino acids.</p>
+<p>This file header is followed by two additional columns of numbers. 
+The first column indicates the atomic number of each atom. The value 
+in the second column determines whether the charge must be calculated
+ (if the value is 0) or, alternatively, the charge is defined by the user
+ (if the value -1). 
+In the latter case, the charge will be set in the <code>resp.qin</code> file.
+In the current parametrization of a Met residue, the lines corresponding
+ to ACE and NME atoms have a value of -1; hence their charges are set 
+by the user. We can find them in the <code>resp.qin</code> file. 
+The charges of the NH- and CO- are also indicated, as for the
+Amber99SB*-ILDN force field these charges are the same for all amino acids.
+Finally, if a number other than 0 or -1 appears in the second column for
+a given atom, it will be constrained to have the same charge as that
+corresponding to the atom index (e.g., H12 and H13 or H15 and H16
+in our example).</p>
 <p>Once these files are ready, we run the RESP calculation:</p>
 <pre><code>resp -O -i resp.in -o resp.out -p resp.pch -t resp.chg -q resp.qin -e esp.dat
 </code></pre>
@@ -282,18 +288,17 @@ that a blank line must be added at the end of the <code>resp.in</code> file.</p>
 which will associate the partial charges to each atom:</p>
 <pre><code>antechamber -fi gout -i MET-charges.log -bk MET -fo ac -o MET.ac -c rc -cf resp.chg -at amber
 </code></pre>
-<p>Now, we will delete the capping groups from the custom residue. To do so
-we need the <code>MET.mc</code> file, which is pretty self explanatory. The omited
-atoms are the ones belonging to the caps. One must then run the following
-line:</p>
+<p>Now, we will delete the capping groups from the custom residue.
+To do so we need the <code>MET.mc</code> file, which is pretty self explanatory. The omited atoms are the ones belonging to the caps. 
+One must then run the following line:</p>
 <pre><code>prepgen -i MET.ac -o MET.prepin -m MET.mc -rn MET
 </code></pre>
-<p>Lastly, we will generate the parameters using parmchk2:</p>
+<p>Lastly, we will generate the parameters using <strong>parmchk2</strong>:</p>
 <pre><code>parmchk2 -i MET.ac -f ac -o MET_gaff.frcmod
 </code></pre>
-<p>The final step is then to run tleap to obtain the Amber parameters. Open
-tleap by typing: tleap.</p>
-<p>Once inside, type the following lines.</p>
+<p>The final step is then to run <strong>tleap</strong> to obtain the Amber
+ parameters. Open <strong>tleap</strong> by typing <code>tleap</code> in your terminal.
+Once inside, type the following lines.</p>
 <pre><code>loadamberprep MET.prepin
 source oldff/leaprc.ff99
 loadamberparams MET_gaff.frcmod
