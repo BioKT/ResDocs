@@ -76,7 +76,8 @@ Lastly, with the `IOp` keyword we set internal options.
 This calculation must be run in the same directory as the `00.chk.gz`
 file as the geometry will be read from it.
 All the configurations for this last part have been taken from the workflow
- created with the MCPB.py program of AmberTools. The output from this 
+ created with the **MCPB.py** program of **AmberTools**. 
+The output from this 
 calculation can be downloaded from [here](https://drive.google.com/drive/folders/1fBlb3yddsKRmj5ysZJMOxwwqVAsf7Kdv?usp=sharing).
 
 ### Parametrizing with AmberTools
@@ -88,7 +89,8 @@ https://drive.google.com/drive/folders/1CScwN_MEvd2U18LFbZkF3OLA9JXDM8AF?usp=sha
 The first step is to perform the fitting of the charges using 
 the Restrained Electrostatic Potential (RESP) method. The electrostatic 
 potential has to be reformated to obtain a RESP-friendly syntax. We will
-achieve so by processing the Gaussian output with **espgen**:
+achieve so by processing the Gaussian output with the **espgen**
+program:
 ```
 espgen -i MET-charges.log -o esp.dat
 ```
@@ -107,19 +109,23 @@ capped-resp run 1	#This is name of the calculation, it is up to you
     1        #  Number of the molecule included
   MET        #  Name of the residue, this info is just for you
 0  29        #  Charge of the molecule and number of atoms
+...
 ```
-The following lines in the file contain two columns. The first
-column indicates the atomic number of each atom. The second column
-determines whether the charge must be calculated (if the value is 0)
- or, alternatively, is defined by the user (if the value -1). In the
-latter case, the charge will be set in the `resp.qin` file.
-Finally, if another number appears, both that atom and the atom 
-indicated will have the same charge (e.g., H12 and H13 or H15 and H16).
-In our example, the lines corresponding to ACE and NME atoms have a value
-of -1; hence their charges are set by the user. We can find them in the
-`resp.qin` file. 
-Additionally, the charges of the NH- and CO- are indicated, as for the
+This file header is followed by two additional columns of numbers. 
+The first column indicates the atomic number of each atom. The value 
+in the second column determines whether the charge must be calculated
+ (if the value is 0) or, alternatively, the charge is defined by the user
+ (if the value -1). 
+In the latter case, the charge will be set in the `resp.qin` file.
+In the current parametrization of a Met residue, the lines corresponding
+ to ACE and NME atoms have a value of -1; hence their charges are set 
+by the user. We can find them in the `resp.qin` file. 
+The charges of the NH- and CO- are also indicated, as for the
 Amber99SB\*-ILDN force field these charges are the same for all amino acids.
+Finally, if a number other than 0 or -1 appears in the second column for
+a given atom, it will be constrained to have the same charge as that
+corresponding to the atom index (e.g., H12 and H13 or H15 and H16
+in our example).
 
 Once these files are ready, we run the RESP calculation:
 ```
@@ -136,23 +142,20 @@ which will associate the partial charges to each atom:
 antechamber -fi gout -i MET-charges.log -bk MET -fo ac -o MET.ac -c rc -cf resp.chg -at amber
 ```
 
-Now, we will delete the capping groups from the custom residue. To do so
-we need the `MET.mc` file, which is pretty self explanatory. The omited
-atoms are the ones belonging to the caps. One must then run the following
-line:
+Now, we will delete the capping groups from the custom residue.
+To do so we need the `MET.mc` file, which is pretty self explanatory. The omited atoms are the ones belonging to the caps. 
+One must then run the following line:
 ```
 prepgen -i MET.ac -o MET.prepin -m MET.mc -rn MET
 ```
 
-Lastly, we will generate the parameters using parmchk2:
-
+Lastly, we will generate the parameters using **parmchk2**:
 ```
 parmchk2 -i MET.ac -f ac -o MET_gaff.frcmod
 ```
 
-The final step is then to run tleap to obtain the Amber parameters. Open
-tleap by typing: tleap.
-
+The final step is then to run **tleap** to obtain the Amber
+ parameters. Open **tleap** by typing `tleap` in your terminal.
 Once inside, type the following lines.
 
 ```
