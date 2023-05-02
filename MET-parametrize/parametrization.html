@@ -230,11 +230,14 @@ Methionine
 
 0  1
 </code></pre>
-<p>With the <code>Integral</code> keyword we modify the method of computation and use 
-two-electron integrals and their derivatives. 
-With the <code>Population</code> keyword we print molecular orbitals
-and several types of population analysis and atomic charge assignements.
-Lastly, with the <code>IOp</code> keyword we set internal options. 
+<p>With the <code>Integral</code> keyword we modify the method of computation 
+and use two-electron integrals and their derivatives. 
+With the <code>Population</code> keyword we print molecular orbitals 
+and several types of population analysis and atomic charge 
+assignements.
+The <code>IOp 6/33=2</code> option makes Gaussian write out the potential 
+points and the potentials, while <code>IOp 6/42=6</code> specifies the density
+ points in each layer. 
 This calculation must be run in the same directory as the <code>00.chk.gz</code>
 file as the geometry will be read from it.
 All the configurations for this last part have been taken from the workflow
