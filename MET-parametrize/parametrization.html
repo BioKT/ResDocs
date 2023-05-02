@@ -83,7 +83,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#quantum-mechanical-calculations">Quantum-mechanical calculations</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#parametrizing-with-ambertools">Parametrizing with AmberTools</a>
+    <li class="toctree-l3"><a class="reference internal" href="#charge-fitting">Charge fitting</a>
     </li>
     </ul>
                 </li>
@@ -173,6 +173,7 @@ will be using <a href="https://ambermd.org/AmberTools.php"><strong>Ambertools</s
 which can be installed using Anaconda simply typing</p>
 <pre><code>conda install -c conda-forge ambertools compilers
 </code></pre>
+<p>Within the Amber </p>
 <h3 id="build-a-structure">Build a structure</h3>
 <p>In order to parametrize an amino acid, the first thing we will 
 need is a structure, which we will normally build in the 
@@ -194,7 +195,11 @@ Amber99SB*-ILDN force field, which includes corrections in both
 the <a href="https://doi.org/10.1021/jp901540t">backbone</a> and 
 <a href="https://doi.org/10.1002/prot.22711">sidechains</a> torsions. </p>
 <h3 id="quantum-mechanical-calculations">Quantum-mechanical calculations</h3>
-<p>To perform the optimization of the structure, we will be using the 
+<p>In order to generate charges for the amino acid residue, we
+must run QM calculations, which was done in the Amber ff94 paper
+using MP2/6-31G*. Here, we will use B3LYP/6-31G*, which should
+not affect the results much.
+To perform the optimization of the structure, we will be using the 
 <strong>Gaussian16</strong> software that is available both in the Arina and Atlas
 clusters. The input file for geometry optimization can be found
  <a href="https://drive.google.com/file/d/1uwgWsbBYX_GkuoYXiIxZOoyUzQeSApi5/view?usp=sharing">here</a>.
@@ -236,7 +241,7 @@ All the configurations for this last part have been taken from the workflow
  created with the <strong>MCPB.py</strong> program of <strong>AmberTools</strong>. 
 The output from this 
 calculation can be downloaded from <a href="https://drive.google.com/drive/folders/1fBlb3yddsKRmj5ysZJMOxwwqVAsf7Kdv?usp=sharing">here</a>.</p>
-<h3 id="parametrizing-with-ambertools">Parametrizing with AmberTools</h3>
+<h3 id="charge-fitting">Charge fitting</h3>
 <p>Next we jump into the actual parametrization of the molecular mechanics
 force field. All the files necessary for this part are available in this
 <a href="https://drive.google.com/drive/folders/1CScwN_MEvd2U18LFbZkF3OLA9JXDM8AF?usp=sharing">folder</a>.</p>
