@@ -7,6 +7,7 @@ which can be installed using Anaconda simply typing
 ```
 conda install -c conda-forge ambertools compilers
 ```
+Within the Amber 
 
 ### Build a structure
 In order to parametrize an amino acid, the first thing we will 
@@ -34,6 +35,10 @@ the [backbone](https://doi.org/10.1021/jp901540t) and
 
 
 ### Quantum-mechanical calculations
+In order to generate charges for the amino acid residue, we
+must run QM calculations, which was done in the Amber ff94 paper
+using MP2/6-31G\*. Here, we will use B3LYP/6-31G\*, which should
+not affect the results much.
 To perform the optimization of the structure, we will be using the 
 **Gaussian16** software that is available both in the Arina and Atlas
 clusters. The input file for geometry optimization can be found
@@ -80,7 +85,7 @@ All the configurations for this last part have been taken from the workflow
 The output from this 
 calculation can be downloaded from [here](https://drive.google.com/drive/folders/1fBlb3yddsKRmj5ysZJMOxwwqVAsf7Kdv?usp=sharing).
 
-### Parametrizing with AmberTools
+### Charge fitting 
 Next we jump into the actual parametrization of the molecular mechanics
 force field. All the files necessary for this part are available in this
 [folder](
