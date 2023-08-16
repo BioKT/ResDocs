@@ -72,10 +72,12 @@ compilers from MacPorts  do not appear to support OpenMPI. Here is a workaround
 sudo port install openmpi
 ```
 
-Now we need a compiler that supports OpenMPI
+Now we need a compiler that supports OpenMPI. As of today August 16 - 2023, the openmpi-devel-gcc49 port is obsolete. It has been replaced by the port "openmpi-gcc7" as can be seen here: https://ports.macports.org/port/openmpi-devel-gcc49/
+Therefore the replaced version is indicated.
 
 ```
 sudo port install openmpi-devel-gcc49
+sudo port install openmpi-gcc7
 ```
 
 Finally, we can follow the steps above but now we need a more complex cmake instruction
