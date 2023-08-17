@@ -98,3 +98,16 @@ git push
 mkdocs serve
 mkdics gh-deploy
 ```
+
+Sometimes an error can happen when trying to push. With a message similar to:
+
+*error: RPC failed; HTTP 408 curl 18 HTTP/2 stream 7 was reset*
+
+In order to solve this error, one can try changing from HTTP2 to HTTP1.1, pushing, and then returning to HTTP2 as follows:
+
+```
+git config --global http.version HTTP/1.1
+git push
+git config --global http.version HTTP/2
+```
+
