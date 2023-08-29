@@ -12,3 +12,6 @@ Much of the code we write is hosted in
 [Github](https://github.com/biokt).
 In this website you will find information about a number of 
 common tools that we use in our research.
+
+Other sites related with the BioKT Group are:
+[PLUMED-Simulations](https://biokt.github.io/PLUMED-docs/)
